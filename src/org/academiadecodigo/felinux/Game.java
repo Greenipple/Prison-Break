@@ -94,7 +94,6 @@ public class Game {
         player = (Player) GameObjectFactory.create(GameObjectType.PLAYER, new MapPosition(2, 2), map);
         player.getRectangle().setColor(Color.GREEN);
         player.getRectangle().fill();
-        player.setCollisionDetector(collisionDetector);
 
         //KEY
         key = (Key) GameObjectFactory.create(GameObjectType.KEY, new MapPosition(23,7), map);
