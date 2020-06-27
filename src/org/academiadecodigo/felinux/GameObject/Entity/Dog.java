@@ -15,11 +15,6 @@ public class Dog extends Entity {
     }
 
     @Override
-    public void setCollisionDetector(CollisionDetector collisionDetector) {
-
-    }
-
-    @Override
     public void move() {
 
         DirectionType direction = DirectionType.values()[(int) Math.floor(Math.random()*4)];

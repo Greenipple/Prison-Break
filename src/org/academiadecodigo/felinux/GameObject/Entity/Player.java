@@ -15,8 +15,6 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean action;
     private boolean detected;
 
-
-    public CollisionDetector collisionDetector;
     public DirectionType currentDirection;
     public KeyboardHandler kbHandler = new GameKbHandler(getRectangle());
 

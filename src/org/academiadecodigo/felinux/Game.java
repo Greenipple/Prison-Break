@@ -60,7 +60,7 @@ public class Game {
             for (int i = 0; i < movables.length; i++) {
 
                 collisionDetector.verify();
-                
+
                 if (movables[i] instanceof Barrel) {
                     (Barrel) movables[i].move(player.getPosition());
                 }

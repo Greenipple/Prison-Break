@@ -13,10 +13,6 @@ public class Barrel extends Item implements Movable {
         super(position, GameObjectType.BARREL, map);
     }
 
-    @Override
-    public void setCollisionDetector(CollisionDetector collisionDetector) {
-
-    }
 
     @Override
     public void move() {
