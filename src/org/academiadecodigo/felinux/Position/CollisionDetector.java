@@ -5,15 +5,15 @@ import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 
 public class CollisionDetector {
-    private static Player player;
-    private static GameObject[] objects; //guards, dogs, key and barrel. Walls & fences will be apart
+    private Player player;
+    private GameObject[] objects; //guards, dogs, key and barrel. Walls & fences will be apart
 
     public CollisionDetector(Player player, GameObject[] objects) {
         this.player = player;
         this.objects = objects;
     }
 
-    public static void verify() {
+    public void verify() {
         for (GameObject object : objects) {
             if (player.getPosition() == object.getPosition()) {
                 if (object instanceof Guard || object instanceof Dog) {

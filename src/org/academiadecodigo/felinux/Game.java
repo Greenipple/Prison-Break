@@ -55,8 +55,12 @@ public class Game {
         //Thread.sleep(100);
 
         while(!player.isDetected()) {
+
             /* PODE PASSAR A MÉTODO DESTA CLASSE
             for (int i = 0; i < movables.length; i++) {
+
+                collisionDetector.verify();
+                
                 if (movables[i] instanceof Barrel) {
                     (Barrel) movables[i].move(player.getPosition());
                 }
@@ -165,6 +169,8 @@ public class Game {
 
                 }
             }
+
+        collisionDetector = new CollisionDetector(this.player,this.movables);
 
         System.out.println("Walls: " + wallCount);
         System.out.println(("Fences: " + fenceCount));
