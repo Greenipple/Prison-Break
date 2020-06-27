@@ -2,7 +2,7 @@ package org.academiadecodigo.felinux;
 
 import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
-import org.academiadecodigo.felinux.GameObject.Item.Key;
+import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
 import org.academiadecodigo.felinux.Support.*;
 import org.academiadecodigo.simplegraphics.graphics.Color;
@@ -52,6 +52,19 @@ public class Game {
         this.init();
 
         while(!player.isDetected()) {
+            /* PODE PASSAR A MÉTODO DESTA CLASSE
+            for (int i = 0; i < movables.length; i++) {
+                if (movables[i] instanceof Barrel) {
+                    (Barrel) movables[i].move(player.getPosition());
+                }
+                if (movables[i] instanceof Guard) {
+                    (Guard) movables[i].move();
+                }
+                if (movables[i]. instanceof Dog) {
+                    (Dog) movables[i].move();
+                }
+            }
+            */
             Route.guard1Move((Guard) movables[1]);
         }
     }
@@ -62,6 +75,11 @@ public class Game {
         player.getRectangle().setColor(Color.GREEN);
         player.getRectangle().fill();
         player.setCollisionDetector(collisionDetector);
+
+        //KEY
+        key = (Key) GameObjectFactory.create(GameObjectType.KEY, new MapPosition(23,7), map);
+        key.getRectangle().setColor(Color.YELLOW);
+        key.getRectangle().fill();
 
         //BARREL
         movables[0] = GameObjectFactory.create(GameObjectType.BARREL, new MapPosition(1, 9), map);
@@ -103,14 +121,6 @@ public class Game {
                     blockArray[blockArrayIterator]=wall;
                     blockArrayIterator++;
                     wall.getRectangle().setColor(Color.BLACK);
-                    wall.getRectangle().fill();
-
-                }
-
-                //KEY
-                if (matrixPositions[i][j] == 4) {
-                    wall = GameObjectFactory.create(GameObjectType.KEY, new MapPosition(j, i), map);
-                    wall.getRectangle().setColor(Color.YELLOW);
                     wall.getRectangle().fill();
 
                 }
