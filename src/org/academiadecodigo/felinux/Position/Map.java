@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Map {
 
-    public static final int CELL_SIZE = 50;
+    public static final int CELL_SIZE = 40;
     public static final int PADDING = 10;
     public static final int COLS = 24;
     public static final int ROWS = 18;
