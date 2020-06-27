@@ -1,7 +1,7 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.Position;
+package org.academiadecodigo.felinux.Position;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Entity.*;
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Item.*;
+import org.academiadecodigo.felinux.GameObject.Entity.*;
+import org.academiadecodigo.felinux.GameObject.Item.*;
 
 public class CollisionDetector {
     private Player player;

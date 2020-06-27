@@ -1,8 +1,8 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Entity;
+package org.academiadecodigo.felinux.GameObject.Entity;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.CollisionDetector;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.MapPosition;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.GameObjectType;
+import org.academiadecodigo.felinux.Position.CollisionDetector;
+import org.academiadecodigo.felinux.Position.MapPosition;
+import org.academiadecodigo.felinux.Support.GameObjectType;
 
 public class Guard extends Entity {
 

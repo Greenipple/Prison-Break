@@ -1,4 +1,4 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.Support;
+package org.academiadecodigo.felinux.Support;
 
 public enum DirectionType {
     UP,

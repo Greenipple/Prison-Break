@@ -1,11 +1,11 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.Support;
+package org.academiadecodigo.felinux.Support;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Game;
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.*;
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.DecorWall.*;
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Entity.*;
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Item.*;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.*;
+import org.academiadecodigo.felinux.Game;
+import org.academiadecodigo.felinux.GameObject.*;
+import org.academiadecodigo.felinux.GameObject.DecorWall.*;
+import org.academiadecodigo.felinux.GameObject.Entity.*;
+import org.academiadecodigo.felinux.GameObject.Item.*;
+import org.academiadecodigo.felinux.Position.*;
 
 public class GameObjectFactory {
 

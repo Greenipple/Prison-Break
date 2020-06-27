@@ -1,7 +1,7 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Item;
+package org.academiadecodigo.felinux.GameObject.Item;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.MapPosition;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.GameObjectType;
+import org.academiadecodigo.felinux.Position.MapPosition;
+import org.academiadecodigo.felinux.Support.GameObjectType;
 
 public class Key extends Item {
 

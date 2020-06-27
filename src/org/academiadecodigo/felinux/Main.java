@@ -1,4 +1,4 @@
-package org.academiadecodigo.felinux.PrisonBreakGame;
+package org.academiadecodigo.felinux;
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 

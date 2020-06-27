@@ -1,7 +1,7 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.Position;
+package org.academiadecodigo.felinux.Position;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Game;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.DirectionType;
+import org.academiadecodigo.felinux.Game;
+import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public class MapPosition {

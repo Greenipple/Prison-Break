@@ -1,9 +1,9 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Item;
+package org.academiadecodigo.felinux.GameObject.Item;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.CollisionDetector;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.MapPosition;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.Movable;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.GameObjectType;
+import org.academiadecodigo.felinux.Position.CollisionDetector;
+import org.academiadecodigo.felinux.Position.MapPosition;
+import org.academiadecodigo.felinux.Position.Movable;
+import org.academiadecodigo.felinux.Support.GameObjectType;
 
 public class Barrel extends Item implements Movable {
 

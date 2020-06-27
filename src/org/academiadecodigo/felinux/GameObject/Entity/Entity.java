@@ -1,8 +1,8 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Entity;
+package org.academiadecodigo.felinux.GameObject.Entity;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.GameObject;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.*;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.*;
+import org.academiadecodigo.felinux.GameObject.GameObject;
+import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.*;
 
 public abstract class Entity extends GameObject implements Movable {
 

@@ -1,9 +1,9 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.GameObject;
+package org.academiadecodigo.felinux.GameObject;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.Map;
+import org.academiadecodigo.felinux.Position.Map;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.MapPosition;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.*;
+import org.academiadecodigo.felinux.Position.MapPosition;
+import org.academiadecodigo.felinux.Support.*;
 
 import java.awt.*;
 

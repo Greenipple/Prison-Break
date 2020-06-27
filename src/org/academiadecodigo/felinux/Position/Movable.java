@@ -1,6 +1,6 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.Position;
+package org.academiadecodigo.felinux.Position;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.DirectionType;
+import org.academiadecodigo.felinux.Support.DirectionType;
 
 public interface Movable {
     void setCollisionDetector(CollisionDetector collisionDetector);

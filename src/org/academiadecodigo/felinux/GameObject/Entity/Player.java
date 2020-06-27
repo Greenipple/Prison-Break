@@ -1,9 +1,9 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Entity;
+package org.academiadecodigo.felinux.GameObject.Entity;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Game;
-import org.academiadecodigo.felinux.PrisonBreakGame.GameKbHandler;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.*;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.*;
+import org.academiadecodigo.felinux.Game;
+import org.academiadecodigo.felinux.GameKbHandler;
+import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.*;
 import org.academiadecodigo.simplegraphics.keyboard.*;
 
 import java.awt.*;

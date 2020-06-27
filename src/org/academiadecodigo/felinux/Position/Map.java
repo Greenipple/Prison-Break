@@ -1,4 +1,4 @@
-package org.academiadecodigo.felinux.PrisonBreakGame.Position;
+package org.academiadecodigo.felinux.Position;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;

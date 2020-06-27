@@ -1,13 +1,13 @@
-package org.academiadecodigo.felinux.PrisonBreakGame;
+package org.academiadecodigo.felinux;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.DecorWall.Wall;
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.Entity.Player;
-import org.academiadecodigo.felinux.PrisonBreakGame.GameObject.GameObject;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.CollisionDetector;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.Map;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.MapPosition;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.GameObjectFactory;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.GameObjectType;
+import org.academiadecodigo.felinux.GameObject.DecorWall.Wall;
+import org.academiadecodigo.felinux.GameObject.Entity.Player;
+import org.academiadecodigo.felinux.GameObject.GameObject;
+import org.academiadecodigo.felinux.Position.CollisionDetector;
+import org.academiadecodigo.felinux.Position.Map;
+import org.academiadecodigo.felinux.Position.MapPosition;
+import org.academiadecodigo.felinux.Support.GameObjectFactory;
+import org.academiadecodigo.felinux.Support.GameObjectType;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 

@@ -1,11 +1,11 @@
-package org.academiadecodigo.felinux.PrisonBreakGame;
+package org.academiadecodigo.felinux;
 
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.Map;
-import org.academiadecodigo.felinux.PrisonBreakGame.Support.DirectionType;
+import org.academiadecodigo.felinux.Position.Map;
+import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
-import org.academiadecodigo.felinux.PrisonBreakGame.Position.MapPosition;
+import org.academiadecodigo.felinux.Position.MapPosition;
 
 public class GameKbHandler implements KeyboardHandler {
 
