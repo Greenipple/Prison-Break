@@ -6,10 +6,18 @@ import org.academiadecodigo.felinux.Support.GameObjectType;
 
 public class Item extends GameObject {
 
-    private boolean holded;
+    private boolean hold;
 
     public Item(MapPosition position, GameObjectType gameObjectType) {
         super(position, gameObjectType);
-        this.holded = false;
+        this.hold = false;
+    }
+
+    public boolean isHold() {
+        return this.hold;
+    }
+
+    public void beenHold() {
+        this.hold = true;
     }
 }

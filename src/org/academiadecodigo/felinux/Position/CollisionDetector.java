@@ -21,11 +21,13 @@ public class CollisionDetector {
                 }
 
                 if (object instanceof Barrel) {
-
+                    Barrel barrel = (Barrel) object;
+                    barrel.beenHold();
                 }
 
                 if (object instanceof Key) {
-                    
+                    Key key = (Key) object;
+                    key.beenHold();
                 }
             }
         }

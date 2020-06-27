@@ -6,6 +6,12 @@ import org.academiadecodigo.felinux.Support.GameObjectType;
 public class Key extends Item {
 
     public Key(MapPosition position) {
-        super(position, GameObjectType.KEY); //definir posição inicial
+        super(position, GameObjectType.KEY);
+    }
+
+    public void store() {
+        if (this.isHold()) {
+            this.hide();
+        }
     }
 }

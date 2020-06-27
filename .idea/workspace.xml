@@ -20,13 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Route.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Guard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Guard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Barrel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Key.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/CollisionDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/CollisionDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/MapPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/MapPosition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

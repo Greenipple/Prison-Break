@@ -38,4 +38,12 @@ public abstract class GameObject {
     public Rectangle getRectangle(){
         return this.rectangle;
     }
+
+    public void show() {
+        this.rectangle.fill();
+    }
+
+    public void hide() {
+        this.rectangle.delete();
+    }
 }
