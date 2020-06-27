@@ -1,20 +1,11 @@
 package org.academiadecodigo.felinux;
 
-import org.academiadecodigo.felinux.GameObject.DecorWall.Wall;
-import org.academiadecodigo.felinux.GameObject.Entity.Dog;
-import org.academiadecodigo.felinux.GameObject.Entity.Guard;
-import org.academiadecodigo.felinux.GameObject.Entity.Player;
+import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
-import org.academiadecodigo.felinux.Position.CollisionDetector;
-import org.academiadecodigo.felinux.Position.Map;
-import org.academiadecodigo.felinux.Position.MapPosition;
-import org.academiadecodigo.felinux.Position.Route;
-import org.academiadecodigo.felinux.Support.GameObjectFactory;
-import org.academiadecodigo.felinux.Support.GameObjectType;
+import org.academiadecodigo.felinux.GameObject.Item.Key;
+import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.*;
 import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-
-import java.awt.*;
 
 public class Game {
 
@@ -27,10 +18,10 @@ public class Game {
    private int wallCount = 0;
    private int fenceCount = 0;
    private Player player;
-   private Guard guard1;
+   private GameObject[] movables = new GameObject[6];
+   private Key key;
 
-
-    private int wallPostions[][] = {
+   private int matrixPositions[][] = {
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
             {2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2},
             {2, 0, 8, 0, 0, 0, 2, 0, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2},
@@ -49,28 +40,35 @@ public class Game {
             {2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
             {2, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-    };
-
-
+   };
 
     public Game(){
         this.map = new Map();
     }
 
-
-    public void start(){
-
+    public void start() {
+        this.init();
     }
 
+    public void init() {
 
-    public void init() throws InterruptedException {
+        player = (Player) GameObjectFactory.create(GameObjectType.PLAYER, new MapPosition(2, 2), map);
+        player.getRectangle().setColor(Color.GREEN);
+        player.getRectangle().fill();
+        player.setCollisionDetector(collisionDetector);
+
+        //BARREL
+        movables[0] = GameObjectFactory.create(GameObjectType.BARREL, new MapPosition(1, 9), map);
+        movables[0].getRectangle().setColor(Color.GRAY);
+        movables[0].getRectangle().fill();
+
+        //GUARDS
 
 
-
-        for (int i = 0; i < wallPostions.length; i++){
-            for (int j = 0; j < wallPostions[i].length; j++){
+        for (int i = 0; i < matrixPositions.length; i++) {
+            for (int j = 0; j < matrixPositions[i].length; j++) {
                 //FENCE
-                if (wallPostions[i][j] == 1){
+                if (matrixPositions[i][j] == 1) {
                     wall = GameObjectFactory.create(GameObjectType.FENCE, new MapPosition(j , i), map);
                     fenceCount++;
                     blockArray[blockArrayIterator] = wall;
@@ -79,7 +77,7 @@ public class Game {
                     wall.getRectangle().fill();
                 }
                 //WALL
-                if (wallPostions[i][j] == 2){
+                if (matrixPositions[i][j] == 2){
                     wall = GameObjectFactory.create(GameObjectType.WALL, new MapPosition(j, i), map);
                     wallCount++;
                     blockArray[blockArrayIterator]=wall;
@@ -89,15 +87,8 @@ public class Game {
 
                 }
 
-                //BARREL
-                if (wallPostions[i][j] == 3){
-                    wall = GameObjectFactory.create(GameObjectType.BARREL, new MapPosition(j, i), map);
-                    wall.getRectangle().setColor(Color.GRAY);
-                    wall.getRectangle().fill();
-                }
-
                 //KEY
-                if (wallPostions[i][j] == 4) {
+                if (matrixPositions[i][j] == 4) {
                     wall = GameObjectFactory.create(GameObjectType.KEY, new MapPosition(j, i), map);
                     wall.getRectangle().setColor(Color.YELLOW);
                     wall.getRectangle().fill();
@@ -105,7 +96,7 @@ public class Game {
                 }
 
                 //DOOR
-                if (wallPostions[i][j] == 5) {
+                if (matrixPositions[i][j] == 5) {
                     wall = GameObjectFactory.create(GameObjectType.DOOR, new MapPosition(j, i), map);
                     wall.getRectangle().setColor(Color.LIGHT_GRAY);
                     wall.getRectangle().fill();
@@ -126,38 +117,26 @@ public class Game {
                     wall.getRectangle().fill();
                 }*/
 
-                //PLAYER
-                if (wallPostions[i][j] == 8) {
-                    player = (Player) GameObjectFactory.create(GameObjectType.PLAYER, new MapPosition(j, i), map);
-                    player.getRectangle().setColor(Color.GREEN);
-                    player.getRectangle().fill();
-
-                    //Player player = new Player(new MapPosition(j, i, map));
-                    //player.getPosition().setColor(Color.GREEN);
-                    //player.setCollisionDetector(collisionDetector);
                 }
             }
-
-
-
-
 
             Guard guard1 = new Guard(new MapPosition(21,4), map);
             guard1.getRectangle().setColor(Color.BLUE);
             guard1.getRectangle().fill();
 
-        }
+            GameObject dog = new Dog(new MapPosition(12, 11), map);
+            dog.getRectangle().fill();
+            int count = 50;
 
-        GameObject dog = new Dog(new MapPosition(12, 11), map);
-        dog.getRectangle().fill();
-        int count = 50;
-        while (count > 0){
-            Thread.sleep(100);
-            if (dog instanceof Dog){
-                ((Dog) dog).move();
+            while (count > 0) {
+            //Thread.sleep(100);
+
+                if (dog instanceof Dog) {
+                    ((Dog) dog).move();
+                }
+
+                count--;
             }
-            count--;
-        }
 
 
 
