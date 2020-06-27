@@ -15,4 +15,11 @@ public class Barrel extends Item implements Movable {
     public void setCollisionDetector(CollisionDetector collisionDetector) {
 
     }
+
+    @Override
+    public void move() {
+
+    }
+
+
 }
