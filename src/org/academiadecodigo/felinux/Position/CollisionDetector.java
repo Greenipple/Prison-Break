@@ -19,6 +19,14 @@ public class CollisionDetector {
                 if (object instanceof Guard || object instanceof Dog) {
                     player.gotDetected(); //player is detected if he crashes into a guard or dog
                 }
+
+                if (object instanceof Barrel) {
+
+                }
+
+                if (object instanceof Key) {
+                    
+                }
             }
         }
     }
