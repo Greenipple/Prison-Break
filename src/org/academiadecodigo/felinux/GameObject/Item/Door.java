@@ -15,7 +15,7 @@ public class Door extends Item {
     public void shutDoor() {
         this.shut = true;
     }
-    
+
     public void openDoor() {
         this.shut = false;
     }
