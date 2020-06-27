@@ -16,10 +16,11 @@ public abstract class GameObject {
     private Rectangle rectangle;
 
 
-    public GameObject(MapPosition position, GameObjectType gameObjectType) {
+    public GameObject(MapPosition position, GameObjectType gameObjectType, Map map) {
         this.position = position;
         this.gameObjectType = gameObjectType;
         this.rectangle = new Rectangle(position.getCol() * Map.CELL_SIZE + Map.PADDING, position.getRow() * Map.CELL_SIZE + Map.PADDING, Map.CELL_SIZE, Map.CELL_SIZE);
+        this.map = map;
         //position.setColor();
     }
 

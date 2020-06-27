@@ -71,7 +71,7 @@ public class Game {
             for (int j = 0; j < wallPostions[i].length; j++){
                 //FENCE
                 if (wallPostions[i][j] == 1){
-                    wall = GameObjectFactory.create(GameObjectType.FENCE, new MapPosition(j , i , map));
+                    wall = GameObjectFactory.create(GameObjectType.FENCE, new MapPosition(j , i), map);
                     fenceCount++;
                     blockArray[blockArrayIterator] = wall;
                     blockArrayIterator++;
@@ -80,7 +80,7 @@ public class Game {
                 }
                 //WALL
                 if (wallPostions[i][j] == 2){
-                    wall = GameObjectFactory.create(GameObjectType.WALL, new MapPosition(j  , i , map));
+                    wall = GameObjectFactory.create(GameObjectType.WALL, new MapPosition(j, i), map);
                     wallCount++;
                     blockArray[blockArrayIterator]=wall;
                     blockArrayIterator++;
@@ -91,14 +91,14 @@ public class Game {
 
                 //BARREL
                 if (wallPostions[i][j] == 3){
-                    wall = GameObjectFactory.create(GameObjectType.BARREL, new MapPosition(j , i , map));
+                    wall = GameObjectFactory.create(GameObjectType.BARREL, new MapPosition(j, i), map);
                     wall.getRectangle().setColor(Color.GRAY);
                     wall.getRectangle().fill();
                 }
 
                 //KEY
                 if (wallPostions[i][j] == 4) {
-                    wall = GameObjectFactory.create(GameObjectType.KEY, new MapPosition(j, i, map));
+                    wall = GameObjectFactory.create(GameObjectType.KEY, new MapPosition(j, i), map);
                     wall.getRectangle().setColor(Color.YELLOW);
                     wall.getRectangle().fill();
 
@@ -106,7 +106,7 @@ public class Game {
 
                 //DOOR
                 if (wallPostions[i][j] == 5) {
-                    wall = GameObjectFactory.create(GameObjectType.DOOR, new MapPosition(j, i, map));
+                    wall = GameObjectFactory.create(GameObjectType.DOOR, new MapPosition(j, i), map);
                     wall.getRectangle().setColor(Color.LIGHT_GRAY);
                     wall.getRectangle().fill();
                 }
@@ -128,7 +128,7 @@ public class Game {
 
                 //PLAYER
                 if (wallPostions[i][j] == 8) {
-                    player = (Player) GameObjectFactory.create(GameObjectType.PLAYER, new MapPosition(j, i, map));
+                    player = (Player) GameObjectFactory.create(GameObjectType.PLAYER, new MapPosition(j, i), map);
                     player.getRectangle().setColor(Color.GREEN);
                     player.getRectangle().fill();
 
@@ -142,13 +142,13 @@ public class Game {
 
 
 
-            Guard guard1 = new Guard(new MapPosition(21,4,map));
+            Guard guard1 = new Guard(new MapPosition(21,4), map);
             guard1.getRectangle().setColor(Color.BLUE);
             guard1.getRectangle().fill();
 
         }
 
-        GameObject dog = new Dog(new MapPosition(12, 11, map));
+        GameObject dog = new Dog(new MapPosition(12, 11), map);
         dog.getRectangle().fill();
         int count = 50;
         while (count > 0){

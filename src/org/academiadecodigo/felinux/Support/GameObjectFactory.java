@@ -9,24 +9,25 @@ import org.academiadecodigo.felinux.Position.*;
 
 public class GameObjectFactory {
 
-    public static GameObject create(GameObjectType type, MapPosition position) {
+
+    public static GameObject create(GameObjectType type, MapPosition position, Map map) {
         switch (type) {
             case FENCE:
-                return new Fence(position);
+                return new Fence(position, map);
             case WALL:
-                return new Wall(position);
+                return new Wall(position, map);
             case BARREL:
-                return new Barrel(position);
+                return new Barrel(position, map);
             case KEY:
-                return new Key(position);
+                return new Key(position, map);
             case DOOR:
-                return new Door(position);
+                return new Door(position, map);
             case GUARD:
-                return new Guard(position);
+                return new Guard(position, map);
             case DOG:
-                return new Dog(position);
+                return new Dog(position, map);
             default:
-                return new Player(position);
+                return new Player(position, map);
         }
     }
 }

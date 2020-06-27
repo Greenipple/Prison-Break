@@ -15,19 +15,8 @@ public class Map {
         rect = new Rectangle(PADDING, PADDING, mapWidth(), mapHeight());
         rect.setColor(Color.WHITE);
         rect.draw();
-
     }
 
-    public void init() {
-
-
-    }
-
-
-/*<<<<<<< HEAD
-=======
-
->>>>>>> 06c288726460187a03d19c28d1fb8cfd2617e9fb*/
     /** auxiliary methods**/
 
     public int mapWidth(){

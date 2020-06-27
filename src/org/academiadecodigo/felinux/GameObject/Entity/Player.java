@@ -20,8 +20,8 @@ public class Player extends Entity implements KeyboardHandler {
     public DirectionType currentDirection;
     public KeyboardHandler kbHandler = new GameKbHandler(getRectangle());
 
-    public Player(MapPosition position) {
-        super(position, GameObjectType.PLAYER);
+    public Player(MapPosition position, Map map) {
+        super(position, GameObjectType.PLAYER, map);
         action = false;
         detected = false;
         keyboard = new Keyboard(kbHandler);
@@ -73,7 +73,7 @@ public class Player extends Entity implements KeyboardHandler {
 
     public void accelerate(DirectionType direction) {
         this.currentDirection = direction;
-        getPosition().moveInDirection(direction, SPEED,this.getRectangle());
+        getPosition().moveInDirection(direction, SPEED);
     }
 
 

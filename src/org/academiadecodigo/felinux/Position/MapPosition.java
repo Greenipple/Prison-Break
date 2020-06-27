@@ -9,21 +9,21 @@ public class MapPosition {
 
         private int col;
         private int row;
-        private Map map;
+        private Map map = new Map();
         private Color color;
-        private Game game;
+        private Game game = new Game();
         private DirectionType facing;
 
 
-        public MapPosition(int col, int row, Map map) {
+        public MapPosition(int col, int row) {
             this.col = col;
             this.row = row;
-            this.map = map;
+            //this.map = map;
 
         }
 
-        public void moveInDirection(DirectionType direction, int distance,Rectangle rectangle) {
-
+        public void moveInDirection(DirectionType direction, int distance) {
+            System.out.println("koi");
             int oldX = col;
             int oldY = row;
 
@@ -53,7 +53,7 @@ public class MapPosition {
             int newY = row;
             int movementX = (newX - oldX)*map.CELL_SIZE;
             int movementY = (newY - oldY)*map.CELL_SIZE;
-            rectangle.translate(movementX,movementY);
+            //this.rectangle.translate(movementX,movementY);
 
         }
 
