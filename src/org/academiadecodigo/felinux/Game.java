@@ -17,6 +17,7 @@ public class Game {
    private int blockArrayIterator = 0;
    private int wallCount = 0;
    private int fenceCount = 0;
+
    private Player player;
    private GameObject[] movables = new GameObject[6];
    private Key key;
@@ -47,7 +48,12 @@ public class Game {
     }
 
     public void start() {
+
         this.init();
+
+        while(!player.isDetected()) {
+            Route.guard1Move((Guard) movables[1]);
+        }
     }
 
     public void init() {
@@ -63,10 +69,23 @@ public class Game {
         movables[0].getRectangle().fill();
 
         //GUARDS
+        movables[1] = GameObjectFactory.create(GameObjectType.GUARD, new MapPosition(21,4), map);
+        movables[1].getRectangle().setColor(Color.BLUE);
+        movables[1].getRectangle().fill();
 
+        movables[2] = GameObjectFactory.create(GameObjectType.GUARD, new MapPosition(2,10), map);
+        movables[2].getRectangle().setColor(Color.BLUE);
+        movables[2].getRectangle().fill();
+
+        //DOGS
+        movables[3] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(12,11),map);
+        movables[3].getRectangle().setColor(Color.RED);
+        movables[3].getRectangle().fill();
+        //...
 
         for (int i = 0; i < matrixPositions.length; i++) {
             for (int j = 0; j < matrixPositions[i].length; j++) {
+
                 //FENCE
                 if (matrixPositions[i][j] == 1) {
                     wall = GameObjectFactory.create(GameObjectType.FENCE, new MapPosition(j , i), map);
@@ -76,8 +95,9 @@ public class Game {
                     wall.getRectangle().setColor(Color.DARK_GRAY);
                     wall.getRectangle().fill();
                 }
+
                 //WALL
-                if (matrixPositions[i][j] == 2){
+                if (matrixPositions[i][j] == 2) {
                     wall = GameObjectFactory.create(GameObjectType.WALL, new MapPosition(j, i), map);
                     wallCount++;
                     blockArray[blockArrayIterator]=wall;
@@ -120,37 +140,26 @@ public class Game {
                 }
             }
 
-            Guard guard1 = new Guard(new MapPosition(21,4), map);
-            guard1.getRectangle().setColor(Color.BLUE);
-            guard1.getRectangle().fill();
+        int count = 50;
 
-            GameObject dog = new Dog(new MapPosition(12, 11), map);
-            dog.getRectangle().fill();
-            int count = 50;
-
-            while (count > 0) {
+        while (count > 0) {
             //Thread.sleep(100);
 
-                if (dog instanceof Dog) {
-                    ((Dog) dog).move();
-                }
-
-                count--;
+            if (movables[3] instanceof Dog) {
+                Dog dog1 = (Dog) movables[3];
+                dog1.move();
             }
 
-
+            count--;
+        }
 
         System.out.println("Walls: " + wallCount);
         System.out.println(("Fences: " + fenceCount));
-
-        while(!player.isDetected()) {
-            Route.guard1Move(guard1);
-
-        }
     }
 
 
-    public void movePrisioners(){
+    public void movePrisioners() {
+
     }
 
     public GameObject[] getBlockArray() {

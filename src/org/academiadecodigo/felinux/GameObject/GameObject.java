@@ -15,7 +15,6 @@ public abstract class GameObject {
     private GameObjectType gameObjectType;
     private Rectangle rectangle;
 
-
     public GameObject(MapPosition position, GameObjectType gameObjectType, Map map) {
         this.position = position;
         this.gameObjectType = gameObjectType;
