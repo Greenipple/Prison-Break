@@ -4,4 +4,5 @@ import org.academiadecodigo.felinux.Support.DirectionType;
 
 public interface Movable {
     void setCollisionDetector(CollisionDetector collisionDetector);
+    void move();
 }

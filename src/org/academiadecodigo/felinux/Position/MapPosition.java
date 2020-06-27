@@ -23,6 +23,9 @@ public class MapPosition {
 
         public void moveInDirection(DirectionType direction, int distance) {
 
+            int oldCol = col;
+            int oldRow = row;
+
             switch (direction) {
 
                 case UP:
