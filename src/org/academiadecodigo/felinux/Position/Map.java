@@ -12,14 +12,14 @@ public class Map {
     private Rectangle rect;
 
     public Map(){
+        rect = new Rectangle(PADDING, PADDING, mapWidth(), mapHeight());
+        rect.setColor(Color.WHITE);
+        rect.draw();
 
     }
 
     public void init() {
 
-        rect = new Rectangle(PADDING, PADDING, mapWidth(), mapHeight());
-        rect.setColor(Color.WHITE);
-        rect.draw();
 
     }
 

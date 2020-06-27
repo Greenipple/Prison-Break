@@ -30,7 +30,9 @@ public class MapPosition {
             switch (direction) {
 
                 case UP:
+                    System.out.println("up");
                     moveUp(distance);
+                    System.out.println("up2");
                     facing = DirectionType.UP;
                     break;
                 case DOWN:

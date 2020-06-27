@@ -1,6 +1,7 @@
 package org.academiadecodigo.felinux;
 
 import org.academiadecodigo.felinux.GameObject.DecorWall.Wall;
+import org.academiadecodigo.felinux.GameObject.Entity.Dog;
 import org.academiadecodigo.felinux.GameObject.Entity.Guard;
 import org.academiadecodigo.felinux.GameObject.Entity.Player;
 import org.academiadecodigo.felinux.GameObject.GameObject;
@@ -62,7 +63,7 @@ public class Game {
     }
 
 
-    public void init(){
+    public void init() throws InterruptedException {
 
 
 
@@ -119,11 +120,11 @@ public class Game {
                 }*/
 
                 //DOG
-                if (wallPostions[i][j] == 7) {
+/*                if (wallPostions[i][j] == 7) {
                     wall = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(j, i, map));
                     wall.getRectangle().setColor(Color.PINK);
                     wall.getRectangle().fill();
-                }
+                }*/
 
                 //PLAYER
                 if (wallPostions[i][j] == 8) {
@@ -137,11 +138,28 @@ public class Game {
                 }
             }
 
+
+
+
+
             Guard guard1 = new Guard(new MapPosition(21,4,map));
             guard1.getRectangle().setColor(Color.BLUE);
             guard1.getRectangle().fill();
 
         }
+
+        GameObject dog = new Dog(new MapPosition(12, 11, map));
+        dog.getRectangle().fill();
+        int count = 50;
+        while (count > 0){
+            Thread.sleep(100);
+            if (dog instanceof Dog){
+                ((Dog) dog).move();
+            }
+            count--;
+        }
+
+
 
         System.out.println("Walls: " + wallCount);
         System.out.println(("Fences: " + fenceCount));
