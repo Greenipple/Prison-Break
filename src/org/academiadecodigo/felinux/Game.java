@@ -52,6 +52,8 @@ public class Game {
 
         this.init();
 
+        //Thread.sleep(100);
+
         while(!player.isDetected()) {
             /* PODE PASSAR A MÉTODO DESTA CLASSE
             for (int i = 0; i < movables.length; i++) {
@@ -66,6 +68,19 @@ public class Game {
                 }
             }
             */
+
+            int count = 10;
+
+            while (count > 0) {
+
+                if (movables[3] instanceof Dog) {
+                    Dog dog1 = (Dog) movables[3];
+                    dog1.move();
+                }
+
+                count--;
+            }
+
             Route.guard1Move((Guard) movables[1]);
         }
     }
@@ -150,18 +165,6 @@ public class Game {
 
                 }
             }
-
-        int count = 10;
-
-        while (count > 0) {
-
-            if (movables[3] instanceof Dog) {
-                Dog dog1 = (Dog) movables[3];
-                dog1.move();
-            }
-
-            count--;
-        }
 
         System.out.println("Walls: " + wallCount);
         System.out.println(("Fences: " + fenceCount));
