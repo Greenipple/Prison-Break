@@ -14,6 +14,7 @@ public abstract class Entity extends GameObject implements Movable {
     }
 
     public void move() {
+
     }
 
     @Override

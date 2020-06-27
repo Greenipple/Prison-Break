@@ -21,8 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Barrel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Movable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,10 +122,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593254701342" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1593257070946">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1593258805481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593257070946" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593258805481" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1593257084641">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
