@@ -7,6 +7,7 @@ import org.academiadecodigo.felinux.Position.*;
 import org.academiadecodigo.felinux.Support.*;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
+
 public class Game {
 
    public static final int DELAY = 200;
@@ -150,10 +151,9 @@ public class Game {
                 }
             }
 
-        int count = 50;
+        int count = 10;
 
         while (count > 0) {
-            //Thread.sleep(100);
 
             if (movables[3] instanceof Dog) {
                 Dog dog1 = (Dog) movables[3];

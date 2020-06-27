@@ -140,7 +140,7 @@ public class MapPosition {
             for (int i = 0; i < distance; i++) {
                 this.row += Map.CELL_SIZE;
             }
-            
+
             /*
             for (int j=0; j<distance; j++){
                 boolean movementAllowed = true;
