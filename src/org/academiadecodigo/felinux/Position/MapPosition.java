@@ -3,6 +3,7 @@ package org.academiadecodigo.felinux.Position;
 import org.academiadecodigo.felinux.Game;
 import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class MapPosition {
 
@@ -12,6 +13,7 @@ public class MapPosition {
         private Color color;
         private Game game;
         private DirectionType facing;
+        private Rectangle rectangle;
 
 
         public MapPosition(int col, int row, Map map,Game game) {
@@ -23,8 +25,8 @@ public class MapPosition {
 
         public void moveInDirection(DirectionType direction, int distance) {
 
-            int oldCol = col;
-            int oldRow = row;
+            int oldX = col;
+            int oldY = row;
 
             switch (direction) {
 
@@ -42,6 +44,12 @@ public class MapPosition {
                     moveRight(distance);
                     break;
             }
+
+            int newX = col;
+            int newY = row;
+            int movementX = (newX - oldX)*map.CELL_SIZE;
+            int movementY = (newY - oldY)*map.CELL_SIZE;
+            rectangle.translate(movementX,movementY);
 
         }
 

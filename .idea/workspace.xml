@@ -22,7 +22,6 @@
     <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/MapPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/MapPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Movable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593250898883</updated>
-      <workItem from="1593255048819" duration="1653000" />
+      <workItem from="1593255048819" duration="3184000" />
     </task>
     <task id="LOCAL-00001" summary="fefefe">
       <created>1593253370565</created>
