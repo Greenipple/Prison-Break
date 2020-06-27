@@ -13,7 +13,6 @@ public class MapPosition {
         private Color color;
         private Game game;
         private DirectionType facing;
-        private Rectangle rectangle;
 
 
         public MapPosition(int col, int row, Map map,Game game) {
@@ -23,7 +22,7 @@ public class MapPosition {
             this.game = game;
         }
 
-        public void moveInDirection(DirectionType direction, int distance) {
+        public void moveInDirection(DirectionType direction, int distance,Rectangle rectangle) {
 
             int oldX = col;
             int oldY = row;
@@ -33,15 +32,19 @@ public class MapPosition {
                 case UP:
                     moveUp(distance);
                     //translate( - Map.CELL_SIZE,0);
+                    facing = DirectionType.UP;
                     break;
                 case DOWN:
                     moveDown(distance);
+                    facing = DirectionType.DOWN;
                     break;
                 case LEFT:
                     moveLeft(distance);
+                    facing = DirectionType.LEFT;
                     break;
                 case RIGHT:
                     moveRight(distance);
+                    facing = DirectionType.RIGHT;
                     break;
             }
 
@@ -56,7 +59,7 @@ public class MapPosition {
         public boolean equals(MapPosition pos) {
             return this.col == pos.getCol() && this.row == pos.getRow() ? true : false;
         }
-
+            //movement is not allowed if block (blockArray) is not present in front.
         public void moveUp(int distance) {
             for (int j = 0; j < distance; j++) {
                 boolean movementAllowed = true;
@@ -67,7 +70,7 @@ public class MapPosition {
                     }
                 }
                     if (movementAllowed) {
-                        facing=DirectionType.UP;
+                       // facing=DirectionType.UP;
                         row--;
                     }
 
@@ -86,7 +89,7 @@ public class MapPosition {
                       break;
                   }
                   if (movementAllowed){
-                      facing = DirectionType.DOWN;
+                     // facing = DirectionType.DOWN;
                       row++;
                   }
                 }
@@ -105,7 +108,7 @@ public class MapPosition {
                         break;
                     }
                     if (movementAllowed){
-                        facing = DirectionType.LEFT;
+                       // facing = DirectionType.LEFT;
                         col--;
                     }
                 }
@@ -116,7 +119,6 @@ public class MapPosition {
 
         }
 
-
         public void moveRight(int dist) {
             for (int j=0; j<dist; j++){
                 boolean movementAllowed = true;
@@ -126,7 +128,7 @@ public class MapPosition {
                         break;
                     }
                     if(movementAllowed){
-                        facing = DirectionType.RIGHT;
+                       // facing = DirectionType.RIGHT;
                         col++;
                     }
                 }
