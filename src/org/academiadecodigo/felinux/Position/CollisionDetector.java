@@ -1,18 +1,25 @@
 package org.academiadecodigo.felinux.Position;
 
 import org.academiadecodigo.felinux.GameObject.Entity.*;
+import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 
 public class CollisionDetector {
-    private Player player;
-    private Entity[] entities;
-    private Key key;
-    private Barrel barrel;
+    private static Player player;
+    private static GameObject[] objects; //guards, dogs, key and barrel. Walls & fences will be apart
 
-    public CollisionDetector(Player player, Entity[] entities, Key key, Barrel barrel) {
+    public CollisionDetector(Player player, GameObject[] objects) {
         this.player = player;
-        this.entities = entities;
-        this.key = key;
-        this.barrel = barrel;
+        this.objects = objects;
+    }
+
+    public static void verify() {
+        for (GameObject object : objects) {
+            if (player.getPosition() == object.getPosition()) {
+                if (object instanceof Guard || object instanceof Dog) {
+                    player.gotDetected(); //player is detected if he crashes into a guard or dog
+                }
+            }
+        }
     }
 }

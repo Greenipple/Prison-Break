@@ -15,4 +15,16 @@ public class Barrel extends Item implements Movable {
     public void setCollisionDetector(CollisionDetector collisionDetector) {
 
     }
+
+    @Override
+    public void move() {
+
+    }
+
+    public void move(MapPosition position) { //passing player position as argument, barrel will move alongside
+        this.getRectangle().translate(position.getCol()-this.getPosition().getCol(),position.getRow()-this.getPosition().getRow());
+        this.setPosition(position);
+    }
+
+
 }

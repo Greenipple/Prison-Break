@@ -31,6 +31,10 @@ public abstract class GameObject {
         return this.position;
     }
 
+    public void setPosition(MapPosition position) {
+        this.position = position;
+    }
+
     public Rectangle getRectangle(){
         return this.rectangle;
     }
