@@ -14,7 +14,7 @@ public class Player extends Entity implements KeyboardHandler {
     private Keyboard keyboard;
     private boolean action;
     private boolean detected;
-    private Rectangle rectangle;
+
 
     public CollisionDetector collisionDetector;
     public DirectionType currentDirection;
@@ -73,7 +73,7 @@ public class Player extends Entity implements KeyboardHandler {
 
     public void accelerate(DirectionType direction) {
         this.currentDirection = direction;
-       // getPos().moveInDirection(direction, SPEED);
+        getPosition().moveInDirection(direction, SPEED,this.getRectangle());
     }
 
 

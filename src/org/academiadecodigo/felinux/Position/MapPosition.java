@@ -15,11 +15,11 @@ public class MapPosition {
         private DirectionType facing;
 
 
-        public MapPosition(int col, int row, Map map,Game game) {
+        public MapPosition(int col, int row, Map map) {
             this.col = col;
             this.row = row;
             this.map = map;
-            this.game = game;
+
         }
 
         public void moveInDirection(DirectionType direction, int distance,Rectangle rectangle) {
@@ -31,7 +31,6 @@ public class MapPosition {
 
                 case UP:
                     moveUp(distance);
-                    //translate( - Map.CELL_SIZE,0);
                     facing = DirectionType.UP;
                     break;
                 case DOWN:
