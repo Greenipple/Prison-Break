@@ -6,8 +6,6 @@ import org.academiadecodigo.felinux.Support.*;
 
 public abstract class Entity extends GameObject implements Movable {
 
-    public DirectionType directionType;
-
     public Entity(MapPosition position, GameObjectType gameObjectType) {
         super(position, gameObjectType);
     }
