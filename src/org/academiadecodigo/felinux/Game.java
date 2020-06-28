@@ -66,6 +66,7 @@ public class Game {
         collisionDetector = new CollisionDetector(blockArray);
 
         player = new Player(new MapPosition(2, 2,map),collisionDetector);
+        collisionDetector.setPlayer(player);
         player.getPosition().show();
 
         //KEY

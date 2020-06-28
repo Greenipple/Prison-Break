@@ -93,6 +93,7 @@ public class Player extends Entity implements KeyboardHandler {
 
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_UP:
+                collisionDetector.lineOfSight();
                 currentDirection = DirectionType.UP;
                 if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP)){
                     this.getPosition().moveInDirection(DirectionType.UP, 1);
