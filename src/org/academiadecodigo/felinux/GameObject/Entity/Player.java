@@ -16,7 +16,7 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean detected;
 
     public DirectionType currentDirection;
-    public KeyboardHandler kbHandler = new GameKbHandler(getRectangle());
+    public KeyboardHandler kbHandler = new GameKbHandler(getRectangle(),this.getPosition());
 
     public Player(MapPosition position, Map map) {
         super(position, GameObjectType.PLAYER, map);

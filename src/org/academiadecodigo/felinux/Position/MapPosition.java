@@ -53,7 +53,7 @@ public class MapPosition {
             int newY = row;
             int movementX = (newX - oldX)*map.CELL_SIZE;
             int movementY = (newY - oldY)*map.CELL_SIZE;
-            //this.rectangle.translate(movementX,movementY);
+            this.rectangle.translate(movementX,movementY);
 
         }
 
@@ -62,7 +62,7 @@ public class MapPosition {
         }
         //movement is not allowed if block (blockArray) is not present in front.
         public void moveUp(int distance) {
-            this.row -= Map.CELL_SIZE;
+            row--;
 /*            for (int i = 0; i < distance; i++) {
                 this.row -= Map.CELL_SIZE;
             }*/
@@ -89,7 +89,7 @@ public class MapPosition {
         public void moveDown(int distance) {
 
             for (int i = 0; i < distance; i++) {
-                this.row += Map.CELL_SIZE;
+                row++;
             }
             /*
             for (int j=0; j<distance; j++){
@@ -113,7 +113,7 @@ public class MapPosition {
         public void moveLeft(int distance) {
 
             for (int i = 0; i < distance; i++) {
-                this.col -= Map.CELL_SIZE;
+                col--;
             }
 
             /*
@@ -139,7 +139,7 @@ public class MapPosition {
         public void moveRight(int distance) {
 
             for (int i = 0; i < distance; i++) {
-                this.row += Map.CELL_SIZE;
+                col++;
             }
 
             /*
