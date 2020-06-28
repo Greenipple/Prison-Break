@@ -11,7 +11,7 @@ public class Key extends Item {
     }
 
     public void store() {
-        this.checkHolding();
+        this.beenHold();
         if (this.isHold()) {
             this.getPosition().hide();
             getPlayer().gotKey();

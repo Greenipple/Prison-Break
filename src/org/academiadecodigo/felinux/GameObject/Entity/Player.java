@@ -79,7 +79,6 @@ public class Player extends Entity implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             this.action = !action;
-            System.out.println(""+this.action);
         }
 
         switch (keyboardEvent.getKey()) {
