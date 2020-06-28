@@ -22,7 +22,6 @@ public class MapPosition {
         }
 
         public void moveInDirection(DirectionType direction, int distance) {
-            System.out.println("koi");
 
             int previousCol = this.col;
             int previousRow = this.row;
@@ -30,9 +29,7 @@ public class MapPosition {
             switch (direction) {
 
                 case UP:
-                    System.out.println("up");
                     moveUp(distance);
-                    System.out.println("up2");
                     facing = DirectionType.UP;
                     break;
                 case DOWN:
