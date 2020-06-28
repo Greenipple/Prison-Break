@@ -11,8 +11,7 @@ public class Guard extends Entity {
     private Route route1;
 
     public Guard(MapPosition position, Map map) {
-        super(position, GameObjectType.GUARD, map
-        );
+        super(position, GameObjectType.GUARD, map);
     }
 
 }

@@ -4,5 +4,6 @@ import org.academiadecodigo.felinux.Support.DirectionType;
 
 public interface Movable {
 
-    void move();
+    //void move();
+
 }

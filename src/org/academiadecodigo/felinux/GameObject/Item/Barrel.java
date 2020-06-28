@@ -14,7 +14,7 @@ public class Barrel extends Item implements Movable {
     }
 
 
-    @Override
+    //@Override
     public void move() {
 
     }

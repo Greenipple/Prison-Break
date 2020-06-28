@@ -20,11 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Position/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Position/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Guard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Guard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
