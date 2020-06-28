@@ -59,20 +59,20 @@ public class Game {
 
             if (movables[3] instanceof Dog) {
                 Dog dog1 = (Dog) movables[3];
-                Thread.sleep(500);
+                Thread.sleep(200);
                 dog1.move();
             }
             if (movables[4] instanceof Dog) {
                 Dog dog2 = (Dog) movables[4];
-                Thread.sleep(500);
+                Thread.sleep(200);
                 dog2.move();
             }
             if (movables[5] instanceof Dog) {
                 Dog dog3 = (Dog) movables[5];
-                Thread.sleep(500);
+                Thread.sleep(200);
                 dog3.move();
             }
-            //Route.guard1Move((Guard) movables[1]);
+            Route.guard1Move((Guard) movables[1]);
             //count--;
         }
 
