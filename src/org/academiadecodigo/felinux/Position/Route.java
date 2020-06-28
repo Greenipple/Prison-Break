@@ -6,8 +6,7 @@ import org.academiadecodigo.felinux.Support.DirectionType;
 public class Route {
 
     private static int auxCounter = 13;
-    private static int move2count1 = 6;
-    private static int move2count2 = 3;
+    private static int path = 15;
 
     public static void guard1Move(Guard guard1) {
 
@@ -27,32 +26,72 @@ public class Route {
     }
 
     public static void guard2Move(Guard guard2) {
-        System.out.println("before conditions Rows " + guard2.getPosition().getRow());
-        System.out.println("before conditions Cows " + guard2.getPosition().getCol());
-       //RIGHT
-       if(guard2.getPosition().getRow() == 10 && guard2.getPosition().getCol() != 7) {
-           guard2.getPosition().moveInDirection(DirectionType.RIGHT, 1);
-           return;
 
-       }
-        System.out.println("middle conditions Rows " + guard2.getPosition().getRow());
-        System.out.println("middle conditions Cows " + guard2.getPosition().getCol());
-       //DOWN
-       if(guard2.getPosition().getCol() == 7 && guard2.getPosition().getRow() != 14) {
-           guard2.getPosition().moveInDirection(DirectionType.DOWN, 1);
-           return;
+       if (path > 0) {
+
+           //RIGHT
+           if (guard2.getPosition().getRow() == 10 && guard2.getPosition().getCol() != 7) {
+               guard2.getPosition().moveInDirection(DirectionType.RIGHT, 1);
+               path--;
+               return;
+           }
+
+           //DOWN
+           if (guard2.getPosition().getCol() == 7 && guard2.getPosition().getRow() != 14) {
+               guard2.getPosition().moveInDirection(DirectionType.DOWN, 1);
+               path--;
+               return;
+           }
+
+           //LEFT
+           if (guard2.getPosition().getRow() == 14 && guard2.getPosition().getCol() != 2) {
+               guard2.getPosition().moveInDirection(DirectionType.LEFT, 1);
+               path--;
+               return;
+           }
+
+           //DOWN
+           if (guard2.getPosition().getCol() == 2 && guard2.getPosition().getRow() != 15) {
+               guard2.getPosition().moveInDirection(DirectionType.DOWN, 1);
+               path--;
+               return;
+           }
        }
 
-/*       //LEFT
-        if(guard2.getPosition().getRectangle().getX() != 290 && move2count1 == 0) {
-            guard2.getPosition().getRectangle().translate(-Map.CELL_SIZE,0);
+        /*******************************************************************************/
+
+        if(path == 0) {
+
+            //RESET
+            if (guard2.getPosition().getRow() == 10 && guard2.getPosition().getCol() == 2){
+                path = 15;
+                return;
+            }
+
+            //UP
+            if (guard2.getPosition().getCol() == 2 && guard2.getPosition().getRow() != 14) {
+                guard2.getPosition().moveInDirection(DirectionType.UP, 1);
+                return;
+            }
+
+            //RIGHT
+            if (guard2.getPosition().getRow() == 14 && guard2.getPosition().getCol() != 7) {
+                guard2.getPosition().moveInDirection(DirectionType.RIGHT, 1);
+                return;
+            }
+
+            //UP
+            if (guard2.getPosition().getCol() == 7 && guard2.getPosition().getRow() != 10) {
+                guard2.getPosition().moveInDirection(DirectionType.UP, 1);
+                return;
+            }
+
+            //LEFT
+            if (guard2.getPosition().getRow() == 10 && guard2.getPosition().getCol() != 2) {
+                guard2.getPosition().moveInDirection(DirectionType.LEFT, 1);
+                return;
+            }
         }
-
-        //DOWN
-        if(guard2.getPosition().getRectangle().getY() != 610 && move2count2 == 0) {
-            //Thread.sleep(200);
-            guard2.getPosition().getRectangle().translate(0, Map.CELL_SIZE);
-        }*/
     }
 }
 
