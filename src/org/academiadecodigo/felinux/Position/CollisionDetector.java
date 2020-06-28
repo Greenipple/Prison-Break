@@ -88,7 +88,24 @@ public class CollisionDetector {
     public void lineOfSight(MapPosition position, DirectionType direction){
         switch (direction){
             case UP -> {
-                for (int i=0; i<sightRange; i++){
+                //canSee turns false if it hits a wall;
+                boolean canSeeCenterRow = true;
+                boolean canSeeLeftRow = true;
+                boolean canSeeRightRow = true;
+
+                //center row;
+                for (int i = 0; i < sightRange; i++) {
+                        for (GameObject object : objects) {
+                            if (object.getPosition().getCol() == position.getCol() && object.getPosition().getRow() == position.getRow() -i -1) {
+                                canSeeCenterRow = false;
+                                break;
+                            }
+                            if (player.getPosition().getCol() == position.getCol() && player.getPosition().getRow() == position.getRow() -i -1 && canSeeCenterRow){
+                                player.gotDetected();
+                            }
+                        }
+                    }
+
             }
         }
     }
