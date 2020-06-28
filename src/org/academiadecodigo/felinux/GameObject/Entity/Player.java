@@ -98,24 +98,28 @@ public class Player extends Entity implements KeyboardHandler {
                     this.getPosition().moveInDirection(DirectionType.UP, 1);
                     break;
                 }
+                break;
             case KeyboardEvent.KEY_RIGHT:
                 currentDirection = DirectionType.RIGHT;
                 if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT)){
                     this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
                     break;
                 }
+                break;
             case KeyboardEvent.KEY_DOWN:
                 currentDirection = DirectionType.DOWN;
                 if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN)) {
                     this.getPosition().moveInDirection(DirectionType.DOWN, 1);
                     break;
                 }
+                break;
             case KeyboardEvent.KEY_LEFT:
                 if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT)) {
                     currentDirection = DirectionType.LEFT;
                     this.getPosition().moveInDirection(DirectionType.LEFT, 1);
                     break;
                 }
+                break;
         }
     }
 

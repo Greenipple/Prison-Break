@@ -81,4 +81,10 @@ public class CollisionDetector {
         }
         return true;
     }
+
+
+    //Guards line of sight checker
+    public void lineOfSight(MapPosition position, DirectionType direction){
+        System.out.println(player);
+    }
 }
