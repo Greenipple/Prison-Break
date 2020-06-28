@@ -11,15 +11,19 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean action;
     private boolean detected;
     private boolean hasKey;
+    private CollisionDetector collisionDetector;
+
 
     public DirectionType currentDirection;
 
-    public Player(MapPosition position) {
+    public Player(MapPosition position,CollisionDetector collisionDetector) {
         super(position, GameObjectType.PLAYER);
         action = false;
         detected = false;
         hasKey = false;
         keyboard = new Keyboard(this);
+        this.collisionDetector = collisionDetector;
+
         this.init();
     }
 
@@ -85,19 +89,28 @@ public class Player extends Entity implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_UP:
                 currentDirection = DirectionType.UP;
-                this.getPosition().moveInDirection(DirectionType.UP, 1);
-                break;
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP)){
+                    this.getPosition().moveInDirection(DirectionType.UP, 1);
+                    break;
+                }
             case KeyboardEvent.KEY_RIGHT:
                 currentDirection = DirectionType.RIGHT;
-                this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
-                break;
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT)){
+                    this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
+                    break;
+                }
             case KeyboardEvent.KEY_DOWN:
                 currentDirection = DirectionType.DOWN;
-                this.getPosition().moveInDirection(DirectionType.DOWN, 1);
-                break;
+                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN)) {
+                    this.getPosition().moveInDirection(DirectionType.DOWN, 1);
+                    break;
+                }
             case KeyboardEvent.KEY_LEFT:
-                currentDirection = DirectionType.LEFT;
-                this.getPosition().moveInDirection(DirectionType.LEFT, 1);
+                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT)) {
+                    currentDirection = DirectionType.LEFT;
+                    this.getPosition().moveInDirection(DirectionType.LEFT, 1);
+                    break;
+                }
         }
     }
 

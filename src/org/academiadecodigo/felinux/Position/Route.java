@@ -32,9 +32,9 @@ public class Route {
        if(guard2.getPosition().getCol() != 7 && move2count1 > 0) {
            guard2.getPosition().moveInDirection(DirectionType.RIGHT, 1);
            move2count1--;
-           System.out.println(move2count1);
+          // System.out.println(move2count1);
        }
-        System.out.println(guard2.getPosition().getRow());
+       // System.out.println(guard2.getPosition().getRow());
        //DOWN
        if(guard2.getPosition().getCol() == 7 && guard2.getPosition().getRow() != 13 /*&& move2count1 == 0*/) {
            guard2.getPosition().moveInDirection(DirectionType.DOWN, 1);

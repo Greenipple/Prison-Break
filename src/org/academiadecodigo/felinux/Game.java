@@ -11,8 +11,9 @@ public class Game {
    public static final int DELAY = 400;
    private GameObject walls;
    private Map map;
-   private CollisionDetector collisionDetector;
+
    private GameObject[] blockArray = new GameObject[167];
+   private CollisionDetector collisionDetector;
    private int blockArrayIterator = 0;
    private int wallCount = 0;
    private int fenceCount = 0;
@@ -61,8 +62,9 @@ public class Game {
     }
 
     public void init() {
+        collisionDetector = new CollisionDetector(blockArray);
 
-        player = new Player(new MapPosition(2, 2,map));
+        player = new Player(new MapPosition(2, 2,map),collisionDetector);
         player.getPosition().show();
 
         //KEY
