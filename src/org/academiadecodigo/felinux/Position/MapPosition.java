@@ -11,15 +11,14 @@ public class MapPosition {
         private int row;
         private Map map;
         private Color color;
-        private Game game;
         private DirectionType facing;
         private Rectangle rectangle;
 
-        public MapPosition(int col, int row) {
+        public MapPosition(int col, int row, Map map) {
             this.col = col;
             this.row = row;
-            //this.map = map;
-
+            this.map = map;
+            this.rectangle = new Rectangle(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, Map.CELL_SIZE, Map.CELL_SIZE);
         }
 
         public void moveInDirection(DirectionType direction, int distance) {
@@ -51,8 +50,8 @@ public class MapPosition {
 
             int newX = col;
             int newY = row;
-            int movementX = (newX - oldX)*map.CELL_SIZE;
-            int movementY = (newY - oldY)*map.CELL_SIZE;
+            int movementX = (newX - oldX)*Map.CELL_SIZE;
+            int movementY = (newY - oldY)*Map.CELL_SIZE;
             this.rectangle.translate(movementX,movementY);
 
         }
@@ -168,10 +167,6 @@ public class MapPosition {
             this.color = color;
         }
 
-    public Map getMap() {
-        return map;
-    }
-
     public void setPos(int col, int row) {
         this.col = col;
         this.row = row;
@@ -185,10 +180,18 @@ public class MapPosition {
         return row;
     }
 
-    public void setRectangle(Rectangle rectangle){
-            this.rectangle = rectangle;
+    public Rectangle getRectangle(){
+        return this.rectangle;
     }
 
+    public void show() {
+            this.rectangle.setColor(this.color);
+            this.rectangle.fill();
+    }
+
+    public void hide() {
+        this.rectangle.delete();
+    }
 
 /*
     public void movesGuard1() { //posiçao inicial  do guard1  (4.21)

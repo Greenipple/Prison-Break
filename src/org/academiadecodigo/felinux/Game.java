@@ -1,17 +1,15 @@
 package org.academiadecodigo.felinux;
 
+import org.academiadecodigo.felinux.GameObject.DecorWall.*;
 import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
-import org.academiadecodigo.felinux.Support.*;
-import org.academiadecodigo.simplegraphics.graphics.Color;
-
 
 public class Game {
 
    public static final int DELAY = 200;
-   private GameObject wall;
+   private GameObject walls;
    private Map map;
    private CollisionDetector collisionDetector;
    private GameObject[] blockArray = new GameObject[167];
@@ -20,8 +18,9 @@ public class Game {
    private int fenceCount = 0;
 
    private Player player;
-   private GameObject[] movables = new GameObject[6];
+   private Entity[] movables;
    private Key key;
+   private Barrel barrel;
 
    private int matrixPositions[][] = {
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
@@ -46,17 +45,19 @@ public class Game {
 
     public Game(){
         this.map = new Map();
+        this.movables = new Entity[5];
     }
 
-    //This exception is for thread sleep
     public void start() throws InterruptedException {
 
         this.init();
 
-        //int count = 10;
-
         while (!player.isDetected()) {
+            Thread.sleep(DELAY);
 
+            this.moveAll();
+
+            /*
             if (movables[3] instanceof Dog) {
                 Dog dog1 = (Dog) movables[3];
                 Thread.sleep(200);
@@ -72,8 +73,7 @@ public class Game {
                 Thread.sleep(200);
                 dog3.move();
             }
-            Route.guard1Move((Guard) movables[1]);
-            //count--;
+            Route.guard1Move((Guard) movables[1]);*/
         }
 
 /*        while(!player.isDetected()) {
@@ -115,45 +115,45 @@ public class Game {
 
     public void init() {
 
-        player = (Player) GameObjectFactory.create(GameObjectType.PLAYER, new MapPosition(2, 2), map);
-        player.getPosition().setRectangle(player.getRectangle());
-        player.getRectangle().setColor(Color.GREEN);
-        player.getRectangle().fill();
+        player = new Player(new MapPosition(2, 2,map));
+        //player.getPosition().setRectangle(player.getPosition().getRectangle());
+        //player.getPosition().getRectangle().setColor(Color.GREEN);
+        player.getPosition().show();
 
         //KEY
-        key = (Key) GameObjectFactory.create(GameObjectType.KEY, new MapPosition(23,7), map);
-        key.getRectangle().setColor(Color.YELLOW);
-        key.getRectangle().fill();
+        key = new Key(new MapPosition(22,7, map),this.player);
+        //key.getPosition().getRectangle().setColor(Color.YELLOW);
+        key.getPosition().show();
 
         //BARREL
-        movables[0] = GameObjectFactory.create(GameObjectType.BARREL, new MapPosition(1, 9), map);
-        movables[0].getRectangle().setColor(Color.GRAY);
-        movables[0].getRectangle().fill();
+        barrel = new Barrel(new MapPosition(1, 9, map),this.player);
+        //movables[0].getPosition().getRectangle().setColor(Color.GRAY);
+        barrel.getPosition().show();
 
         //GUARDS
-        movables[1] = GameObjectFactory.create(GameObjectType.GUARD, new MapPosition(21,4), map);
-        movables[1].getRectangle().setColor(Color.BLUE);
-        movables[1].getRectangle().fill();
+        movables[0] = new Guard(new MapPosition(21,4, map),1);
+        //movables[1].getRectangle().setColor(Color.BLUE);
+        movables[0].getPosition().show();
 
-        movables[2] = GameObjectFactory.create(GameObjectType.GUARD, new MapPosition(2,10), map);
-        movables[2].getRectangle().setColor(Color.BLUE);
-        movables[2].getRectangle().fill();
+        movables[1] = new Guard(new MapPosition(2,10, map),2);
+        //movables[2].getRectangle().setColor(Color.BLUE);
+        movables[1].getPosition().show();
 
         //DOGS
-        movables[3] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(12,11),map);
-        movables[3].getPosition().setRectangle(movables[3].getRectangle());
-        movables[3].getRectangle().setColor(Color.RED);
-        movables[3].getRectangle().fill();
+        movables[2] = new Dog(new MapPosition(12,11,map));
+        //movables[3].getPosition().setRectangle(movables[3].getRectangle());
+        //movables[3].getRectangle().setColor(Color.RED);
+        movables[2].getPosition().show();
 
-        movables[4] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(15,13),map);
-        movables[4].getPosition().setRectangle(movables[4].getRectangle());
-        movables[4].getRectangle().setColor(Color.RED);
-        movables[4].getRectangle().fill();
+        movables[3] = new Dog(new MapPosition(15,13,map));
+        //movables[4].getPosition().setRectangle(movables[4].getRectangle());
+        //movables[4].getRectangle().setColor(Color.RED);
+        movables[3].getPosition().show();
 
-        movables[5] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(13,15),map);
-        movables[5].getPosition().setRectangle(movables[5].getRectangle());
-        movables[5].getRectangle().setColor(Color.RED);
-        movables[5].getRectangle().fill();
+        movables[4] = new Dog(new MapPosition(13,15,map));
+        //movables[5].getPosition().setRectangle(movables[5].getRectangle());
+        //movables[5].getRectangle().setColor(Color.RED);
+        movables[4].getPosition().show();
         //...
 
         for (int i = 0; i < matrixPositions.length; i++) {
@@ -161,47 +161,31 @@ public class Game {
 
                 //FENCE
                 if (matrixPositions[i][j] == 1) {
-                    wall = GameObjectFactory.create(GameObjectType.FENCE, new MapPosition(j , i), map);
+                    walls = new Fence(new MapPosition(j , i, map));
                     fenceCount++;
-                    blockArray[blockArrayIterator] = wall;
+                    blockArray[blockArrayIterator] = walls;
                     blockArrayIterator++;
-                    wall.getRectangle().setColor(Color.DARK_GRAY);
-                    wall.getRectangle().fill();
+                    //wall.getRectangle().setColor(Color.DARK_GRAY);
+                    walls.getPosition().show();
                 }
 
                 //WALL
                 if (matrixPositions[i][j] == 2) {
-                    wall = GameObjectFactory.create(GameObjectType.WALL, new MapPosition(j, i), map);
+                    walls = new Wall(new MapPosition(j, i, map));
                     wallCount++;
-                    blockArray[blockArrayIterator]=wall;
+                    blockArray[blockArrayIterator]= walls;
                     blockArrayIterator++;
-                    wall.getRectangle().setColor(Color.BLACK);
-                    wall.getRectangle().fill();
+                    //wall.getRectangle().setColor(Color.BLACK);
+                    walls.getPosition().show();
 
                 }
 
                 //DOOR
                 if (matrixPositions[i][j] == 5) {
-                    wall = GameObjectFactory.create(GameObjectType.DOOR, new MapPosition(j, i), map);
-                    wall.getRectangle().setColor(Color.LIGHT_GRAY);
-                    wall.getRectangle().fill();
+                    walls = new Door(new MapPosition(j, i, map),this.player);
+                    //wall.getRectangle().setColor(Color.LIGHT_GRAY);
+                    walls.getPosition().show();
                 }
-
-                //GUARD
-                /*if (wallPostions[i][j] == 6) {
-                    wall = GameObjectFactory.create(GameObjectType.GUARD, new MapPosition(j, i, map, this));
-                    wall.getRectangle().setColor(Color.BLUE);
-                    wall.getRectangle().fill();
-
-                }*/
-
-                //DOG
-/*                if (wallPostions[i][j] == 7) {
-                    wall = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(j, i, map));
-                    wall.getRectangle().setColor(Color.PINK);
-                    wall.getRectangle().fill();
-                }*/
-
             }
         }
 
@@ -212,8 +196,13 @@ public class Game {
     }
 
 
-    public void movePrisioners() {
+    public void moveAll() {
 
+        for (Entity object : movables) {
+            object.move();
+        }
+
+        barrel.move();
     }
 
     public GameObject[] getBlockArray() {

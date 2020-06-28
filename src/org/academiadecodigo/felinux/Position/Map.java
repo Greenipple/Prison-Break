@@ -1,7 +1,6 @@
 package org.academiadecodigo.felinux.Position;
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.graphics.*;
 
 public class Map {
 

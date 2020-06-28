@@ -1,6 +1,6 @@
 package org.academiadecodigo.felinux.GameObject.Item;
 
-import org.academiadecodigo.felinux.Position.Map;
+import org.academiadecodigo.felinux.GameObject.Entity.Player;
 import org.academiadecodigo.felinux.Position.MapPosition;
 import org.academiadecodigo.felinux.Support.GameObjectType;
 
@@ -8,8 +8,8 @@ public class Door extends Item {
 
     private boolean shut;
 
-    public Door(MapPosition position, Map map) {
-        super(position, GameObjectType.DOOR, map);
+    public Door(MapPosition position, Player player) {
+        super(position, GameObjectType.DOOR, player);
         this.shut = false;
     }
 

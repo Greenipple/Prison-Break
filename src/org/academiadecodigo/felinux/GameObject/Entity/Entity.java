@@ -8,12 +8,8 @@ public abstract class Entity extends GameObject implements Movable {
 
     public DirectionType directionType;
 
-    public Entity(MapPosition position, GameObjectType gameObjectType, Map map) {
-        super(position, gameObjectType, map);
-    }
-
-    public void move() {
-
+    public Entity(MapPosition position, GameObjectType gameObjectType) {
+        super(position, gameObjectType);
     }
 
 }

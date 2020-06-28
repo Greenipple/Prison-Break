@@ -1,12 +1,9 @@
 package org.academiadecodigo.felinux.GameObject.Entity;
 
-import org.academiadecodigo.felinux.Game;
 import org.academiadecodigo.felinux.GameKbHandler;
 import org.academiadecodigo.felinux.Position.*;
 import org.academiadecodigo.felinux.Support.*;
 import org.academiadecodigo.simplegraphics.keyboard.*;
-
-import java.awt.*;
 
 public class Player extends Entity implements KeyboardHandler {
 
@@ -14,14 +11,16 @@ public class Player extends Entity implements KeyboardHandler {
     private Keyboard keyboard;
     private boolean action;
     private boolean detected;
+    private boolean hasKey;
 
     public DirectionType currentDirection;
-    public KeyboardHandler kbHandler = new GameKbHandler(getRectangle(),this.getPosition());
+    public KeyboardHandler kbHandler = new GameKbHandler(getPosition().getRectangle(),this.getPosition());
 
-    public Player(MapPosition position, Map map) {
-        super(position, GameObjectType.PLAYER, map);
+    public Player(MapPosition position) {
+        super(position, GameObjectType.PLAYER);
         action = false;
         detected = false;
+        hasKey = false;
         keyboard = new Keyboard(kbHandler);
         init();
     }
@@ -34,9 +33,11 @@ public class Player extends Entity implements KeyboardHandler {
         this.detected = true;
     }
 
+    public void gotKey() {
+        this.hasKey = true;
+    }
+
     public void init() {
-
-
 
         KeyboardEvent up = new KeyboardEvent();
         up.setKey(KeyboardEvent.KEY_UP);
@@ -65,6 +66,7 @@ public class Player extends Entity implements KeyboardHandler {
 
     }
 
+    @Override
     public void move() {
         accelerate(currentDirection);
     }
@@ -78,7 +80,7 @@ public class Player extends Entity implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
-            action = true;
+            this.action = !action;
         }
 
         switch (keyboardEvent.getKey()) {
@@ -99,8 +101,12 @@ public class Player extends Entity implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
-        if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
-            action = false;
-        }
+        /*if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
+            this.action = false;
+        }*/
+    }
+
+    public boolean getAction() {
+        return this.action;
     }
 }
