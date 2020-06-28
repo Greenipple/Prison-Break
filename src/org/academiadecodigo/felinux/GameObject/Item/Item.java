@@ -23,6 +23,7 @@ public class Item extends GameObject {
     public void beenHold() {
         if (getPlayer().getAction() && getPlayer().getPosition().getRow() == this.getPosition().getRow() && getPlayer().getPosition().getCol() == this.getPosition().getCol()) {
             this.hold = true;
+            return;
         }
     }
 
