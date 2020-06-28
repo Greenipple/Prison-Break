@@ -1,6 +1,5 @@
 package org.academiadecodigo.felinux.GameObject.Entity;
 
-import org.academiadecodigo.felinux.GameKbHandler;
 import org.academiadecodigo.felinux.Position.*;
 import org.academiadecodigo.felinux.Support.*;
 import org.academiadecodigo.simplegraphics.keyboard.*;
@@ -14,15 +13,15 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean hasKey;
 
     public DirectionType currentDirection;
-    public KeyboardHandler kbHandler = new GameKbHandler(getPosition().getRectangle(),this.getPosition());
+    //public KeyboardHandler kbHandler = new GameKbHandler(getPosition().getRectangle(),this.getPosition());
 
     public Player(MapPosition position) {
         super(position, GameObjectType.PLAYER);
         action = false;
         detected = false;
         hasKey = false;
-        keyboard = new Keyboard(kbHandler);
-        init();
+        keyboard = new Keyboard(this);
+        this.init();
     }
 
     public boolean isDetected() {
@@ -81,21 +80,25 @@ public class Player extends Entity implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             this.action = !action;
+            System.out.println(""+this.action);
         }
 
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_UP:
                 currentDirection = DirectionType.UP;
+                this.getPosition().moveInDirection(DirectionType.UP, 1);
                 break;
             case KeyboardEvent.KEY_RIGHT:
                 currentDirection = DirectionType.RIGHT;
+                this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
                 break;
             case KeyboardEvent.KEY_DOWN:
                 currentDirection = DirectionType.DOWN;
+                this.getPosition().moveInDirection(DirectionType.DOWN, 1);
                 break;
             case KeyboardEvent.KEY_LEFT:
                 currentDirection = DirectionType.LEFT;
-                break;
+                this.getPosition().moveInDirection(DirectionType.LEFT, 1);
         }
     }
 

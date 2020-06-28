@@ -1,6 +1,5 @@
 package org.academiadecodigo.felinux;
 
-import org.academiadecodigo.felinux.Position.Map;
 import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
