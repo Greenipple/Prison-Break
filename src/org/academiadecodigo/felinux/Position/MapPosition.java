@@ -9,10 +9,11 @@ public class MapPosition {
 
         private int col;
         private int row;
-        private Map map = new Map(); //??????
+        private Map map;
         private Color color;
-        private Game game = new Game(); //?????
+        private Game game;
         private DirectionType facing;
+        private Rectangle rectangle;
 
         public MapPosition(int col, int row) {
             this.col = col;
@@ -61,10 +62,10 @@ public class MapPosition {
         }
         //movement is not allowed if block (blockArray) is not present in front.
         public void moveUp(int distance) {
-
-            for (int i = 0; i < distance; i++) {
+            this.row -= Map.CELL_SIZE;
+/*            for (int i = 0; i < distance; i++) {
                 this.row -= Map.CELL_SIZE;
-            }
+            }*/
 
             /*for (int j = 0; j < distance; j++) {
                 boolean movementAllowed = true;
@@ -182,6 +183,10 @@ public class MapPosition {
 
     public int getRow() {
         return row;
+    }
+
+    public void setRectangle(Rectangle rectangle){
+            this.rectangle = rectangle;
     }
 
 

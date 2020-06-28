@@ -48,30 +48,35 @@ public class Game {
         this.map = new Map();
     }
 
-    public void start() {
+    //This exception is for thread sleep
+    public void start() throws InterruptedException {
 
         this.init();
 
-        //Thread.sleep(100);
+        //int count = 10;
 
-        while(!player.isDetected()) {
+        while (!player.isDetected()) {
 
-            /* PODE PASSAR A MÉTODO DESTA CLASSE
-            for (int i = 0; i < movables.length; i++) {
-
-                collisionDetector.verify();
-
-                if (movables[i] instanceof Barrel) {
-                    (Barrel) movables[i].move(player.getPosition());
-                }
-                if (movables[i] instanceof Guard) {
-                    (Guard) movables[i].move();
-                }
-                if (movables[i]. instanceof Dog) {
-                    (Dog) movables[i].move();
-                }
+            if (movables[3] instanceof Dog) {
+                Dog dog1 = (Dog) movables[3];
+                Thread.sleep(500);
+                dog1.move();
             }
-            */
+            if (movables[4] instanceof Dog) {
+                Dog dog2 = (Dog) movables[4];
+                Thread.sleep(500);
+                dog2.move();
+            }
+            if (movables[5] instanceof Dog) {
+                Dog dog3 = (Dog) movables[5];
+                Thread.sleep(500);
+                dog3.move();
+            }
+            //Route.guard1Move((Guard) movables[1]);
+            //count--;
+        }
+
+/*        while(!player.isDetected()) {
 
             int count = 10;
 
@@ -86,7 +91,26 @@ public class Game {
             }
 
             Route.guard1Move((Guard) movables[1]);
-        }
+
+            *//* PODE PASSAR A MÉTODO DESTA CLASSE
+            for (int i = 0; i < movables.length; i++) {
+
+                collisionDetector.verify();
+
+                if (movables[i] instanceof Barrel) {
+                    (Barrel) movables[i].move(player.getPosition());
+                }
+                if (movables[i] instanceof Guard) {
+                    (Guard) movables[i].move();
+                }
+                if (movables[i]. instanceof Dog) {
+                    (Dog) movables[i].move();
+                }
+            }
+            *//*
+
+
+        }*/
     }
 
     public void init() {
@@ -118,6 +142,14 @@ public class Game {
         movables[3] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(12,11),map);
         movables[3].getRectangle().setColor(Color.RED);
         movables[3].getRectangle().fill();
+
+        movables[4] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(15,13),map);
+        movables[4].getRectangle().setColor(Color.RED);
+        movables[4].getRectangle().fill();
+
+        movables[5] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(13,15),map);
+        movables[5].getRectangle().setColor(Color.RED);
+        movables[5].getRectangle().fill();
         //...
 
         for (int i = 0; i < matrixPositions.length; i++) {
@@ -166,8 +198,8 @@ public class Game {
                     wall.getRectangle().fill();
                 }*/
 
-                }
             }
+        }
 
         collisionDetector = new CollisionDetector(this.player,this.movables);
 
