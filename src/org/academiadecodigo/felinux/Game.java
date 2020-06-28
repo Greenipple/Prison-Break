@@ -116,6 +116,7 @@ public class Game {
     public void init() {
 
         player = (Player) GameObjectFactory.create(GameObjectType.PLAYER, new MapPosition(2, 2), map);
+        player.getPosition().setRectangle(player.getRectangle());
         player.getRectangle().setColor(Color.GREEN);
         player.getRectangle().fill();
 
@@ -140,14 +141,17 @@ public class Game {
 
         //DOGS
         movables[3] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(12,11),map);
+        movables[3].getPosition().setRectangle(movables[3].getRectangle());
         movables[3].getRectangle().setColor(Color.RED);
         movables[3].getRectangle().fill();
 
         movables[4] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(15,13),map);
+        movables[4].getPosition().setRectangle(movables[4].getRectangle());
         movables[4].getRectangle().setColor(Color.RED);
         movables[4].getRectangle().fill();
 
         movables[5] = GameObjectFactory.create(GameObjectType.DOG, new MapPosition(13,15),map);
+        movables[5].getPosition().setRectangle(movables[5].getRectangle());
         movables[5].getRectangle().setColor(Color.RED);
         movables[5].getRectangle().fill();
         //...
