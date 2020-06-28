@@ -6,7 +6,10 @@ import org.academiadecodigo.felinux.GameObject.Item.*;
 
 public class CollisionDetector {
     private Player player;
-    private GameObject[] objects; //guards, dogs, key and barrel. Walls & fences will be apart
+    private GameObject[] objects; // Walls & fences
+    private Entity[] entities;
+    private Key key;
+    private Barrel barrel;
 
     public CollisionDetector(Player player, GameObject[] objects) {
         this.player = player;

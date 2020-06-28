@@ -13,7 +13,6 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean hasKey;
 
     public DirectionType currentDirection;
-    //public KeyboardHandler kbHandler = new GameKbHandler(getPosition().getRectangle(),this.getPosition());
 
     public Player(MapPosition position) {
         super(position, GameObjectType.PLAYER);
