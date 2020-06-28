@@ -163,8 +163,10 @@ public class MapPosition {
         }
 
     public void setPosition(int col, int row) {
+            this.rectangle.delete();
             this.col = col;
             this.row = row;
+            this.rectangle.fill();
     }
 
     public int getCol() {
