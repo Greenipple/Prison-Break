@@ -23,8 +23,9 @@ public class MapPosition {
 
         public void moveInDirection(DirectionType direction, int distance) {
             System.out.println("koi");
-            int oldX = col;
-            int oldY = row;
+
+            int previousCol = this.col;
+            int previousRow = this.row;
 
             switch (direction) {
 
@@ -48,12 +49,9 @@ public class MapPosition {
                     break;
             }
 
-            int newX = col;
-            int newY = row;
-            int movementX = (newX - oldX)*Map.CELL_SIZE;
-            int movementY = (newY - oldY)*Map.CELL_SIZE;
-            this.rectangle.translate(movementX,movementY);
-
+            int moveCol = (this.col - previousCol)*Map.CELL_SIZE;
+            int moveRow = (this.row - previousRow)*Map.CELL_SIZE;
+            this.rectangle.translate(moveCol,moveRow);
         }
 
         public boolean equals(MapPosition pos) {
@@ -167,9 +165,9 @@ public class MapPosition {
             this.color = color;
         }
 
-    public void setPos(int col, int row) {
-        this.col = col;
-        this.row = row;
+    public void setPosition(int col, int row) {
+            this.col = col;
+            this.row = row;
     }
 
     public int getCol() {

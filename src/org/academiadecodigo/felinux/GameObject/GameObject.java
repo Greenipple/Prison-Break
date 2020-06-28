@@ -19,6 +19,6 @@ public abstract class GameObject {
     }
 
     public void setPosition(MapPosition position) {
-        this.position = position;
+        this.getPosition().setPosition(position.getCol(),position.getRow());
     }
 }

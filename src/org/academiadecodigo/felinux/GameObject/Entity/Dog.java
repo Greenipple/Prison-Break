@@ -11,13 +11,15 @@ public class Dog extends Entity {
     @Override
     public void move() {
 
-        DirectionType direction = DirectionType.values()[(int) Math.floor(Math.random()*4)];
-/*        Rectangle koi = new Rectangle(15, 15, Map.CELL_SIZE, Map.CELL_SIZE);
-        koi.fill();*/
+        DirectionType direction = DirectionType.values()[(int) Math.floor(Math.random() * 4)];
+
+        this.getPosition().moveInDirection(direction, 1);
+        /*
+        Rectangle koi = new Rectangle(15, 15, Map.CELL_SIZE, Map.CELL_SIZE);
+        koi.fill();
 
         switch (direction) {
             case UP:
-
                 this.getPosition().moveInDirection(DirectionType.UP,1);
                 //this.getRectangle().translate(0,-Map.CELL_SIZE);
                 //this.getRectangle().translate(40,0);
@@ -46,5 +48,6 @@ public class Dog extends Entity {
                 //mapPosition.moveInDirection(DirectionType.DOWN, 40, this.getRectangle());
                 break;
         }
+         */
     }
 }

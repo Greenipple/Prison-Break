@@ -8,7 +8,7 @@ import org.academiadecodigo.felinux.Position.*;
 
 public class Game {
 
-   public static final int DELAY = 200;
+   public static final int DELAY = 400;
    private GameObject walls;
    private Map map;
    private CollisionDetector collisionDetector;
