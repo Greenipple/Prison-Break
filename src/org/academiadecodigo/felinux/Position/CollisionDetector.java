@@ -84,7 +84,11 @@ public class CollisionDetector {
 
 
     //Guards line of sight checker
-    public void lineOfSight(MapPosition position, DirectionType direction){
+    public void lineOfSight(){
         System.out.println(player);
+    }
+
+    public void setPlayer (Player player){
+        this.player = player;
     }
 }
