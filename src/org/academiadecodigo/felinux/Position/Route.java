@@ -27,25 +27,27 @@ public class Route {
     }
 
     public static void guard2Move(Guard guard2) {
-
+        System.out.println("before conditions Rows " + guard2.getPosition().getRow());
+        System.out.println("before conditions Cows " + guard2.getPosition().getCol());
        //RIGHT
-       if(guard2.getPosition().getCol() != 7 && move2count1 > 0) {
+       if(guard2.getPosition().getRow() == 10 && guard2.getPosition().getCol() != 7) {
            guard2.getPosition().moveInDirection(DirectionType.RIGHT, 1);
-           move2count1--;
-           System.out.println(move2count1);
+           return;
+
        }
-        System.out.println(guard2.getPosition().getRow());
+        System.out.println("middle conditions Rows " + guard2.getPosition().getRow());
+        System.out.println("middle conditions Cows " + guard2.getPosition().getCol());
        //DOWN
-       if(guard2.getPosition().getCol() == 7 && guard2.getPosition().getRow() != 13 /*&& move2count1 == 0*/) {
+       if(guard2.getPosition().getCol() == 7 && guard2.getPosition().getRow() != 14) {
            guard2.getPosition().moveInDirection(DirectionType.DOWN, 1);
-           move2count2--;
+           return;
        }
-       /*
-       //LEFT
+
+/*       //LEFT
         if(guard2.getPosition().getRectangle().getX() != 290 && move2count1 == 0) {
-            //Thread.sleep(200);
             guard2.getPosition().getRectangle().translate(-Map.CELL_SIZE,0);
         }
+
         //DOWN
         if(guard2.getPosition().getRectangle().getY() != 610 && move2count2 == 0) {
             //Thread.sleep(200);
