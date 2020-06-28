@@ -53,6 +53,7 @@ public class Game {
         this.init();
 
         while (!player.isDetected()) {
+
             Thread.sleep(DELAY);
 
             this.moveAll();
@@ -129,11 +130,11 @@ public class Game {
 
     public void moveAll() {
 
+        barrel.move();
+
         for (Entity object : movables) {
             object.move();
         }
-
-        barrel.move();
     }
 
     public GameObject[] getBlockArray() {

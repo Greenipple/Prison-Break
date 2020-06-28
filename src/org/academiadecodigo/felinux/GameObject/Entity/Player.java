@@ -11,6 +11,7 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean action;
     private boolean detected;
     private boolean hasKey;
+    private boolean hasBarrel;
 
     public DirectionType currentDirection;
 
@@ -33,6 +34,10 @@ public class Player extends Entity implements KeyboardHandler {
 
     public void gotKey() {
         this.hasKey = true;
+    }
+
+    public void gotBarrel() {
+        this.hasBarrel = true;
     }
 
     public void init() {

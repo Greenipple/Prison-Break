@@ -88,10 +88,15 @@ public class MapPosition {
         }
 
     public void setPosition(int col, int row) {
-            this.rectangle.delete();
+            int previousCol = this.col;
+            int previousRow = this.row;
+
             this.col = col;
             this.row = row;
-            this.rectangle.fill();
+
+        int moveCol = (this.col - previousCol)*Map.CELL_SIZE;
+        int moveRow = (this.row - previousRow)*Map.CELL_SIZE;
+        this.rectangle.translate(moveCol,moveRow);
     }
 
     public int getCol() {
