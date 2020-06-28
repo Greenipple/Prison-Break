@@ -17,5 +17,4 @@ public class Key extends Item {
             getPlayer().gotKey();
         }
     }
-
 }

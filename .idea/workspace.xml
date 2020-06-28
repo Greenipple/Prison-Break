@@ -21,26 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/DecorWall/Fence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/DecorWall/Fence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/DecorWall/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/DecorWall/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Dog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Guard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Guard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Barrel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/MapPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/MapPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Movable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Support/GameObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Support/GameObjectFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Support/GameObjectType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Support/GameObjectType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
