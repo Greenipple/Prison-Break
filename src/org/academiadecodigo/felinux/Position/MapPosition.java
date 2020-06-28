@@ -55,11 +55,13 @@ public class MapPosition {
         }
         //movement is not allowed if block (blockArray) is not present in front.
         public void moveUp(int distance) {
-            row--;
+            for (int i=0; i<distance; i++){
+                row--;
+            }
+
         }
 
         public void moveDown(int distance) {
-
             for (int i = 0; i < distance; i++) {
                 row++;
             }
