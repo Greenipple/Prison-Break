@@ -13,6 +13,7 @@ public class CollisionDetector {
     private Entity[] entities;
     private Key key;
     private Barrel barrel;
+    private int sightRange = 2;
 
     public CollisionDetector(GameObject[] objects){
         this.objects = objects;
@@ -84,8 +85,12 @@ public class CollisionDetector {
 
 
     //Guards line of sight checker
-    public void lineOfSight(){
-        System.out.println(player);
+    public void lineOfSight(MapPosition position, DirectionType direction){
+        switch (direction){
+            case UP -> {
+                for (int i=0; i<sightRange; i++){
+            }
+        }
     }
 
     public void setPlayer (Player player){
