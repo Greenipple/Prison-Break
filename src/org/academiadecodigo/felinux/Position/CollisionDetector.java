@@ -75,7 +75,7 @@ public class CollisionDetector {
 
     //Guards line of sight checker
     public void lineOfSight(MapPosition position, DirectionType direction){
-        switch (direction){
+       /* switch (direction){
             case UP -> {
                 //canSee turns false if it hits a wall;
                 boolean canSeeCenterRow = true;
@@ -96,6 +96,22 @@ public class CollisionDetector {
                     }
                 }
 
+            }
+        }*/
+        switch (direction){
+            case LEFT -> {
+                //this checks how far they can see
+                int unblockedSightRange = sightRange;
+                for(int i=1; i<=sightRange; i++){
+                    for(GameObject object : objects){
+                        if(object.getPosition().getRow() == position.getRow() && object.getPosition().getCol() == position.getCol() -i){
+                            unblockedSightRange=i;
+                        }
+                    }
+                }
+
+                //now we look for player within unblockedSightRange
+               // if(player.getPosition().getRow()== position.getRow() )
             }
         }
     }
