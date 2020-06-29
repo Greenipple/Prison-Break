@@ -6,9 +6,11 @@ import org.academiadecodigo.felinux.Support.*;
 public class Dog extends Entity {
 
     private boolean haveWall;
+    private Player player;
 
-    public Dog(MapPosition position) {
+    public Dog(MapPosition position, Player player) {
         super(position, GameObjectType.DOG);
+        this.player = player;
     }
 
     @Override
