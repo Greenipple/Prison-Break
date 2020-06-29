@@ -94,27 +94,27 @@ public class Player extends Entity implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_UP:
                 currentDirection = DirectionType.UP;
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP)){
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP) && !detected){
                     this.getPosition().moveInDirection(DirectionType.UP, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
                 currentDirection = DirectionType.RIGHT;
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT)){
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT) && !detected){
                     this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_DOWN:
                 currentDirection = DirectionType.DOWN;
-                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN)) {
+                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN) && !detected) {
                     this.getPosition().moveInDirection(DirectionType.DOWN, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT)) {
+                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT) && !detected) {
                     currentDirection = DirectionType.LEFT;
                     this.getPosition().moveInDirection(DirectionType.LEFT, 1);
                     break;
@@ -125,9 +125,6 @@ public class Player extends Entity implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
-        /*if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
-            this.action = false;
-        }*/
     }
 
     public boolean getAction() {
