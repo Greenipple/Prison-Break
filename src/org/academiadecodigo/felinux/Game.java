@@ -51,6 +51,10 @@ public class Game {
         this.doors = new Door[5];
     }
 
+    public void startMenu() {
+
+    }
+
     public void firstLevel() throws InterruptedException {
 
         this.init();
