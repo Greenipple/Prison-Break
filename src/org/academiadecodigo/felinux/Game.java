@@ -9,21 +9,22 @@ import org.academiadecodigo.felinux.Position.*;
 public class Game {
 
    public static final int DELAY = 400;
-   private GameObject walls;
    private Map map;
 
    private GameObject[] blockArray = new GameObject[167];
+   private GameObject wallBlock;
    private CollisionDetector collisionDetector;
-   private int blockArrayIterator = 0;
-   private int wallCount = 0;
-   private int fenceCount = 0;
 
    private Player player;
    private Entity[] movables;
    private Key key;
    private Barrel barrel;
+   private Door[] doors;
 
-   private int matrixPositions[][] = {
+   private int blockArrayIterator = 0;
+   private int doorArrayIterator = 0;
+
+    private int matrixPositions[][] = {
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
             {2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2},
             {2, 0, 8, 0, 0, 0, 2, 0, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2},
@@ -44,21 +45,21 @@ public class Game {
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
    };
 
-    public Game(){
+    public Game() {
         this.map = new Map();
         this.movables = new Entity[5];
+        this.doors = new Door[5];
     }
 
-    public void start() throws InterruptedException {
+    public void firstLevel() throws InterruptedException {
 
         this.init();
 
-        while (!player.isDetected()) {
+        while (!player.isDetected() && !player.hasWon()) {
 
             Thread.sleep(DELAY);
 
             this.moveAll();
-
         }
     }
 
@@ -99,43 +100,40 @@ public class Game {
 
                 //FENCE
                 if (matrixPositions[i][j] == 1) {
-                    walls = new Fence(new MapPosition(j , i, map));
-                    fenceCount++;
-                    blockArray[blockArrayIterator] = walls;
+                    wallBlock = new Fence(new MapPosition(j , i, map));
+                    blockArray[blockArrayIterator] = wallBlock;
                     blockArrayIterator++;
-                    walls.getPosition().show();
+                    wallBlock.getPosition().show();
                 }
 
                 //WALL
                 if (matrixPositions[i][j] == 2) {
-                    walls = new Wall(new MapPosition(j, i, map));
-                    wallCount++;
-                    blockArray[blockArrayIterator]= walls;
+                    wallBlock = new Wall(new MapPosition(j, i, map));
+                    blockArray[blockArrayIterator]= wallBlock;
                     blockArrayIterator++;
-                    walls.getPosition().show();
+                    wallBlock.getPosition().show();
 
                 }
 
                 //DOOR
                 if (matrixPositions[i][j] == 5) {
-                    walls = new Door(new MapPosition(j, i, map),this.player);
-                    walls.getPosition().show();
+                    wallBlock = new Door(new MapPosition(j, i, map),this.player);
+                    doors[doorArrayIterator] = (Door) wallBlock;
+                    doorArrayIterator++;
+                    wallBlock.getPosition().show();
 
                 }
 
             }
         }
 
-        collisionDetector = new CollisionDetector(this.player,this.movables,this.movables);
+        doors[2].shutDoor();
 
-        System.out.println("Walls: " + wallCount);
-        System.out.println(("Fences: " + fenceCount));
+        collisionDetector = new CollisionDetector(this.player,this.movables,this.movables,this.doors);
     }
 
 
     public void moveAll() {
-
-
 
         barrel.move();
 
