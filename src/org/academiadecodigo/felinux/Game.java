@@ -135,6 +135,8 @@ public class Game {
 
     public void moveAll() {
 
+
+
         barrel.move();
 
         key.store();
@@ -144,6 +146,7 @@ public class Game {
         }
 
         collisionDetector.verify();
+
     }
 
     public GameObject[] getBlockArray() {
