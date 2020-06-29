@@ -13,6 +13,10 @@ public class Door extends Item {
         this.shut = false;
     }
 
+    public boolean isShut(){
+        return this.shut;
+    }
+
     public void shutDoor() {
         this.shut = true;
     }

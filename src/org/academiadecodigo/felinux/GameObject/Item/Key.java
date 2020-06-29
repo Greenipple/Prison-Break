@@ -15,6 +15,13 @@ public class Key extends Item {
         if (this.isHold()) {
             this.getPosition().hide();
             getPlayer().gotKey();
+            getPlayer().setAction(false);
         }
+    }
+
+    @Override
+    public void beenHold() {
+        this.getPlayer().setAction(true);
+        super.beenHold();
     }
 }
