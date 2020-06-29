@@ -120,11 +120,13 @@ public class Game {
                 if (matrixPositions[i][j] == 5) {
                     walls = new Door(new MapPosition(j, i, map),this.player);
                     walls.getPosition().show();
+
                 }
+
             }
         }
 
-        collisionDetector = new CollisionDetector(this.player,this.movables);
+        collisionDetector = new CollisionDetector(this.player,this.movables,this.movables);
 
         System.out.println("Walls: " + wallCount);
         System.out.println(("Fences: " + fenceCount));
@@ -135,9 +137,13 @@ public class Game {
 
         barrel.move();
 
+        key.store();
+
         for (Entity object : movables) {
             object.move();
         }
+
+        collisionDetector.verify();
     }
 
     public GameObject[] getBlockArray() {

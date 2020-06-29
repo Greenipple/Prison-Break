@@ -18,27 +18,16 @@ public class CollisionDetector {
     public CollisionDetector(GameObject[] objects){
         this.objects = objects;
     }
-    public CollisionDetector(Player player, GameObject[] objects) {
+    public CollisionDetector(Player player, GameObject[] objects, Entity[] entities) {
         this.player = player;
         this.objects = objects;
+        this.entities = entities;
     }
 
     public void verify() {
-        for (GameObject object : objects) {
-            if (player.getPosition() == object.getPosition()) {
-                if (object instanceof Guard || object instanceof Dog) {
-                    player.gotDetected(); //player is detected if he crashes into a guard or dog
-                }
-
-                if (object instanceof Barrel) {
-                    Barrel barrel = (Barrel) object;
-                    barrel.beenHold();
-                }
-
-                if (object instanceof Key) {
-                    Key key = (Key) object;
-                    key.beenHold();
-                }
+        for (Entity entity : entities) {
+            if (player.getPosition().getCol() == entity.getPosition().getCol() && player.getPosition().getRow() == entity.getPosition().getRow()) {
+                player.gotDetected(); //player is detected if he crashes into a guard or dog
             }
         }
     }
@@ -49,7 +38,7 @@ public class CollisionDetector {
     public boolean isMovementAllowed(MapPosition mapPosition, DirectionType direction){
         switch(direction){
             case DOWN -> {
-                for(int i=0; i<objects.length; i++){
+                for(int i = 0; i < objects.length; i++) {
                     if(mapPosition.getCol() == objects[i].getPosition().getCol() &&  mapPosition.getRow() == objects[i].getPosition().getRow()-1){
                         return false;
                     }
@@ -57,7 +46,7 @@ public class CollisionDetector {
             }
 
             case UP -> {
-                for (int i=0; i<objects.length; i++){
+                for (int i = 0; i < objects.length; i++) {
                     if(mapPosition.getCol() == objects[i].getPosition().getCol() && mapPosition.getRow() == objects[i].getPosition().getRow()+1){
                         return false;
                     }
@@ -65,7 +54,7 @@ public class CollisionDetector {
             }
 
             case LEFT -> {
-                for (int i=0; i<objects.length; i++){
+                for (int i = 0; i < objects.length; i++) {
                     if (mapPosition.getRow() == objects[i].getPosition().getRow() && mapPosition.getCol() == objects[i].getPosition().getCol()+1){
                         return false;
                     }
@@ -73,7 +62,7 @@ public class CollisionDetector {
             }
 
             case RIGHT -> {
-                for (int i=0; i<objects.length; i++){
+                for (int i = 0; i < objects.length; i++) {
                     if (mapPosition.getRow() == objects[i].getPosition().getRow() && mapPosition.getCol() == objects[i].getPosition().getCol()-1){
                         return false;
                     }
@@ -95,16 +84,17 @@ public class CollisionDetector {
 
                 //center row;
                 for (int i = 0; i < sightRange; i++) {
-                        for (GameObject object : objects) {
-                            if (object.getPosition().getCol() == position.getCol() && object.getPosition().getRow() == position.getRow() -i -1) {
-                                canSeeCenterRow = false;
-                                break;
-                            }
-                            if (player.getPosition().getCol() == position.getCol() && player.getPosition().getRow() == position.getRow() -i -1 && canSeeCenterRow){
-                                player.gotDetected();
-                            }
+                    for (GameObject object : objects) {
+                        if (object.getPosition().getCol() == position.getCol() && object.getPosition().getRow() == position.getRow() -i -1) {
+                            canSeeCenterRow = false;
+                            break;
+                        }
+
+                        if (player.getPosition().getCol() == position.getCol() && player.getPosition().getRow() == position.getRow() -i -1 && canSeeCenterRow){
+                            player.gotDetected();
                         }
                     }
+                }
 
             }
         }
