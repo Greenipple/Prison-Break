@@ -14,8 +14,9 @@ public class CollisionDetector {
     private Door[] doors;
     private int sightRange = 5;
 
-    public CollisionDetector(GameObject[] objects) {
+    public CollisionDetector(GameObject[] objects,Door[] doors) {
         this.objects = objects;
+        this.doors = doors;
     }
     public CollisionDetector(Player player, GameObject[] objects, Entity[] entities, Door[] doors) {
         this.player = player;
@@ -34,7 +35,7 @@ public class CollisionDetector {
     }
 
     //Check if there's something ahead that blocks movement
-    public boolean isMovementAllowed(MapPosition mapPosition, DirectionType direction){
+    public boolean isMovementAllowed(MapPosition mapPosition, DirectionType direction) {
 
         switch(direction) {
             case DOWN -> {
@@ -45,12 +46,12 @@ public class CollisionDetector {
                 }
             }
             case UP -> {
-            for (int i = 0; i < objects.length; i++) {
-                if (mapPosition.getCol() == objects[i].getPosition().getCol() && mapPosition.getRow() == objects[i].getPosition().getRow() + 1) {
-                    return false;
+                for (int i = 0; i < objects.length; i++) {
+                    if (mapPosition.getCol() == objects[i].getPosition().getCol() && mapPosition.getRow() == objects[i].getPosition().getRow() + 1) {
+                        return false;
+                    }
                 }
             }
-        }
             case LEFT -> {
                 for (int i = 0; i < objects.length; i++) {
                     if (mapPosition.getRow() == objects[i].getPosition().getRow() && mapPosition.getCol() == objects[i].getPosition().getCol() + 1) {
@@ -66,41 +67,40 @@ public class CollisionDetector {
                 }
             }
         }
-        /* //Also checks for shut doors
-        switch(direction) {
 
-            case DOWN:
+        return true;
+    }
 
-                for (int i = 0; i < doors.length; i++) {
-                    if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() - 1 && doors[i].isShut()) {
-                        return false;
-                    }
+    public boolean isDoorAhead(MapPosition mapPosition, DirectionType direction) {
+        //Also checks for shut doors
+        for (int i = 0; i < doors.length; i++) {
+            if (doors[i].isShut()) {
+                switch(direction) {
+                    case DOWN:
+                        if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() - 1 && doors[i].isShut()) {
+                            return false;
+                        }
+                        break;
+
+                    case UP:
+                        if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() + 1 && doors[i].isShut()) {
+                            return false;
+                        }
+                        break;
+                    case LEFT:
+
+                        if (mapPosition.getCol() == doors[i].getPosition().getCol() + 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
+                            return false;
+                        }
+                        break;
+                    case RIGHT:
+                        if (mapPosition.getCol() == doors[i].getPosition().getCol() - 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
+                            return false;
+                        }
+                        break;
                 }
-
-            case UP:
-
-                for (int i = 0; i < doors.length; i++) {
-                    if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() + 1 && doors[i].isShut()) {
-                        return false;
-                    }
-                }
-
-
-            case LEFT:
-                for (int i = 0; i < doors.length; i++) {
-                    if (mapPosition.getCol() == doors[i].getPosition().getCol() + 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
-                        return false;
-                    }
-                }
-
-            case RIGHT:
-
-                for (int i = 0; i < doors.length; i++) {
-                    if (mapPosition.getCol() == doors[i].getPosition().getCol() - 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
-                        return false;
-                    }
-                }
-        }*/
+            }
+        }
         return true;
     }
 
@@ -230,7 +230,11 @@ public class CollisionDetector {
         }
     }
 
-    public void setPlayer (Player player){
+    public void setPlayer (Player player) {
         this.player = player;
+    }
+
+    public void setDoors (Door[] doors) {
+        this.doors = doors;
     }
 }
