@@ -24,7 +24,7 @@ public class CollisionDetector {
         this.doors = doors;
     }
 
-    //Player is detected if he crashes into a guard or dog
+    //Player is detected igit adf he crashes into a guard or dog
     public void verify() {
         for (Entity entity : entities) {
             if (player.getPosition().getCol() == entity.getPosition().getCol() && player.getPosition().getRow() == entity.getPosition().getRow()) {
