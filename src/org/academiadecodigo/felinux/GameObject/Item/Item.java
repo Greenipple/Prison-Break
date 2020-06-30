@@ -28,6 +28,9 @@ public class Item extends GameObject {
             return;
         }
     }
+    public void drop(){
+        this.hold=false;
+    }
 
     public Player getPlayer() {
         return this.player;

@@ -66,40 +66,44 @@ public class CollisionDetector {
                 }
             }
         }
-        /* //Also checks for shut doors
-        switch(direction) {
+         //Also checks for shut doors
+        /*switch(direction) {
 
-            case DOWN:
+            case DOWN -> {
 
                 for (int i = 0; i < doors.length; i++) {
                     if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() - 1 && doors[i].isShut()) {
                         return false;
                     }
                 }
+            }
 
-            case UP:
+            case UP -> {
 
                 for (int i = 0; i < doors.length; i++) {
                     if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() + 1 && doors[i].isShut()) {
                         return false;
                     }
                 }
+            }
 
 
-            case LEFT:
+            case LEFT -> {
                 for (int i = 0; i < doors.length; i++) {
                     if (mapPosition.getCol() == doors[i].getPosition().getCol() + 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
                         return false;
                     }
                 }
+            }
 
-            case RIGHT:
+            case RIGHT -> {
 
                 for (int i = 0; i < doors.length; i++) {
                     if (mapPosition.getCol() == doors[i].getPosition().getCol() - 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
                         return false;
                     }
                 }
+            }
         }*/
         return true;
     }
@@ -227,6 +231,16 @@ public class CollisionDetector {
 
                 }
             }
+        }
+    }
+
+    //Check place to drop barrel
+    public void barrelDropCheck(){
+       // System.out.println("HasBarrel : "+player.hasBarrel());
+        if (player.hasBarrel() && player.getPosition().getCol() == 7 && player.getPosition().getRow() ==16){
+            player.dropBarrel();
+
+            System.out.println("DROP MUTHAFUCKAAAAA");
         }
     }
 

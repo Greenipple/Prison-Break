@@ -123,6 +123,7 @@ public class Game {
         //BARREL
         barrel = new Barrel(new MapPosition(1, 9, map),this.player);
         barrel.getPosition().show();
+        player.setBarrel(barrel);
 
         //GUARDS
         movables[0] = new Guard(new MapPosition(21,4, map),1);

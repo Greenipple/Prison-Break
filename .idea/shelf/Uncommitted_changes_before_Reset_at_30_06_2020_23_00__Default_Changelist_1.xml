@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Reset_at_30_06_2020_23_00_[Default_Changelist]1" date="1593554432371" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Reset_at_30_06_2020_23_00_[Default_Changelist]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Reset at 30/06/2020 23:00 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/prisonBreak/org/academiadecodigo/felinux/Main.class" />
+    <option name="AFTER_PATH" value="out/production/prisonBreak/org/academiadecodigo/felinux/Main.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Reset_at_30_06_2020_23_00_[Default_Changelist]1/Main.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/prisonBreak/org/academiadecodigo/felinux/Position/MapPosition.class" />
+    <option name="AFTER_PATH" value="out/production/prisonBreak/org/academiadecodigo/felinux/Position/MapPosition.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Reset_at_30_06_2020_23_00_[Default_Changelist]1/MapPosition.class" />
+  </binary>
+</changelist>

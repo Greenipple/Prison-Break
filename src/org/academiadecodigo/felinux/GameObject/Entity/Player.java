@@ -1,5 +1,6 @@
 package org.academiadecodigo.felinux.GameObject.Entity;
 
+import org.academiadecodigo.felinux.GameObject.Item.Barrel;
 import org.academiadecodigo.felinux.Position.*;
 import org.academiadecodigo.felinux.Support.*;
 import org.academiadecodigo.simplegraphics.keyboard.*;
@@ -14,7 +15,7 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean key;
     private boolean wonLevel;
     private CollisionDetector collisionDetector;
-
+    private Barrel barrel;
     private boolean hasBarrel;
 
     public DirectionType currentDirection;
@@ -49,6 +50,12 @@ public class Player extends Entity implements KeyboardHandler {
 
     public void gotBarrel() {
         this.hasBarrel = true;
+    }
+
+    public void dropBarrel(){
+        this.hasBarrel = false;
+        this.barrel.drop();
+
     }
 
     public boolean hasWon() {
@@ -100,18 +107,19 @@ public class Player extends Entity implements KeyboardHandler {
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             //this.action = !action;
             spaceKeyUse();
-            //System.out.println("nmmm"+this.action);
         }
 
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_UP:
                 currentDirection = DirectionType.UP;
+                collisionDetector.barrelDropCheck();
                 if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP) && !detected && !isHidden){
                     this.getPosition().moveInDirection(DirectionType.UP, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
+                collisionDetector.barrelDropCheck();
                 currentDirection = DirectionType.RIGHT;
                 if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT) && !detected && !isHidden){
                     this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
@@ -119,6 +127,7 @@ public class Player extends Entity implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_DOWN:
+                collisionDetector.barrelDropCheck();
                 currentDirection = DirectionType.DOWN;
                 if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN) && !detected && !isHidden) {
                     this.getPosition().moveInDirection(DirectionType.DOWN, 1);
@@ -126,6 +135,7 @@ public class Player extends Entity implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
+                collisionDetector.barrelDropCheck();
                 if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT) && !detected && !isHidden) {
                     currentDirection = DirectionType.LEFT;
                     this.getPosition().moveInDirection(DirectionType.LEFT, 1);
@@ -138,7 +148,7 @@ public class Player extends Entity implements KeyboardHandler {
 
        if (hasBarrel){
            isHidden=!isHidden;
-           System.out.println(isHidden);
+           System.out.println("hiding :"+isHidden);
        }
 
         this.action=!action;
@@ -161,5 +171,11 @@ public class Player extends Entity implements KeyboardHandler {
         return isHidden;
     }
 
+    public boolean hasBarrel(){
+        return hasBarrel;
+    }
 
+    public void setBarrel(Barrel barrel) {
+        this.barrel = barrel;
+    }
 }
