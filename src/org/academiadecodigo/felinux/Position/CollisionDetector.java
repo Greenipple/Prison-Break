@@ -37,36 +37,36 @@ public class CollisionDetector {
     public boolean isMovementAllowed(MapPosition mapPosition, DirectionType direction){
 
         switch(direction) {
-            case DOWN:
-                for(int i = 0; i < objects.length; i++) {
+            case DOWN -> {
+                for (int i = 0; i < objects.length; i++) {
                     if (mapPosition.getCol() == objects[i].getPosition().getCol() && mapPosition.getRow() == objects[i].getPosition().getRow() - 1) {
                         return false;
                     }
                 }
-
-            case UP:
-                for (int i = 0; i < objects.length; i++) {
-                    if(mapPosition.getCol() == objects[i].getPosition().getCol() && mapPosition.getRow() == objects[i].getPosition().getRow() + 1) {
-                        return false;
-                    }
+            }
+            case UP -> {
+            for (int i = 0; i < objects.length; i++) {
+                if (mapPosition.getCol() == objects[i].getPosition().getCol() && mapPosition.getRow() == objects[i].getPosition().getRow() + 1) {
+                    return false;
                 }
-
-            case LEFT:
+            }
+        }
+            case LEFT -> {
                 for (int i = 0; i < objects.length; i++) {
                     if (mapPosition.getRow() == objects[i].getPosition().getRow() && mapPosition.getCol() == objects[i].getPosition().getCol() + 1) {
                         return false;
                     }
                 }
-
-            case RIGHT:
+            }
+            case RIGHT -> {
                 for (int i = 0; i < objects.length; i++) {
-                    if (mapPosition.getRow() == objects[i].getPosition().getRow() && mapPosition.getCol() == objects[i].getPosition().getCol()-1){
+                    if (mapPosition.getRow() == objects[i].getPosition().getRow() && mapPosition.getCol() == objects[i].getPosition().getCol() - 1) {
                         return false;
                     }
                 }
-
+            }
         }
-        /*
+        /* //Also checks for shut doors
         switch(direction) {
 
             case DOWN:
