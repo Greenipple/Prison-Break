@@ -134,7 +134,6 @@ public class CollisionDetector {
                     for(GameObject object : objects){
                         if(object.getPosition().getRow() == position.getRow() && object.getPosition().getCol() == position.getCol() -i){
                             unblockedSightRange=i;
-                            System.out.println("Wall spotted");
                             wallSpotted=true;
                             break;
                         }
@@ -142,7 +141,6 @@ public class CollisionDetector {
                 }
 
                 /**now we look for player within unblockedSightRange**/
-                System.out.println(unblockedSightRange+"c");
                for (int j =0; j<unblockedSightRange; j++){
                    if(player.getPosition().getCol() == position.getCol()-j &&
                            (player.getPosition().getRow()==position.getRow() || player.getPosition().getRow()==position.getRow()+1 || player.getPosition().getRow()==position.getRow()-1)){
