@@ -21,9 +21,12 @@ public class Dog extends Entity {
         DirectionType direction = DirectionType.values()[(int) Math.floor(Math.random() * 4)];
 
         playerArrived();
+
         if(arrive){
             followPlayer();
+            return;
         }
+
         hitWall(direction);
 
         if (haveWall) {
@@ -42,7 +45,7 @@ public class Dog extends Entity {
             return haveWall = true;
         }
 
-        if (directionType.equals(DirectionType.RIGHT) && this.getPosition().getCol() != 20){
+        if (directionType.equals(DirectionType.RIGHT) && this.getPosition().getCol() != 22){
             return haveWall = true;
         }
 
@@ -54,27 +57,25 @@ public class Dog extends Entity {
     }
 
     public boolean playerArrived(){
-        if (player.getPosition().getCol() == 10 && player.getPosition().getRow() == 16){
+        if (player.getPosition().getCol() >= 10 && player.getPosition().getRow() <= 16 && player.getPosition().getRow() >= 9){
             return arrive = true;
         }
-        return false;
+        return arrive = false;
     }
 
     public void followPlayer(){
 
-        if(arrive){
-            if(player.getPosition().getCol() != this.getPosition().getCol() && player.getPosition().getCol() < this.getPosition().getCol()){
-                this.getPosition().moveInDirection(DirectionType.LEFT, 1);
-            }
-            if(player.getPosition().getCol() != this.getPosition().getCol() && player.getPosition().getCol() > this.getPosition().getCol()){
-                this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
-            }
-            if(player.getPosition().getRow() != this.getPosition().getRow() && player.getPosition().getRow() > this.getPosition().getRow()){
-                this.getPosition().moveInDirection(DirectionType.DOWN, 1);
-            }
-            if(player.getPosition().getRow() != this.getPosition().getRow() && player.getPosition().getRow() > this.getPosition().getRow()){
-                this.getPosition().moveInDirection(DirectionType.DOWN, 1);
-            }
+        if(player.getPosition().getCol() != this.getPosition().getCol() && player.getPosition().getCol() < this.getPosition().getCol() && this.getPosition().getCol() != 10){
+            this.getPosition().moveInDirection(DirectionType.LEFT, 1);
+        }
+        if(player.getPosition().getCol() != this.getPosition().getCol() && player.getPosition().getCol() > this.getPosition().getCol() && this.getPosition().getCol() != 22){
+            this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
+        }
+        if(player.getPosition().getRow() != this.getPosition().getRow() && player.getPosition().getRow() > this.getPosition().getRow() && this.getPosition().getRow() != 16){
+            this.getPosition().moveInDirection(DirectionType.DOWN, 1);
+        }
+        if(player.getPosition().getRow() != this.getPosition().getRow() && player.getPosition().getRow() < this.getPosition().getRow() && this.getPosition().getRow() != 9){
+            this.getPosition().moveInDirection(DirectionType.UP, 1);
         }
     }
 }
