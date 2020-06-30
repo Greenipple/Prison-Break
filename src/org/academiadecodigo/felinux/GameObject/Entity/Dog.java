@@ -6,7 +6,6 @@ import org.academiadecodigo.felinux.Support.*;
 
 public class Dog extends Entity {
 
-    private boolean haveWall;
     private Player player;
     private boolean arrive;
 
@@ -20,43 +19,30 @@ public class Dog extends Entity {
 
         DirectionType direction = DirectionType.values()[(int) Math.floor(Math.random() * 4)];
 
-        playerArrived();
+        checkPlayer();
 
-        if(arrive){
+        if (arrive) {
             followPlayer();
             return;
         }
 
-        hitWall(direction);
+        dogMove(direction);
 
-        if (haveWall) {
-            this.getPosition().moveInDirection(direction, 1);
-            haveWall = false;
+    }
+
+    public void dogMove(DirectionType directionType){
+        //if dog is beside a wall, it won't move towards it
+        if ( (directionType.equals(DirectionType.UP) && this.getPosition().getRow() != 9) ||
+                (directionType.equals(DirectionType.DOWN) && this.getPosition().getRow() != 16) ||
+                (directionType.equals(DirectionType.RIGHT) && this.getPosition().getCol() != 22) ||
+                (directionType.equals(DirectionType.LEFT) && this.getPosition().getCol() != 10) ) {
+
+            this.getPosition().moveInDirection(directionType, 1);
+
         }
     }
 
-    public boolean hitWall(DirectionType directionType){
-
-        if (directionType.equals(DirectionType.UP) && this.getPosition().getRow() != 9){
-            return haveWall = true;
-        }
-
-        if (directionType.equals(DirectionType.DOWN) && this.getPosition().getRow() != 16){
-            return haveWall = true;
-        }
-
-        if (directionType.equals(DirectionType.RIGHT) && this.getPosition().getCol() != 22){
-            return haveWall = true;
-        }
-
-        if (directionType.equals(DirectionType.LEFT) && this.getPosition().getCol() != 10){
-            return haveWall = true;
-        }
-
-        return false;
-    }
-
-    public boolean playerArrived(){
+    public boolean checkPlayer(){
         if (player.getPosition().getCol() >= 10 && player.getPosition().getRow() <= 16 && player.getPosition().getRow() >= 9){
             return arrive = true;
         }
