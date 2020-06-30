@@ -98,7 +98,7 @@ public class CollisionDetector {
     }
 
     //Guards line of sight checker
-    public void lineOfSight(MapPosition position, DirectionType direction){
+    public void lineOfSight(MapPosition position, DirectionType direction) {
        /* switch (direction){
             case UP -> {
                 //canSee turns false if it hits a wall;
@@ -122,102 +122,103 @@ public class CollisionDetector {
 
             }
         }*/
+        if (!player.isHidden()) {
+            switch (direction) {
 
-        switch (direction){
-
-            case LEFT -> {
-                /**this checks how far they can see**/
-                int unblockedSightRange = sightRange;
-                boolean wallSpotted=false;
+                case LEFT -> {
+                    /**this checks how far they can see**/
+                    int unblockedSightRange = sightRange;
+                    boolean wallSpotted = false;
 
 
-                for(int i=0; i<sightRange && !wallSpotted; i++){
-                    for(GameObject object : objects){
-                        if(object.getPosition().getRow() == position.getRow() && object.getPosition().getCol() == position.getCol() -i){
-                            unblockedSightRange=i;
-                            wallSpotted=true;
-                            break;
+                    for (int i = 0; i < sightRange && !wallSpotted; i++) {
+                        for (GameObject object : objects) {
+                            if (object.getPosition().getRow() == position.getRow() && object.getPosition().getCol() == position.getCol() - i) {
+                                unblockedSightRange = i;
+                                wallSpotted = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    /**now we look for player within unblockedSightRange**/
+                    for (int j = 0; j < unblockedSightRange; j++) {
+                        if (player.getPosition().getCol() == position.getCol() - j &&
+                                (player.getPosition().getRow() == position.getRow() || player.getPosition().getRow() == position.getRow() + 1 || player.getPosition().getRow() == position.getRow() - 1)) {
+                            player.gotDetected();
                         }
                     }
                 }
 
-                /**now we look for player within unblockedSightRange**/
-               for (int j =0; j<unblockedSightRange; j++){
-                   if(player.getPosition().getCol() == position.getCol()-j &&
-                           (player.getPosition().getRow()==position.getRow() || player.getPosition().getRow()==position.getRow()+1 || player.getPosition().getRow()==position.getRow()-1)){
-                       player.gotDetected();
-                   }
-               }
-            }
+                case RIGHT -> {
+                    int unblockedSightRange = sightRange;
+                    boolean wallSpotted = false;
 
-            case RIGHT -> {
-                int unblockedSightRange = sightRange;
-                boolean wallSpotted=false;
+                    for (int i = 0; i < sightRange && !wallSpotted; i++) {
+                        for (GameObject object : objects) {
+                            if (object.getPosition().getRow() == position.getRow() && object.getPosition().getCol() == position.getCol() + i) {
+                                unblockedSightRange = i;
+                                wallSpotted = true;
+                                break;
+                            }
+                        }
+                    }
 
-                for(int i=0; i<sightRange && !wallSpotted; i++){
-                    for(GameObject object : objects){
-                        if(object.getPosition().getRow() == position.getRow() && object.getPosition().getCol() == position.getCol() +i){
-                            unblockedSightRange=i;
-                            wallSpotted=true;
-                            break;
+                    for (int j = 0; j < unblockedSightRange; j++) {
+                        if (player.getPosition().getCol() == position.getCol() + j &&
+                                (player.getPosition().getRow() == position.getRow() || player.getPosition().getRow() == position.getRow() + 1 || player.getPosition().getRow() == position.getRow() - 1)) {
+                            player.gotDetected();
+                        }
+                    }
+
+
+                }
+
+                case UP -> {
+                    int unblockedSightRange = sightRange;
+                    boolean wallSpotted = false;
+
+                    for (int i = 0; i < sightRange && !wallSpotted; i++) {
+                        for (GameObject object : objects) {
+                            if (object.getPosition().getRow() == position.getRow() - i && object.getPosition().getCol() == position.getCol()) {
+                                unblockedSightRange = i;
+                                wallSpotted = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    for (int j = 0; j < unblockedSightRange; j++) {
+                        if (player.getPosition().getRow() == position.getRow() - j &&
+                                (player.getPosition().getCol() == position.getCol() || player.getPosition().getCol() == position.getCol() + 1 || player.getPosition().getCol() == position.getCol() - 1)) {
+                            player.gotDetected();
                         }
                     }
                 }
 
-                for (int j =0; j<unblockedSightRange; j++){
-                    if(player.getPosition().getCol() == position.getCol()+j &&
-                            (player.getPosition().getRow()==position.getRow() || player.getPosition().getRow()==position.getRow()+1 || player.getPosition().getRow()==position.getRow()-1)){
-                        player.gotDetected();
-                    }
-                }
+                case DOWN -> {
 
+                    int unblockedSightRange = sightRange;
+                    boolean wallSpotted = false;
 
-            }
-
-            case UP -> {
-                int unblockedSightRange = sightRange;
-                boolean wallSpotted=false;
-
-                for(int i=0; i<sightRange && !wallSpotted; i++){
-                    for(GameObject object : objects){
-                        if(object.getPosition().getRow() == position.getRow()-i && object.getPosition().getCol() == position.getCol()){
-                            unblockedSightRange=i;
-                            wallSpotted=true;
-                            break;
+                    for (int i = 0; i < sightRange && !wallSpotted; i++) {
+                        for (GameObject object : objects) {
+                            if (object.getPosition().getRow() == position.getRow() + i && object.getPosition().getCol() == position.getCol()) {
+                                unblockedSightRange = i;
+                                wallSpotted = true;
+                                break;
+                            }
                         }
                     }
-                }
 
-                for (int j =0; j<unblockedSightRange; j++){
-                    if(player.getPosition().getRow() == position.getRow()-j &&
-                            (player.getPosition().getCol()==position.getCol() || player.getPosition().getCol()==position.getCol()+1 || player.getPosition().getCol()==position.getCol()-1)){
-                        player.gotDetected();
-                    }
-                }
-            }
-
-            case DOWN -> {
-
-                int unblockedSightRange = sightRange;
-                boolean wallSpotted=false;
-
-                for(int i=0; i<sightRange && !wallSpotted; i++){
-                    for(GameObject object : objects){
-                        if(object.getPosition().getRow() == position.getRow()+i && object.getPosition().getCol() == position.getCol()){
-                            unblockedSightRange=i;
-                            wallSpotted=true;
-                            break;
+                    for (int j = 0; j < unblockedSightRange; j++) {
+                        if (player.getPosition().getRow() == position.getRow() + j &&
+                                (player.getPosition().getCol() == position.getCol() || player.getPosition().getCol() == position.getCol() + 1 || player.getPosition().getCol() == position.getCol() - 1)) {
+                            player.gotDetected();
                         }
                     }
-                }
 
-                for (int j =0; j<unblockedSightRange; j++){
-                    if(player.getPosition().getRow() == position.getRow()+j &&
-                            (player.getPosition().getCol()==position.getCol() || player.getPosition().getCol()==position.getCol()+1 || player.getPosition().getCol()==position.getCol()-1)){
-                        player.gotDetected();
-                    }
                 }
-
             }
         }
     }

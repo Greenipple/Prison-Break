@@ -11,6 +11,7 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean action;
     private boolean detected;
     private boolean hasKey;
+    private boolean isHidden;
     private boolean wonLevel;
     private CollisionDetector collisionDetector;
 
@@ -93,40 +94,51 @@ public class Player extends Entity implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
-            this.action = !action;
-            System.out.println(""+this.action);
+            //this.action = !action;
+            spaceKeyUse();
+            //System.out.println("nmmm"+this.action);
         }
 
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_UP:
                 currentDirection = DirectionType.UP;
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP) && !detected){
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP) && !detected && !isHidden){
                     this.getPosition().moveInDirection(DirectionType.UP, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
                 currentDirection = DirectionType.RIGHT;
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT) && !detected){
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT) && !detected && !isHidden){
                     this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_DOWN:
                 currentDirection = DirectionType.DOWN;
-                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN) && !detected) {
+                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN) && !detected && !isHidden) {
                     this.getPosition().moveInDirection(DirectionType.DOWN, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT) && !detected) {
+                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT) && !detected && !isHidden) {
                     currentDirection = DirectionType.LEFT;
                     this.getPosition().moveInDirection(DirectionType.LEFT, 1);
                     break;
                 }
                 break;
         }
+    }
+    private void spaceKeyUse(){
+
+       if (hasBarrel){
+           isHidden=!isHidden;
+           System.out.println(isHidden);
+       }
+
+        this.action=!action;
+
     }
 
     @Override
@@ -140,4 +152,10 @@ public class Player extends Entity implements KeyboardHandler {
     public void setAction(boolean action) {
         this.action = action;
     }
+
+    public boolean isHidden() {
+        return isHidden;
+    }
+
+
 }

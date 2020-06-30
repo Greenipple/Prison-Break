@@ -16,6 +16,7 @@ public class Barrel extends Item implements Movable {
         this.beenHold();
 
         if(this.isHold()) {
+            getPlayer().gotBarrel();
             this.setPosition(getPlayer().getPosition());
             this.getPlayer().getPosition().hide();
             return;
