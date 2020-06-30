@@ -5,12 +5,16 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
-import org.academiadecodigo.felinux.Support.DirectionType;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Game {
 
    public static final int DELAY = 400;
    private Map map;
+   private Map startScreen;
+/*   private Map loadingScreen;
+   private Map gameOver;
+   private Map theEnd;*/
 
    private GameObject[] blockArray = new GameObject[167];
    private GameObject wallBlock;
@@ -47,12 +51,41 @@ public class Game {
    };
 
     public Game() {
-        this.map = new Map();
+        //this.startScreen = new Map("resources/startingScreen/start-screen.png");
+        //this.loadingScreen = new Map("");
+        this.map = new Map("");
+        /*this.gameOver = new Map("");
+        this.theEnd = new Map("");*/
         this.movables = new Entity[5];
         this.doors = new Door[5];
     }
 
-    public void startMenu() {
+    public void start() {
+
+
+
+        this.startScreen();
+
+        this.init();
+
+
+/*        while(this.player.getAction()) {
+            this.loadingScreen();
+        }*/
+
+        //this.firstLevel(); //gameOver() & theEnd() will be called by firstLevel()
+
+    }
+
+    public void startScreen() {
+        startScreen = new Map("resources/startingScreen/starting-screen.png");
+        startScreen.show();
+
+        this.player.setAction(false);
+
+    }
+
+    public void loadingScreen() {
 
     }
 
@@ -66,6 +99,14 @@ public class Game {
 
             this.moveAll();
         }
+    }
+
+    public void gameOver() {
+
+    }
+
+    public void theEnd() {
+
     }
 
     public void init() {
@@ -126,9 +167,7 @@ public class Game {
                     doors[doorArrayIterator] = (Door) wallBlock;
                     doorArrayIterator++;
                     wallBlock.getPosition().show();
-
                 }
-
             }
         }
 
@@ -137,20 +176,21 @@ public class Game {
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
     }
 
-
     public void moveAll() {
 
-        barrel.move();
+        key.check();
+        doors[2].check();
 
-        key.store();
+        barrel.move();
 
         for (Entity object : movables) {
             object.move();
         }
+
         collisionDetector.lineOfSight(movables[0].getPosition(), movables[0].getPosition().getFacing());
         collisionDetector.lineOfSight(movables[1].getPosition(),movables[1].getPosition().getFacing());
-        collisionDetector.verify();
 
+        collisionDetector.verify();
 
     }
     public CollisionDetector getCollisionDetector(){

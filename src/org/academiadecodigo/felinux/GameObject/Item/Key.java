@@ -10,18 +10,19 @@ public class Key extends Item {
         super(position, GameObjectType.KEY,player);
     }
 
-    public void store() {
+    public void check() {
+
         this.beenHold();
+
         if (this.isHold()) {
             this.getPosition().hide();
             getPlayer().gotKey();
-            getPlayer().setAction(false);
         }
     }
 
     @Override
     public void beenHold() {
-        this.getPlayer().setAction(true);
         super.beenHold();
+        this.getPlayer().gotKey();
     }
 }

@@ -21,7 +21,13 @@ public class Door extends Item {
         this.shut = true;
     }
 
-    public void openDoor() {
-        this.shut = false;
+    public void check() {
+
+        if (this.getPlayer().hasKey() &&
+                this.getPlayer().getPosition().getRow() == this.getPosition().getRow() - 1 &&
+                this.getPlayer().getPosition().getCol() == this.getPosition().getCol() &&
+                this.getPlayer().getAction()) {
+            this.shut = false;
+        }
     }
 }

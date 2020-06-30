@@ -10,8 +10,8 @@ public class Player extends Entity implements KeyboardHandler {
     private Keyboard keyboard;
     private boolean action;
     private boolean detected;
-    private boolean hasKey;
     private boolean isHidden;
+    private boolean key;
     private boolean wonLevel;
     private CollisionDetector collisionDetector;
 
@@ -23,7 +23,7 @@ public class Player extends Entity implements KeyboardHandler {
         super(position, GameObjectType.PLAYER);
         action = false;
         detected = false;
-        hasKey = false;
+        key = false;
         wonLevel = false;
         keyboard = new Keyboard(this);
         this.collisionDetector = collisionDetector;
@@ -40,7 +40,11 @@ public class Player extends Entity implements KeyboardHandler {
     }
 
     public void gotKey() {
-        this.hasKey = true;
+        this.key = true;
+    }
+
+    public boolean hasKey() {
+        return this.key;
     }
 
     public void gotBarrel() {

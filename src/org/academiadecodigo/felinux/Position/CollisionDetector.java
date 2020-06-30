@@ -12,9 +12,9 @@ public class CollisionDetector {
     private GameObject[] objects; // Walls & fences
     private Entity[] entities;
     private Door[] doors;
-    private int sightRange = 10;
+    private int sightRange = 5;
 
-    public CollisionDetector(GameObject[] objects){
+    public CollisionDetector(GameObject[] objects) {
         this.objects = objects;
     }
     public CollisionDetector(Player player, GameObject[] objects, Entity[] entities, Door[] doors) {
@@ -35,70 +35,77 @@ public class CollisionDetector {
 
     //Check if there's something ahead that blocks movement
     public boolean isMovementAllowed(MapPosition mapPosition, DirectionType direction){
+
         switch(direction) {
-
-            case DOWN -> {
-
+            case DOWN:
                 for(int i = 0; i < objects.length; i++) {
                     if (mapPosition.getCol() == objects[i].getPosition().getCol() && mapPosition.getRow() == objects[i].getPosition().getRow() - 1) {
                         return false;
                     }
                 }
-/*
-                for (int i = 0; i < doors.length; i++) {
-                    if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() - 1 && doors[i].isShut()) {
-                        return false;
-                    }
-                }*/
-            }
 
-            case UP -> {
+            case UP:
                 for (int i = 0; i < objects.length; i++) {
                     if(mapPosition.getCol() == objects[i].getPosition().getCol() && mapPosition.getRow() == objects[i].getPosition().getRow() + 1) {
                         return false;
                     }
                 }
-/*
-                for (int i = 0; i < doors.length; i++) {
-                    if (mapPosition.getCol() == doors[i].getPosition().getCol() &&  mapPosition.getRow() == doors[i].getPosition().getRow() + 1 && doors[i].isShut()) {
-                        return false;
-                    }
-                }*/
-            }
 
-            case LEFT -> {
+            case LEFT:
                 for (int i = 0; i < objects.length; i++) {
                     if (mapPosition.getRow() == objects[i].getPosition().getRow() && mapPosition.getCol() == objects[i].getPosition().getCol() + 1) {
                         return false;
                     }
                 }
-/*
-                for (int i = 0; i < doors.length; i++) {
-                    if (mapPosition.getCol() == doors[i].getPosition().getCol() + 1 &&  mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
-                        return false;
-                    }
-                }*/
-            }
 
-            case RIGHT -> {
+            case RIGHT:
                 for (int i = 0; i < objects.length; i++) {
                     if (mapPosition.getRow() == objects[i].getPosition().getRow() && mapPosition.getCol() == objects[i].getPosition().getCol()-1){
                         return false;
                     }
                 }
-/*
+
+        }
+        /*
+        switch(direction) {
+
+            case DOWN:
+
                 for (int i = 0; i < doors.length; i++) {
-                    if (mapPosition.getCol() == doors[i].getPosition().getCol() - 1 &&  mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
+                    if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() - 1 && doors[i].isShut()) {
                         return false;
                     }
-                }*/
-            }
-        }
+                }
+
+            case UP:
+
+                for (int i = 0; i < doors.length; i++) {
+                    if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() + 1 && doors[i].isShut()) {
+                        return false;
+                    }
+                }
+
+
+            case LEFT:
+                for (int i = 0; i < doors.length; i++) {
+                    if (mapPosition.getCol() == doors[i].getPosition().getCol() + 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
+                        return false;
+                    }
+                }
+
+            case RIGHT:
+
+                for (int i = 0; i < doors.length; i++) {
+                    if (mapPosition.getCol() == doors[i].getPosition().getCol() - 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
+                        return false;
+                    }
+                }
+        }*/
         return true;
     }
 
     //Guards line of sight checker
-    public void lineOfSight(MapPosition position, DirectionType direction) {
+    public void lineOfSight(MapPosition position, DirectionType direction){
        /* switch (direction){
             case UP -> {
                 //canSee turns false if it hits a wall;
