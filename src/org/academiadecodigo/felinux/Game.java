@@ -143,7 +143,8 @@ public class Game {
         for (Entity object : movables) {
             object.move();
         }
-        collisionDetector.lineOfSight(movables[0].getPosition(), DirectionType.LEFT);
+        collisionDetector.lineOfSight(movables[0].getPosition(), movables[0].getPosition().getFacing());
+        collisionDetector.lineOfSight(movables[1].getPosition(),movables[1].getPosition().getFacing());
         collisionDetector.verify();
 
 

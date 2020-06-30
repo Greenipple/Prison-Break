@@ -122,4 +122,7 @@ public class MapPosition {
         this.rectangle.delete();
     }
 
+    public DirectionType getFacing() {
+        return facing;
+    }
 }
