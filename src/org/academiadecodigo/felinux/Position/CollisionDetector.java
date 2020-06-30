@@ -94,6 +94,41 @@ public class CollisionDetector {
                 }*/
             }
         }
+
+        switch(direction) {
+
+            case DOWN:
+
+                for (int i = 0; i < doors.length; i++) {
+                    if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() - 1 && doors[i].isShut()) {
+                        return false;
+                    }
+                }
+
+            case UP:
+
+                for (int i = 0; i < doors.length; i++) {
+                    if (mapPosition.getCol() == doors[i].getPosition().getCol() && mapPosition.getRow() == doors[i].getPosition().getRow() + 1 && doors[i].isShut()) {
+                        return false;
+                    }
+                }
+
+
+            case LEFT:
+                for (int i = 0; i < doors.length; i++) {
+                    if (mapPosition.getCol() == doors[i].getPosition().getCol() + 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
+                        return false;
+                    }
+                }
+
+            case RIGHT:
+
+                for (int i = 0; i < doors.length; i++) {
+                    if (mapPosition.getCol() == doors[i].getPosition().getCol() - 1 && mapPosition.getRow() == doors[i].getPosition().getRow() && doors[i].isShut()) {
+                        return false;
+                    }
+                }
+        }
         return true;
     }
 

@@ -161,9 +161,7 @@ public class Game {
                     doors[doorArrayIterator] = (Door) wallBlock;
                     doorArrayIterator++;
                     wallBlock.getPosition().show();
-
                 }
-
             }
         }
 
@@ -171,7 +169,6 @@ public class Game {
 
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
     }
-
 
     public void moveAll() {
 
