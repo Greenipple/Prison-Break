@@ -33,4 +33,8 @@ public class Map {
     public Rectangle getRect(){
         return this.rect;
     }
+
+    public void show(){
+        this.pic.draw();
+    }
 }
