@@ -52,6 +52,10 @@ public class Game {
         this.doors = new Door[5];
     }
 
+    public void startMenu() {
+
+    }
+
     public void firstLevel() throws InterruptedException {
 
         this.init();
@@ -87,13 +91,13 @@ public class Game {
         movables[1].getPosition().show();
 
         //DOGS
-        movables[2] = new Dog(new MapPosition(12,11,map));
+        movables[2] = new Dog(new MapPosition(12,11,map), this.player);
         movables[2].getPosition().show();
 
-        movables[3] = new Dog(new MapPosition(15,13,map));
+        movables[3] = new Dog(new MapPosition(15,13,map), this.player);
         movables[3].getPosition().show();
 
-        movables[4] = new Dog(new MapPosition(13,15,map));
+        movables[4] = new Dog(new MapPosition(13,15,map), this.player);
         movables[4].getPosition().show();
 
         for (int i = 0; i < matrixPositions.length; i++) {
