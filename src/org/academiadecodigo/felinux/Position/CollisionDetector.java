@@ -12,7 +12,7 @@ public class CollisionDetector {
     private GameObject[] objects; // Walls & fences
     private Entity[] entities;
     private Door[] doors;
-    private int sightRange = 10;
+    private int sightRange = 7;
 
     public CollisionDetector(GameObject[] objects){
         this.objects = objects;
