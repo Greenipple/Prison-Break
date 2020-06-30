@@ -5,7 +5,6 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Game {
 
@@ -178,6 +177,8 @@ public class Game {
     }
 
     public void moveAll() {
+
+        player.checkWin();
 
         key.check();
         doors[2].check();

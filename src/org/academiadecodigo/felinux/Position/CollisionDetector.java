@@ -236,5 +236,9 @@ public class CollisionDetector {
 
     public void setDoors (Door[] doors) {
         this.doors = doors;
+
+        for (int i = 0; i < doors.length; i++) {
+            doors[i].getPosition().show();
+        }
     }
 }

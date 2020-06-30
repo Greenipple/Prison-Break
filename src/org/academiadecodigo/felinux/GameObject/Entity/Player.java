@@ -165,5 +165,11 @@ public class Player extends Entity implements KeyboardHandler {
         return isHidden;
     }
 
+    public void checkWin() {
+        if (getPosition().getCol() == 23) {
+            this.wonLevel = true;
+        }
+    }
+
 
 }
