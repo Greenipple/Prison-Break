@@ -30,4 +30,9 @@ public class Door extends Item {
             this.shut = false;
         }
     }
+
+    @Override
+    public boolean isHold() {
+        return false;
+    }
 }

@@ -5,7 +5,6 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Game {
 
@@ -110,7 +109,7 @@ public class Game {
     }
 
     public void init() {
-        collisionDetector = new CollisionDetector(blockArray);
+        collisionDetector = new CollisionDetector(blockArray,doors);
 
         player = new Player(new MapPosition(2, 2,map),collisionDetector);
         collisionDetector.setPlayer(player);
@@ -164,8 +163,7 @@ public class Game {
 
                 //DOOR
                 if (matrixPositions[i][j] == 5) {
-                    wallBlock = new Door(new MapPosition(j, i, map),this.player);
-                    doors[doorArrayIterator] = (Door) wallBlock;
+                    doors[doorArrayIterator] = new Door(new MapPosition(j, i, map),this.player);
                     doorArrayIterator++;
                     wallBlock.getPosition().show();
                 }
@@ -175,9 +173,13 @@ public class Game {
         doors[2].shutDoor();
 
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
+
+        collisionDetector.setDoors(this.doors);
     }
 
     public void moveAll() {
+
+        player.checkWin();
 
         key.check();
         doors[2].check();
