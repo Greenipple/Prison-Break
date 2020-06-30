@@ -136,4 +136,7 @@ public class MapPosition {
         //this.picture.delete();
     }
 
+    public DirectionType getFacing() {
+        return facing;
+    }
 }
