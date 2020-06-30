@@ -175,9 +175,10 @@ public class Game {
 
     public void moveAll() {
 
-        barrel.move();
+        key.check();
+        doors[2].check();
 
-        key.store();
+        barrel.move();
 
         for (Entity object : movables) {
             object.move();
@@ -185,6 +186,7 @@ public class Game {
 
         collisionDetector.lineOfSight(movables[0].getPosition(), movables[0].getPosition().getFacing());
         collisionDetector.lineOfSight(movables[1].getPosition(),movables[1].getPosition().getFacing());
+
         collisionDetector.verify();
 
     }
