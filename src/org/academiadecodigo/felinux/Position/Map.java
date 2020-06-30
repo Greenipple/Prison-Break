@@ -1,6 +1,7 @@
 package org.academiadecodigo.felinux.Position;
 
 import org.academiadecodigo.simplegraphics.graphics.*;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Map {
 
@@ -8,12 +9,15 @@ public class Map {
     public static final int PADDING = 10;
     public static final int COLS = 24;
     public static final int ROWS = 18;
-    private Rectangle rect;
 
-    public Map(){
+    private Rectangle rect;
+    private Picture pic;
+
+    public Map(String sourcePicture) {
         rect = new Rectangle(PADDING, PADDING, mapWidth(), mapHeight());
         rect.setColor(Color.WHITE);
         rect.draw();
+        this.pic = new Picture(PADDING, PADDING, sourcePicture);
     }
 
     /** auxiliary methods**/

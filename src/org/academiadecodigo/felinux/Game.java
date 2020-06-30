@@ -5,12 +5,15 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
-import org.academiadecodigo.felinux.Support.DirectionType;
 
 public class Game {
 
    public static final int DELAY = 400;
    private Map map;
+   private Map startScreen;
+   private Map loadingScreen;
+   private Map gameOver;
+   private Map theEnd;
 
    private GameObject[] blockArray = new GameObject[167];
    private GameObject wallBlock;
@@ -47,12 +50,36 @@ public class Game {
    };
 
     public Game() {
-        this.map = new Map();
+        this.startScreen = new Map("");
+        this.loadingScreen = new Map("");
+        this.map = new Map("");
+        this.gameOver = new Map("");
+        this.theEnd = new Map("");
         this.movables = new Entity[5];
         this.doors = new Door[5];
     }
 
-    public void startMenu() {
+    public void start() {
+
+        this.init();
+
+        while (!this.player.getAction()) {
+            this.startScreen();
+        }
+
+        while(this.player.getAction()) {
+            this.loadingScreen();
+        }
+
+        //this.firstLevel(); //gameOver() & theEnd() will be called by firstLevel()
+
+    }
+
+    public void startScreen() {
+
+    }
+
+    public void loadingScreen() {
 
     }
 
@@ -66,6 +93,14 @@ public class Game {
 
             this.moveAll();
         }
+    }
+
+    public void gameOver() {
+
+    }
+
+    public void theEnd() {
+
     }
 
     public void init() {
@@ -147,10 +182,10 @@ public class Game {
         for (Entity object : movables) {
             object.move();
         }
+
         collisionDetector.lineOfSight(movables[0].getPosition(), movables[0].getPosition().getFacing());
         collisionDetector.lineOfSight(movables[1].getPosition(),movables[1].getPosition().getFacing());
         collisionDetector.verify();
-
 
     }
     public CollisionDetector getCollisionDetector(){

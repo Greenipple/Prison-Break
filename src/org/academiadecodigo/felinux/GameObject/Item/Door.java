@@ -22,6 +22,10 @@ public class Door extends Item {
     }
 
     public void openDoor() {
-        this.shut = false;
+
+        if (this.getPlayer().hasKey()) {
+            this.shut = false;
+        }
+
     }
 }

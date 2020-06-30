@@ -23,5 +23,6 @@ public class Key extends Item {
     public void beenHold() {
         this.getPlayer().setAction(true);
         super.beenHold();
+        this.getPlayer().gotKey();
     }
 }
