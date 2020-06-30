@@ -106,31 +106,35 @@ public class Player extends Entity implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_UP:
                 currentDirection = DirectionType.UP;
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP) &&
-                        this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.UP) && !detected && !isHidden) {
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP)
+                        && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.UP)
+                        && !detected && !isHidden && getPosition().getCol() < 23) {
                     this.getPosition().moveInDirection(DirectionType.UP, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
                 currentDirection = DirectionType.RIGHT;
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT) &&
-                        this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.RIGHT) && !detected && !isHidden) {
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT)
+                        && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.RIGHT)
+                        && !detected && !isHidden && getPosition().getCol() < 23) {
                     this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_DOWN:
                 currentDirection = DirectionType.DOWN;
-                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN) &&
-                        this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.DOWN) && !detected && !isHidden) {
+                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN)
+                        && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.DOWN)
+                        && !detected && !isHidden && getPosition().getCol() < 23) {
                     this.getPosition().moveInDirection(DirectionType.DOWN, 1);
                     break;
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT) &&
-                        this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.LEFT) && !detected && !isHidden) {
+                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT)
+                        && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.LEFT)
+                        && !detected && !isHidden && getPosition().getCol() < 23) {
                     currentDirection = DirectionType.LEFT;
                     this.getPosition().moveInDirection(DirectionType.LEFT, 1);
                     break;
