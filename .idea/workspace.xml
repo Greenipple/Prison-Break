@@ -19,15 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Position/CollisionDetector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Position/CollisionDetector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Position/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrisonBreakGame/org/academiadecodigo/felinux/Position/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/CollisionDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/CollisionDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Position/Route.java" afterDir="false" />
-    </list>
+    <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,6 +89,7 @@
       <workItem from="1593473737382" duration="3118000" />
       <workItem from="1593478498702" duration="226000" />
       <workItem from="1593484335921" duration="313000" />
+      <workItem from="1593485708413" duration="112000" />
     </task>
     <task id="LOCAL-00001" summary="fefefe">
       <created>1593253370565</created>

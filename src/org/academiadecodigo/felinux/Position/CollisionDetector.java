@@ -138,11 +138,8 @@ public class CollisionDetector {
                             wallSpotted=true;
                             break;
                         }
-                        //System.out.println(unblockedSightRange+"a");
                     }
-                    System.out.println(unblockedSightRange);
                 }
-                System.out.println(unblockedSightRange+"b");
 
                 /**now we look for player within unblockedSightRange**/
                 System.out.println(unblockedSightRange+"c");
