@@ -8,7 +8,10 @@ public class Route {
     private static int auxCounter = 13;
     private static int path = 15;
 
+
+
     public static void guard1Move(Guard guard1) {
+
 
 
         if (guard1.getPosition().getCol() != 8 && auxCounter > 0){
