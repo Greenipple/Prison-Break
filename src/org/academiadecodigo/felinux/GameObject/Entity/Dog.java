@@ -7,7 +7,6 @@ import org.academiadecodigo.felinux.Support.*;
 public class Dog extends Entity {
 
     private Player player;
-    private boolean arrive;
 
     public Dog(MapPosition position, Player player) {
         super(position, GameObjectType.DOG);
@@ -20,11 +19,6 @@ public class Dog extends Entity {
         DirectionType direction = DirectionType.values()[(int) Math.floor(Math.random() * 4)];
 
         checkPlayer();
-
-        if (arrive) {
-            followPlayer();
-            return;
-        }
 
         dogMove(direction);
 
@@ -42,25 +36,29 @@ public class Dog extends Entity {
         }
     }
 
-    public boolean checkPlayer(){
+    public void checkPlayer() {
+
         if (player.getPosition().getCol() >= 10 && player.getPosition().getRow() <= 16 && player.getPosition().getRow() >= 9){
-            return arrive = true;
+            followPlayer();
         }
-        return arrive = false;
+
     }
 
     public void followPlayer(){
 
-        if(player.getPosition().getCol() != this.getPosition().getCol() && player.getPosition().getCol() < this.getPosition().getCol() && this.getPosition().getCol() != 10){
+        if (player.getPosition().getCol() != this.getPosition().getCol() && player.getPosition().getCol() < this.getPosition().getCol() && this.getPosition().getCol() != 10) {
             this.getPosition().moveInDirection(DirectionType.LEFT, 1);
         }
-        if(player.getPosition().getCol() != this.getPosition().getCol() && player.getPosition().getCol() > this.getPosition().getCol() && this.getPosition().getCol() != 22){
+
+        if (player.getPosition().getCol() != this.getPosition().getCol() && player.getPosition().getCol() > this.getPosition().getCol() && this.getPosition().getCol() != 22) {
             this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
         }
-        if(player.getPosition().getRow() != this.getPosition().getRow() && player.getPosition().getRow() > this.getPosition().getRow() && this.getPosition().getRow() != 16){
+
+        if (player.getPosition().getRow() != this.getPosition().getRow() && player.getPosition().getRow() > this.getPosition().getRow() && this.getPosition().getRow() != 16) {
             this.getPosition().moveInDirection(DirectionType.DOWN, 1);
         }
-        if(player.getPosition().getRow() != this.getPosition().getRow() && player.getPosition().getRow() < this.getPosition().getRow() && this.getPosition().getRow() != 9){
+
+        if (player.getPosition().getRow() != this.getPosition().getRow() && player.getPosition().getRow() < this.getPosition().getRow() && this.getPosition().getRow() != 9) {
             this.getPosition().moveInDirection(DirectionType.UP, 1);
         }
     }
