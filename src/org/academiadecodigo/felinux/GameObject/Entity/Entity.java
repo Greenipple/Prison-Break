@@ -10,4 +10,8 @@ public abstract class Entity extends GameObject implements Movable {
         super(position, gameObjectType);
     }
 
+    @Override
+    public void move() {
+        this.getPosition().setSource(this.getGameObjectType().getSource(this.getPosition().getFacing()));
+    }
 }

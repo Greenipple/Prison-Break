@@ -22,6 +22,8 @@ public class Dog extends Entity {
 
         dogMove(direction);
 
+        super.move();
+
     }
 
     public void dogMove(DirectionType directionType){
