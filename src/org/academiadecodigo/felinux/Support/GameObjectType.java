@@ -3,28 +3,43 @@ package org.academiadecodigo.felinux.Support;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public enum GameObjectType {
-    FENCE(Color.DARK_GRAY,""),
+    FENCE(Color.DARK_GRAY,"resources/Wall/wall.png"),
     WALL(Color.BLACK,"resources/Wall/wall.png"),
-    BARREL(Color.GRAY,"Barrel.png"),
-    KEY(Color.YELLOW,""),
-    DOOR(Color.LIGHT_GRAY,"door close.png"),
-    GUARD(Color.BLUE,"blackPoliceFront.png"),
-    DOG(Color.RED,"DogUp.png"),
-    PLAYER(Color.GREEN,"CowboyFront.png");
+    BARREL(Color.GRAY,"resources/Barrel/Barrel.png"),
+    KEY(Color.YELLOW,"resources/Dog/DogUp.png"),
+    DOOR(Color.LIGHT_GRAY,"resources/door/door close.png"),
+    GUARD(Color.BLUE,"resources/Police/BlackPolice/blackPoliceFront.png"),
+    DOG(Color.RED,"resources/Dog/DogUp.png"),
+    PLAYER(Color.GREEN,"resources/player/CowboyPlayer/CowboyFront.png");
 
     private Color color;
-    private java.lang.String source;
+    private String sourceUp;
+    private String sourceRight;
+    private String sourceDown;
+    private String sourceLeft;
 
-    GameObjectType(Color color, java.lang.String source) {
+    GameObjectType(Color color, String sourceUp) {
         this.color = color;
-        this.source = source;
+        this.sourceUp = sourceUp;
     }
 
     public Color getColor() {
         return this.color;
     }
 
-    public java.lang.String getSource() {
-        return this.source;
+    public String getSourceUp() {
+        return this.sourceUp;
+    }
+
+    public String getSourceRight() {
+        return this.sourceRight;
+    }
+
+    public String getSourceDown() {
+        return this.sourceDown;
+    }
+
+    public String getSourceLeft() {
+        return this.sourceLeft;
     }
 }
