@@ -117,7 +117,12 @@ public class Player extends Entity implements KeyboardHandler {
                 if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP)
                         && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.UP)
                         && !detected && !isHidden && getPosition().getCol() < 23) {
+
                     this.getPosition().moveInDirection(DirectionType.UP, 1);
+
+                    if(hasBarrel){
+                        barrel.getPosition().moveInDirection(DirectionType.UP,SPEED);
+                    }
                     break;
                 }
                 break;
@@ -127,7 +132,12 @@ public class Player extends Entity implements KeyboardHandler {
                 if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT)
                         && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.RIGHT)
                         && !detected && !isHidden && getPosition().getCol() < 23) {
+
                     this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
+
+                    if(hasBarrel){
+                        barrel.getPosition().moveInDirection(DirectionType.RIGHT,SPEED);
+                    }
                     break;
                 }
                 break;
@@ -138,6 +148,10 @@ public class Player extends Entity implements KeyboardHandler {
                         && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.DOWN)
                         && !detected && !isHidden && getPosition().getCol() < 23) {
                     this.getPosition().moveInDirection(DirectionType.DOWN, 1);
+
+                    if(hasBarrel){
+                        barrel.getPosition().moveInDirection(DirectionType.DOWN,SPEED);
+                    }
                     break;
                 }
                 break;
@@ -148,6 +162,10 @@ public class Player extends Entity implements KeyboardHandler {
                         && !detected && !isHidden && getPosition().getCol() < 23) {
                     currentDirection = DirectionType.LEFT;
                     this.getPosition().moveInDirection(DirectionType.LEFT, 1);
+
+                    if(hasBarrel){
+                        barrel.getPosition().moveInDirection(DirectionType.LEFT,SPEED);
+                    }
                     break;
                 }
                 break;
@@ -158,6 +176,12 @@ public class Player extends Entity implements KeyboardHandler {
        if (hasBarrel){
            isHidden=!isHidden;
            System.out.println("hiding :"+isHidden);
+       }
+       if(isHidden){
+           this.getPosition().hide();
+       }
+       if(!isHidden){
+           this.getPosition().show();
        }
 
         this.action=!action;
