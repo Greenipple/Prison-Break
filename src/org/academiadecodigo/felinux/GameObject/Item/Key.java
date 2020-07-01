@@ -23,6 +23,8 @@ public class Key extends Item {
     @Override
     public void beenHold() {
         super.beenHold();
-        this.getPlayer().gotKey();
+       if (this.isHold()==true) {
+           this.getPlayer().gotKey();
+       }
     }
 }
