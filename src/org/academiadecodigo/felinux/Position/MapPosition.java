@@ -20,7 +20,7 @@ public class MapPosition {
             this.row = row;
             this.map = map;
             //this.rectangle = new Rectangle(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, Map.CELL_SIZE, Map.CELL_SIZE);
-            this.picture = new Picture(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, "");
+            this.picture = new Picture(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, "resources/floor/floor.png");
         }
 
         public void moveInDirection(DirectionType direction, int distance) {
