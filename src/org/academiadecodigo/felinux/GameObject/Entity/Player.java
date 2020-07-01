@@ -8,6 +8,7 @@ import org.academiadecodigo.simplegraphics.keyboard.*;
 public class Player extends Entity implements KeyboardHandler {
 
     private final int SPEED = 1;
+    private boolean startGame;
     private Keyboard keyboard;
     private boolean action;
     private boolean detected;
@@ -89,6 +90,11 @@ public class Player extends Entity implements KeyboardHandler {
         space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(space);
 
+        KeyboardEvent sKey = new KeyboardEvent();
+        sKey.setKey(KeyboardEvent.KEY_S);
+        sKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(sKey);
+
     }
 
     @Override
@@ -107,6 +113,12 @@ public class Player extends Entity implements KeyboardHandler {
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             //this.action = !action;
             spaceKeyUse();
+            //System.out.println("nmmm"+this.action);
+        }
+
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
+            //this.action = !action;
+            this.startGame = true;
             //System.out.println("nmmm"+this.action);
         }
 
@@ -218,5 +230,9 @@ public class Player extends Entity implements KeyboardHandler {
 
     public void setBarrel(Barrel barrel) {
         this.barrel = barrel;
+    }
+
+    public boolean getStartGame(){
+        return startGame;
     }
 }

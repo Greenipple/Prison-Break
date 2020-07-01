@@ -7,12 +7,18 @@ import org.academiadecodigo.felinux.Support.DirectionType;
 
 import java.util.Arrays;
 
+
 public class CollisionDetector {
     private Player player;
     private GameObject[] objects; // Walls & fences
     private Entity[] entities;
     private Door[] doors;
     private int sightRange = 5;
+
+    public CollisionDetector() {
+
+    }
+
 
     public CollisionDetector(GameObject[] objects,Door[] doors) {
         this.objects = objects;

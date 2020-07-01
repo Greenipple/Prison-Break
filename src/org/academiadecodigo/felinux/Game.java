@@ -11,8 +11,8 @@ public class Game {
    public static final int DELAY = 400;
    private Map map;
    private Map startScreen;
-/*   private Map loadingScreen;
-   private Map gameOver;
+   private Map loadingScreen;
+  /* private Map gameOver;
    private Map theEnd;*/
 
    private GameObject[] blockArray = new GameObject[167];
@@ -50,7 +50,7 @@ public class Game {
    };
 
     public Game() {
-        //this.startScreen = new Map("resources/startingScreen/start-screen.png");
+        this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
         this.map = new Map("");
         /*this.gameOver = new Map("");
@@ -59,13 +59,18 @@ public class Game {
         this.doors = new Door[5];
     }
 
-    public void start() {
+    public void start() throws InterruptedException {
+
+        this.player = new Player(new MapPosition(-1, -1, startScreen), new CollisionDetector());
+        while(!player.getStartGame()){
+            this.player.init();
+            this.startScreen();
+        }
+        this.loadingScreen();
+        this.firstLevel();
 
 
-
-        this.startScreen();
-
-        this.init();
+        //this.init();
 
 
 /*        while(this.player.getAction()) {
@@ -80,15 +85,25 @@ public class Game {
         startScreen = new Map("resources/startingScreen/starting-screen.png");
         startScreen.show();
 
-        this.player.setAction(false);
+/*        if(player.getStartGame()){
+            startScreen.hidde();
+        }*/
+    }
 
+    public void setGameStart(boolean bool){
+        this.setGameStart(bool);
     }
 
     public void loadingScreen() {
-
+        loadingScreen = new Map("resources/loadingScreen/loading.png");
+        loadingScreen.show();
+        timer();
+        loadingScreen.hidde();
     }
 
     public void firstLevel() throws InterruptedException {
+
+        startScreen.hidde();
 
         this.init();
 
@@ -202,4 +217,14 @@ public class Game {
     public GameObject[] getBlockArray() {
         return blockArray;
     }
+
+   public void timer(){
+       for (int i = 5; i > 0; i--) {
+           try {
+               Thread.sleep(1000);
+           }catch (InterruptedException e){
+               e.printStackTrace();
+           }
+       }
+   }
 }
