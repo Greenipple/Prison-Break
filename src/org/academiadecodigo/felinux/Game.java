@@ -127,7 +127,7 @@ public class Game {
 
     public void init() {
 
-        //this.collisionDetector = new CollisionDetector(blockArray,doors);
+        this.collisionDetector = new CollisionDetector(blockArray,doors);
         this.player = new Player(new MapPosition(2, 2,map),collisionDetector);
         //collisionDetector.setPlayer(player);
         player.getPosition().show();
@@ -189,8 +189,9 @@ public class Game {
         }
 
         doors[2].shutDoor();
-
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
+
+        this.player.setDoor(doors[2]);
         this.player.setCollisionDetector(collisionDetector);
         collisionDetector.setDoors(this.doors);
     }

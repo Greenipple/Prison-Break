@@ -151,8 +151,8 @@ public class Player extends Entity implements KeyboardHandler {
                 if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN)
                         && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.DOWN)
                         && !detected && !isHidden && getPosition().getCol() < 23) {
-                    this.getPosition().moveInDirection(DirectionType.DOWN, 1);
 
+                    this.getPosition().moveInDirection(DirectionType.DOWN, 1);
                     if(hasBarrel){
                         barrel.getPosition().moveInDirection(DirectionType.DOWN,SPEED);
                     }
@@ -165,8 +165,8 @@ public class Player extends Entity implements KeyboardHandler {
                 if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT)
                         && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.LEFT)
                         && !detected && !isHidden && getPosition().getCol() < 23) {
-                    this.getPosition().moveInDirection(DirectionType.LEFT, 1);
 
+                    this.getPosition().moveInDirection(DirectionType.LEFT, 1);
                     if(hasBarrel){
                         barrel.getPosition().moveInDirection(DirectionType.LEFT,SPEED);
                     }
@@ -175,7 +175,7 @@ public class Player extends Entity implements KeyboardHandler {
                 break;
         }
     }
-    private void spaceKeyUse(){
+    private void spaceKeyUse() {
 
        if (hasBarrel){
            isHidden=!isHidden;
@@ -189,11 +189,7 @@ public class Player extends Entity implements KeyboardHandler {
        }
         key.check();
         door.check();
-       barrel.beenHold();
-       //key.beenHold();
-
-        //this.action=!action;
-
+        barrel.beenHold();
     }
 
     @Override
