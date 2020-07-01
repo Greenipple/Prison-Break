@@ -14,10 +14,15 @@ public class Guard extends Entity {
 
     @Override
     public void move() {
+
         if (route == 1) {
             Route.guard1Move(this);
+            super.move();
             return;
         }
+
         Route.guard2Move(this);
+
+        super.move();
     }
 }

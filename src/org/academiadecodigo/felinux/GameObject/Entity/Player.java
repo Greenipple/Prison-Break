@@ -98,6 +98,7 @@ public class Player extends Entity implements KeyboardHandler {
     @Override
     public void move() {
         accelerate(currentDirection);
+        super.move();
     }
 
     public void accelerate(DirectionType direction) {
@@ -161,10 +162,10 @@ public class Player extends Entity implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_LEFT:
                 collisionDetector.barrelDropCheck();
+                currentDirection = DirectionType.LEFT;
                 if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT)
                         && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.LEFT)
                         && !detected && !isHidden && getPosition().getCol() < 23) {
-                    currentDirection = DirectionType.LEFT;
                     this.getPosition().moveInDirection(DirectionType.LEFT, 1);
 
                     if(hasBarrel){
