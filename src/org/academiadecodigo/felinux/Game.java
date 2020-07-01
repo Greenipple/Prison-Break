@@ -50,7 +50,7 @@ public class Game {
    };
 
     public Game() {
-        this.startScreen = new Map("resources/startingScreen/start-screen.png");
+        //this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
         this.map = new Map("");
         /*this.gameOver = new Map("");
@@ -90,8 +90,6 @@ public class Game {
         }*/
     }
 
-    public void setGameStart(boolean bool){
-        this.setGameStart(bool);
     }
 
     public void loadingScreen() {
@@ -133,6 +131,7 @@ public class Game {
         //KEY
         key = new Key(new MapPosition(22,7, map),this.player);
         key.getPosition().show();
+        player.setKey(key);
 
         //BARREL
         barrel = new Barrel(new MapPosition(1, 9, map),this.player);
@@ -196,8 +195,9 @@ public class Game {
 
         player.checkWin();
 
-        key.check();
-        doors[2].check();
+       // key.check();
+        //doors[2].check();
+        //player.setAction(false);
 
         barrel.move();
 

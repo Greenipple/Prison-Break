@@ -25,8 +25,8 @@ public class Door extends Item {
 
         if (this.getPlayer().hasKey() &&
                 this.getPlayer().getPosition().getRow() == this.getPosition().getRow() - 1 &&
-                this.getPlayer().getPosition().getCol() == this.getPosition().getCol() &&
-                this.getPlayer().getAction()) {
+                this.getPlayer().getPosition().getCol() == this.getPosition().getCol()/* &&
+                this.getPlayer().getAction()*/) {
             this.shut = false;
         }
     }

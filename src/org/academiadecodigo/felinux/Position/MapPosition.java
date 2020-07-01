@@ -138,4 +138,8 @@ public class MapPosition {
     public DirectionType getFacing() {
         return facing;
     }
+
+    public void setFacing(DirectionType directionType) {
+        this.facing = directionType;
+    }
 }
