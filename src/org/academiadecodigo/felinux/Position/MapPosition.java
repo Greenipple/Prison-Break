@@ -11,7 +11,6 @@ public class MapPosition {
         private int row;
         private Map map;
         private Color color;
-        private java.lang.String source;
         private DirectionType facing;
         private Rectangle rectangle;
         private Picture picture;
@@ -20,8 +19,8 @@ public class MapPosition {
             this.col = col;
             this.row = row;
             this.map = map;
-            this.rectangle = new Rectangle(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, Map.CELL_SIZE, Map.CELL_SIZE);
-            //this.picture = new Picture(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, "");
+            //this.rectangle = new Rectangle(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, Map.CELL_SIZE, Map.CELL_SIZE);
+            this.picture = new Picture(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, "");
         }
 
         public void moveInDirection(DirectionType direction, int distance) {
@@ -51,13 +50,14 @@ public class MapPosition {
 
             int moveCol = (this.col - previousCol)*Map.CELL_SIZE;
             int moveRow = (this.row - previousRow)*Map.CELL_SIZE;
-            this.rectangle.translate(moveCol,moveRow);
-            //this.picture.translate(moveCol,moveRow);
+            //this.rectangle.translate(moveCol,moveRow);
+            this.picture.translate(moveCol,moveRow);
         }
 
         public boolean equals(MapPosition pos) {
             return this.col == pos.getCol() && this.row == pos.getRow() ? true : false;
         }
+
         //movement is not allowed if block (blockArray) is not present in front.
         public void moveUp(int distance) {
             for (int i=0; i<distance; i++){
@@ -93,10 +93,10 @@ public class MapPosition {
         public void setColor(Color color) {
             this.color = color;
         }
-        /*
-        public void setSource(java.lang.String source) {
+
+        public void setSource(String source) {
             this.picture.load(source);
-        }*/
+        }
 
         public void setPosition(int col, int row) {
             int previousCol = this.col;
@@ -107,8 +107,8 @@ public class MapPosition {
 
             int moveCol = (this.col - previousCol)*Map.CELL_SIZE;
             int moveRow = (this.row - previousRow)*Map.CELL_SIZE;
-            this.rectangle.translate(moveCol,moveRow);
-            //this.picture.translate(moveCol,moveRow);
+            //this.rectangle.translate(moveCol,moveRow);
+            this.picture.translate(moveCol,moveRow);
         }
 
     public int getCol() {
@@ -124,16 +124,15 @@ public class MapPosition {
     }
 
     public void show() {
-            this.rectangle.setColor(this.color);
-            this.rectangle.fill();
+            //this.rectangle.setColor(this.color);
+            //this.rectangle.fill();
 
-            //this.picture.load(this.source);
-            //this.picture.draw();
+            this.picture.draw();
     }
 
     public void hide() {
-        this.rectangle.delete();
-        //this.picture.delete();
+        //this.rectangle.delete();
+        this.picture.delete();
     }
 
     public DirectionType getFacing() {
