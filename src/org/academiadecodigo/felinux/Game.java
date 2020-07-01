@@ -52,7 +52,7 @@ public class Game {
     public Game() {
         //this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
-        this.map = new Map("");
+        this.map = new Map("resources/levelScreen/whiteScreen.png");
         /*this.gameOver = new Map("");
         this.theEnd = new Map("");*/
         this.movables = new Entity[5];
@@ -62,11 +62,14 @@ public class Game {
     public void start() throws InterruptedException {
 
         this.player = new Player(new MapPosition(-1, -1, startScreen), new CollisionDetector());
-        while(!player.getStartGame()){
-            this.player.init();
+        this.player.init();
+
+        while(!player.getStartGame()) {
             this.startScreen();
         }
-        this.loadingScreen();
+
+            this.loadingScreen();
+
         this.firstLevel();
 
 
@@ -88,8 +91,6 @@ public class Game {
 /*        if(player.getStartGame()){
             startScreen.hidde();
         }*/
-    }
-
     }
 
     public void loadingScreen() {
@@ -124,7 +125,7 @@ public class Game {
     public void init() {
         collisionDetector = new CollisionDetector(blockArray,doors);
 
-        player = new Player(new MapPosition(2, 2,map),collisionDetector);
+        this.player = new Player(new MapPosition(2, 2,map),collisionDetector);
         collisionDetector.setPlayer(player);
         player.getPosition().show();
 
