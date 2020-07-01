@@ -104,6 +104,8 @@ public class Game {
 
         startScreen.hidde();
 
+        map.show();
+
         this.init();
 
         while (!player.isDetected() && !player.hasWon()) {
