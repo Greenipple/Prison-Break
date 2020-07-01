@@ -13,9 +13,9 @@ public class Game {
    private Map map;
    private Map startScreen;
    private Map loadingScreen;
-  /* private Map gameOver;
-   private Map theEnd;*/
-    private MenuHandler menuHandler;
+   private Map gameOver;
+   //private Map theEnd;
+   private MenuHandler menuHandler;
 
    private GameObject[] blockArray = new GameObject[167];
    private GameObject wallBlock;
@@ -55,8 +55,8 @@ public class Game {
         //this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
         this.map = new Map("resources/levelScreen/whiteScreen.png");
-        /*this.gameOver = new Map("");
-        this.theEnd = new Map("");*/
+        this.gameOver = new Map("resources/gameOverScreen/tempGameOver.png");
+        //this.theEnd = new Map("");
         this.movables = new Entity[5];
         this.doors = new Door[5];
         this.menuHandler = new MenuHandler(this);
@@ -114,6 +114,10 @@ public class Game {
             Thread.sleep(DELAY);
 
             this.moveAll();
+        }
+
+        if (player.isDetected()) {
+            this.gameOver.show();
         }
     }
 
