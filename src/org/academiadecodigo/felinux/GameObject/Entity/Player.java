@@ -93,12 +93,6 @@ public class Player extends Entity implements KeyboardHandler {
         space.setKey(KeyboardEvent.KEY_SPACE);
         space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(space);
-
-        KeyboardEvent sKey = new KeyboardEvent();
-        sKey.setKey(KeyboardEvent.KEY_S);
-        sKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboard.addEventListener(sKey);
-
     }
 
     @Override
@@ -112,18 +106,11 @@ public class Player extends Entity implements KeyboardHandler {
         getPosition().moveInDirection(direction, SPEED);
     }
 
-
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             //this.action = !action;
             spaceKeyUse();
-            //System.out.println("nmmm"+this.action);
-        }
-
-        if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
-            //this.action = !action;
-            this.startGame = true;
             //System.out.println("nmmm"+this.action);
         }
 
@@ -251,5 +238,9 @@ public class Player extends Entity implements KeyboardHandler {
 
     public boolean getStartGame(){
         return startGame;
+    }
+
+    public void setCollisionDetector(CollisionDetector collisionDetector) {
+        this.collisionDetector = collisionDetector;
     }
 }

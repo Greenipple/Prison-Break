@@ -5,6 +5,7 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.MenuHandler;
 
 public class Game {
 
@@ -14,6 +15,7 @@ public class Game {
    private Map loadingScreen;
   /* private Map gameOver;
    private Map theEnd;*/
+    private MenuHandler menuHandler;
 
    private GameObject[] blockArray = new GameObject[167];
    private GameObject wallBlock;
@@ -57,18 +59,18 @@ public class Game {
         this.theEnd = new Map("");*/
         this.movables = new Entity[5];
         this.doors = new Door[5];
+        this.menuHandler = new MenuHandler(this);
     }
 
     public void start() throws InterruptedException {
 
-        this.player = new Player(new MapPosition(-1, -1, startScreen), new CollisionDetector());
-        this.player.init();
+        this.menuHandler.init();
 
-        while(!player.getStartGame()) {
+        while(!menuHandler.isStartGame()) {
             this.startScreen();
         }
 
-            this.loadingScreen();
+        this.loadingScreen();
 
         this.firstLevel();
 
@@ -95,14 +97,13 @@ public class Game {
 
     public void loadingScreen() {
         loadingScreen = new Map("resources/loadingScreen/loading.png");
+        startScreen.hidde();
         loadingScreen.show();
         timer();
         loadingScreen.hidde();
     }
 
     public void firstLevel() throws InterruptedException {
-
-        startScreen.hidde();
 
         map.show();
 
@@ -125,10 +126,10 @@ public class Game {
     }
 
     public void init() {
-        collisionDetector = new CollisionDetector(blockArray,doors);
 
+        //this.collisionDetector = new CollisionDetector(blockArray,doors);
         this.player = new Player(new MapPosition(2, 2,map),collisionDetector);
-        collisionDetector.setPlayer(player);
+        //collisionDetector.setPlayer(player);
         player.getPosition().show();
 
         //KEY
@@ -190,7 +191,7 @@ public class Game {
         doors[2].shutDoor();
 
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
-
+        this.player.setCollisionDetector(collisionDetector);
         collisionDetector.setDoors(this.doors);
     }
 

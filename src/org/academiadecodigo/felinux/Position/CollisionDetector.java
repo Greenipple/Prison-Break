@@ -239,7 +239,7 @@ public class CollisionDetector {
     //Check place to drop barrel
     public void barrelDropCheck(){
        // System.out.println("HasBarrel : "+player.hasBarrel());
-        if (player.hasBarrel() && player.getPosition().getCol() == 7 && player.getPosition().getRow() ==16){
+        if (player.hasBarrel() && player.getPosition().getCol() == 7 && player.getPosition().getRow() == 16) {
             player.dropBarrel();
             player.getPosition().show();
 
