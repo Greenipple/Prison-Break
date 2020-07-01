@@ -80,7 +80,7 @@ public class Game {
         startScreen = new Map("resources/startingScreen/starting-screen.png");
         startScreen.show();
 
-        this.player.setAction(false);
+        //this.player.setAction(false);
 
     }
 
@@ -118,6 +118,7 @@ public class Game {
         //KEY
         key = new Key(new MapPosition(22,7, map),this.player);
         key.getPosition().show();
+        player.setKey(key);
 
         //BARREL
         barrel = new Barrel(new MapPosition(1, 9, map),this.player);
@@ -171,6 +172,7 @@ public class Game {
         }
 
         doors[2].shutDoor();
+        player.setDoor(doors[2]);
 
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
 
@@ -181,8 +183,9 @@ public class Game {
 
         player.checkWin();
 
-        key.check();
-        doors[2].check();
+       // key.check();
+        //doors[2].check();
+        //player.setAction(false);
 
         barrel.move();
 

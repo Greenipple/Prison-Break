@@ -1,6 +1,8 @@
 package org.academiadecodigo.felinux.GameObject.Entity;
 
 import org.academiadecodigo.felinux.GameObject.Item.Barrel;
+import org.academiadecodigo.felinux.GameObject.Item.Door;
+import org.academiadecodigo.felinux.GameObject.Item.Key;
 import org.academiadecodigo.felinux.Position.*;
 import org.academiadecodigo.felinux.Support.*;
 import org.academiadecodigo.simplegraphics.keyboard.*;
@@ -9,22 +11,24 @@ public class Player extends Entity implements KeyboardHandler {
 
     private final int SPEED = 1;
     private Keyboard keyboard;
-    private boolean action;
+    //private boolean action;
     private boolean detected;
     private boolean isHidden;
-    private boolean key;
+    private boolean hasKey;
     private boolean wonLevel;
     private CollisionDetector collisionDetector;
     private Barrel barrel;
     private boolean hasBarrel;
+    private Key key;
+    private Door door;
 
     public DirectionType currentDirection;
 
     public Player(MapPosition position,CollisionDetector collisionDetector) {
         super(position, GameObjectType.PLAYER);
-        action = false;
+        //action = false;
         detected = false;
-        key = false;
+        hasKey = false;
         wonLevel = false;
         keyboard = new Keyboard(this);
         this.collisionDetector = collisionDetector;
@@ -41,11 +45,11 @@ public class Player extends Entity implements KeyboardHandler {
     }
 
     public void gotKey() {
-        this.key = true;
+        this.hasKey = true;
     }
 
     public boolean hasKey() {
-        return this.key;
+        return this.hasKey;
     }
 
     public void gotBarrel() {
@@ -183,8 +187,12 @@ public class Player extends Entity implements KeyboardHandler {
        if(!isHidden){
            this.getPosition().show();
        }
+        key.check();
+        door.check();
+       barrel.beenHold();
+       //key.beenHold();
 
-        this.action=!action;
+        //this.action=!action;
 
     }
 
@@ -192,13 +200,13 @@ public class Player extends Entity implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
     }
 
-    public boolean getAction() {
+    /*public boolean getAction() {
         return this.action;
-    }
+    }*/
 
-    public void setAction(boolean action) {
+    /*public void setAction(boolean action) {
         this.action = action;
-    }
+    }*/
 
     public boolean isHidden() {
         return isHidden;
@@ -218,5 +226,13 @@ public class Player extends Entity implements KeyboardHandler {
 
     public void setBarrel(Barrel barrel) {
         this.barrel = barrel;
+    }
+
+    public void setKey(Key key) {
+        this.key = key;
+    }
+
+    public void setDoor(Door door) {
+        this.door = door;
     }
 }
