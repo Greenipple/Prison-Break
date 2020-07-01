@@ -139,7 +139,7 @@ public class Player extends Entity implements KeyboardHandler {
 
                     this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
 
-                    if(hasBarrel){
+                    if (hasBarrel) {
                         barrel.getPosition().moveInDirection(DirectionType.RIGHT,SPEED);
                     }
                     break;
@@ -148,12 +148,12 @@ public class Player extends Entity implements KeyboardHandler {
             case KeyboardEvent.KEY_DOWN:
                 collisionDetector.barrelDropCheck();
                 currentDirection = DirectionType.DOWN;
-                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN)
+                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN)
                         && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.DOWN)
                         && !detected && !isHidden && getPosition().getCol() < 23) {
 
                     this.getPosition().moveInDirection(DirectionType.DOWN, 1);
-                    if(hasBarrel){
+                    if(hasBarrel) {
                         barrel.getPosition().moveInDirection(DirectionType.DOWN,SPEED);
                     }
                     break;
