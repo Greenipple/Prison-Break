@@ -239,4 +239,16 @@ public class Player extends Entity implements KeyboardHandler {
     public void setCollisionDetector(CollisionDetector collisionDetector) {
         this.collisionDetector = collisionDetector;
     }
+
+    public void setDetected(boolean bool){
+        this.detected = bool;
+    }
+
+    public void setWonLevel(boolean bool){
+        this.wonLevel = bool;
+    }
+
+    public void setHasKey(boolean bool){
+        this.hasKey = false;
+    }
 }
