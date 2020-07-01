@@ -43,4 +43,8 @@ public class MenuHandler implements KeyboardHandler {
     public boolean isStartGame() {
         return this.startGame;
     }
+
+    public void setStartGame() {
+        this.startGame = false;
+    }
 }

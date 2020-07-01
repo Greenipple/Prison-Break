@@ -55,8 +55,8 @@ public class Game {
         //this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
         this.map = new Map("resources/levelScreen/whiteScreen.png");
-        this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
-        this.theEnd = new Map("resources/endScreen/");
+        this.gameOver = new Map("resources/gameOverScreen/tempGameOver.png");
+        this.theEnd = new Map("resources/gameOverScreen/tempGameOver.png");
         this.movables = new Entity[5];
         this.doors = new Door[5];
         this.menuHandler = new MenuHandler(this);
@@ -74,6 +74,21 @@ public class Game {
 
         this.firstLevel();
 
+        if (player.isDetected()) {
+            menuHandler.setStartGame();
+            while (!menuHandler.isStartGame()) {
+                this.gameOver.show();
+            }
+            start();
+        }
+
+        if (player.hasWon()) {
+            menuHandler.setStartGame();
+            while(!menuHandler.isStartGame()) {
+                this.map.hidde();
+                this.theEnd.show();
+            }
+        }
 
         //this.init();
 
@@ -114,10 +129,6 @@ public class Game {
             Thread.sleep(DELAY);
 
             this.moveAll();
-        }
-
-        if (player.isDetected()) {
-            this.gameOver.show();
         }
     }
 
