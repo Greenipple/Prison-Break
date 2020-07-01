@@ -5,15 +5,17 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.MenuHandler;
 
 public class Game {
 
    public static final int DELAY = 400;
    private Map map;
    private Map startScreen;
-/*   private Map loadingScreen;
-   private Map gameOver;
+   private Map loadingScreen;
+  /* private Map gameOver;
    private Map theEnd;*/
+    private MenuHandler menuHandler;
 
    private GameObject[] blockArray = new GameObject[167];
    private GameObject wallBlock;
@@ -52,20 +54,28 @@ public class Game {
     public Game() {
         //this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
-        this.map = new Map("");
+        this.map = new Map("resources/levelScreen/whiteScreen.png");
         /*this.gameOver = new Map("");
         this.theEnd = new Map("");*/
         this.movables = new Entity[5];
         this.doors = new Door[5];
+        this.menuHandler = new MenuHandler(this);
     }
 
-    public void start() {
+    public void start() throws InterruptedException {
+
+        this.menuHandler.init();
+
+        while(!menuHandler.isStartGame()) {
+            this.startScreen();
+        }
+
+        this.loadingScreen();
+
+        this.firstLevel();
 
 
-
-        this.startScreen();
-
-        this.init();
+        //this.init();
 
 
 /*        while(this.player.getAction()) {
@@ -80,15 +90,22 @@ public class Game {
         startScreen = new Map("resources/startingScreen/starting-screen.png");
         startScreen.show();
 
-        //this.player.setAction(false);
-
+/*        if(player.getStartGame()){
+            startScreen.hidde();
+        }*/
     }
 
     public void loadingScreen() {
-
+        loadingScreen = new Map("resources/loadingScreen/loading.png");
+        startScreen.hidde();
+        loadingScreen.show();
+        timer();
+        loadingScreen.hidde();
     }
 
     public void firstLevel() throws InterruptedException {
+
+        map.show();
 
         this.init();
 
@@ -109,10 +126,10 @@ public class Game {
     }
 
     public void init() {
-        collisionDetector = new CollisionDetector(blockArray,doors);
 
-        player = new Player(new MapPosition(2, 2,map),collisionDetector);
-        collisionDetector.setPlayer(player);
+        this.collisionDetector = new CollisionDetector(blockArray,doors);
+        this.player = new Player(new MapPosition(2, 2,map),collisionDetector);
+        //collisionDetector.setPlayer(player);
         player.getPosition().show();
 
         //KEY
@@ -172,10 +189,10 @@ public class Game {
         }
 
         doors[2].shutDoor();
-        player.setDoor(doors[2]);
-
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
 
+        this.player.setDoor(doors[2]);
+        this.player.setCollisionDetector(collisionDetector);
         collisionDetector.setDoors(this.doors);
     }
 
@@ -205,4 +222,14 @@ public class Game {
     public GameObject[] getBlockArray() {
         return blockArray;
     }
+
+   public void timer(){
+       for (int i = 5; i > 0; i--) {
+           try {
+               Thread.sleep(1000);
+           }catch (InterruptedException e){
+               e.printStackTrace();
+           }
+       }
+   }
 }

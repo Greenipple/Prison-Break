@@ -7,12 +7,18 @@ import org.academiadecodigo.felinux.Support.DirectionType;
 
 import java.util.Arrays;
 
+
 public class CollisionDetector {
     private Player player;
     private GameObject[] objects; // Walls & fences
     private Entity[] entities;
     private Door[] doors;
     private int sightRange = 5;
+
+    public CollisionDetector() {
+
+    }
+
 
     public CollisionDetector(GameObject[] objects,Door[] doors) {
         this.objects = objects;
@@ -233,7 +239,7 @@ public class CollisionDetector {
     //Check place to drop barrel
     public void barrelDropCheck(){
        // System.out.println("HasBarrel : "+player.hasBarrel());
-        if (player.hasBarrel() && player.getPosition().getCol() == 7 && player.getPosition().getRow() ==16){
+        if (player.hasBarrel() && player.getPosition().getCol() == 7 && player.getPosition().getRow() == 16) {
             player.dropBarrel();
             player.getPosition().show();
 
