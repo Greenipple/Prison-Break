@@ -1,5 +1,6 @@
 package org.academiadecodigo.felinux.GameObject.Entity;
 
+import org.academiadecodigo.felinux.GameObject.DecorWall.Sound;
 import org.academiadecodigo.felinux.GameObject.Item.Barrel;
 import org.academiadecodigo.felinux.GameObject.Item.Door;
 import org.academiadecodigo.felinux.GameObject.Item.Key;
@@ -22,6 +23,7 @@ public class Player extends Entity implements KeyboardHandler {
     private boolean hasBarrel;
     private Key key;
     private Door door;
+    private Sound hidingSound;
 
     public DirectionType currentDirection;
 
@@ -33,6 +35,7 @@ public class Player extends Entity implements KeyboardHandler {
         wonLevel = false;
         keyboard = new Keyboard(this);
         this.collisionDetector = collisionDetector;
+        hidingSound = new Sound("/resources/Sounds/hideSound.wav");
 
         this.init();
     }
@@ -179,6 +182,7 @@ public class Player extends Entity implements KeyboardHandler {
 
        if (hasBarrel){
            isHidden=!isHidden;
+           hidingSound.play(true);
            System.out.println("hiding :"+isHidden);
        }
        if(isHidden){
