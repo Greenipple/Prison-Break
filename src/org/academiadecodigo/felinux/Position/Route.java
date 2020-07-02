@@ -92,5 +92,9 @@ public class Route {
             }
         }
     }
+
+    public static void resetAuxCounter() {
+        Route.auxCounter = 13;
+    }
 }
 

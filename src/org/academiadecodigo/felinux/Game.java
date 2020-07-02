@@ -304,11 +304,12 @@ public class Game {
             door.getPosition().hide();
         }
 
-       blockArrayIterator = 0;
-       doorArrayIterator = 0;
+        Route.resetAuxCounter();
+        blockArrayIterator = 0;
+        doorArrayIterator = 0;
 
-       this.map.hide();
-       this.gameOver.hide();
-       this.theEnd.hide();
+        this.map.hide();
+        this.gameOver.hide();
+        this.theEnd.hide();
    }
 }
