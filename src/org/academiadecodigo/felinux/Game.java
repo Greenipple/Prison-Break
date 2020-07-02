@@ -8,8 +8,6 @@ import org.academiadecodigo.felinux.Position.*;
 import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.felinux.Support.MenuHandler;
 
-import javax.swing.text.Position;
-
 public class Game {
 
    public static final int DELAY = 400;
