@@ -236,10 +236,6 @@ public class Player extends Entity implements KeyboardHandler {
         this.door = door;
     }
 
-    public boolean getStartGame(){
-        return startGame;
-    }
-
     public void setCollisionDetector(CollisionDetector collisionDetector) {
         this.collisionDetector = collisionDetector;
     }
