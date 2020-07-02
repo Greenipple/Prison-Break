@@ -29,7 +29,7 @@ public class Game {
 
    private int blockArrayIterator = 0;
    private int doorArrayIterator = 0;
-
+   private Sound startMusic;
     private int matrixPositions[][] = {
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
             {2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2},
@@ -54,6 +54,7 @@ public class Game {
     public Game() {
         //this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
+        this.startMusic=new Sound("/resources/Sounds/level.wav");
         this.map = new Map("resources/levelScreen/whiteScreen.png");
         this.gameOver = new Map("resources/gameOverScreen/tempGameOver.png");
         this.theEnd = new Map("resources/gameOverScreen/tempGameOver.png");
@@ -65,6 +66,8 @@ public class Game {
     public void start() throws InterruptedException {
 
         this.menuHandler.init();
+
+        startMusic.play(true);
 
         while(!menuHandler.isStartGame()) {
             this.startScreen();

@@ -21,10 +21,70 @@
   <component name="ChangeListManager">
     <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Barrel/Barrel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Barrel/barrel2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Dog/DogDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Dog/DogLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Dog/DogRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Dog/DogUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/BlackPolice/BlackPoliceFront.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/BlackPolice/blackPoliceBack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/BlackPolice/blackPoliceLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/BlackPolice/blackPoliceRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/OtherUniform/PoliceDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/OtherUniform/policeLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/OtherUniform/policeRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/OtherUniform/policeUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/Police/policeBack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/Police/policeLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/Police/policeRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/Police/policeUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/PremiumPolice/PremiumBack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/PremiumPolice/PremiumFront.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/PremiumPolice/PremiumLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Police/PremiumPolice/PremiumRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Wall/wall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Wall/wall0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Wall/wall2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/Wall/wall4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/chamemapolicia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/door/door close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/door/door open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/door/ironDoorClose.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/door/ironDoorOpen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/door/woodDoorClose.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/door/woodDoorOpen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/floor/GreyFloor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/floor/dirtyFloor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/floor/floor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/floor/floor3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/floor/floorGrey.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/floor/grass.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/CowboyPlayer/CowBoyLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/CowboyPlayer/CowboyBack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/CowboyPlayer/CowboyFront.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/CowboyPlayer/CowboyRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/FatPlayer/FatPlayerBack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/FatPlayer/FatPlayerFront.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/FatPlayer/FatPlayerLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/FatPlayer/FatPlayerRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/OrangePlayer/playerDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/OrangePlayer/playerLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/OrangePlayer/playerRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/OrangePlayer/playerUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/slimPlayer/SlimPlayerBack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/slimPlayer/SlimPlayerFront.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/slimPlayer/SlimPlayerLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/player/slimPlayer/SlimPlayerRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/playerRoom/greenBed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/playerRoom/redBed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/playerRoom/room1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/specialPolice/specialpoliceLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/specialPolice/specialpoliceRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/startingScreen/starting-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisonBreak.iml" beforeDir="false" afterPath="$PROJECT_DIR$/prisonBreak.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Support/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/Support/MenuHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +191,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593540890964" />
+    <state x="482" y="195" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593648500611">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="482" y="195" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593648500611" />
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1593641586381">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -148,35 +212,35 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="261" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593601060151" />
-    <state width="1481" height="206" key="GridCell.Tab.0.bottom" timestamp="1593646648499">
+    <state width="1466" height="173" key="GridCell.Tab.0.bottom" timestamp="1593648530367">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1865" height="94" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1593384967157" />
-    <state width="1481" height="206" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593646648499" />
+    <state width="1466" height="173" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593648530367" />
     <state width="1481" height="128" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593342025810" />
     <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593644606501" />
     <state width="1877" height="170" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593622160865" />
-    <state width="1481" height="206" key="GridCell.Tab.0.center" timestamp="1593646648499">
+    <state width="1466" height="173" key="GridCell.Tab.0.center" timestamp="1593648530367">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1865" height="94" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1593384967157" />
-    <state width="1481" height="206" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593646648499" />
+    <state width="1466" height="173" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593648530367" />
     <state width="1481" height="128" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593342025810" />
     <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593644606501" />
     <state width="1877" height="170" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593622160864" />
-    <state width="1481" height="206" key="GridCell.Tab.0.left" timestamp="1593646648499">
+    <state width="1466" height="173" key="GridCell.Tab.0.left" timestamp="1593648530366">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1865" height="94" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1593384967157" />
-    <state width="1481" height="206" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593646648499" />
+    <state width="1466" height="173" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593648530366" />
     <state width="1481" height="128" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593342025810" />
     <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593644606501" />
     <state width="1877" height="170" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593622160864" />
-    <state width="1481" height="206" key="GridCell.Tab.0.right" timestamp="1593646648499">
+    <state width="1466" height="173" key="GridCell.Tab.0.right" timestamp="1593648530367">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1865" height="94" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1593384967157" />
-    <state width="1481" height="206" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593646648499" />
+    <state width="1466" height="173" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1593648530367" />
     <state width="1481" height="128" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593342025810" />
     <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593644606501" />
     <state width="1877" height="170" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593622160865" />
