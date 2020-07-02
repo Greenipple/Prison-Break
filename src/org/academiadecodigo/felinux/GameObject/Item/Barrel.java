@@ -2,6 +2,7 @@ package org.academiadecodigo.felinux.GameObject.Item;
 
 import org.academiadecodigo.felinux.GameObject.Entity.Player;
 import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.felinux.Support.GameObjectType;
 
 public class Barrel extends Item implements Movable {
@@ -12,18 +13,12 @@ public class Barrel extends Item implements Movable {
 
     @Override
     public void move() {
-
-        //this.beenHold();
-
         if(this.isHold()) {
             getPlayer().gotBarrel();
-            //this.setPosition(getPlayer().getPosition());
-            this.getPlayer().getPosition().hide();
+            this.getPosition().setFacing(DirectionType.LEFT);
             return;
         }
-
-        //this.setPosition(this.getPosition());
-        //this.getPlayer().getPosition().show();
+        this.getPosition().setFacing(DirectionType.DOWN);
     }
 
 }

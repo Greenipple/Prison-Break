@@ -21,7 +21,6 @@ public class Map {
     }
 
     /** auxiliary methods**/
-
     public int mapWidth(){
         return COLS * CELL_SIZE;
     }
@@ -38,7 +37,7 @@ public class Map {
         this.pic.draw();
     }
 
-    public void hidde(){
+    public void hide(){
         this.pic.delete();
     }
 }

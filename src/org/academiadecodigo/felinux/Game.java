@@ -5,6 +5,7 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.felinux.Support.MenuHandler;
 
 public class Game {
@@ -17,8 +18,7 @@ public class Game {
    private Map theEnd;
    private MenuHandler menuHandler;
 
-   private GameObject[] blockArray = new GameObject[167];
-   private GameObject wallBlock;
+   private GameObject[] blockArray;
    private CollisionDetector collisionDetector;
 
    private Player player;
@@ -30,6 +30,12 @@ public class Game {
    private int blockArrayIterator = 0;
    private int doorArrayIterator = 0;
    private Sound startMusic;
+   private Sound levelMusic;
+   private Sound gameOverMusic;
+   private Sound endGameMusic;
+
+
+
     private int matrixPositions[][] = {
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
             {2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2},
@@ -52,20 +58,14 @@ public class Game {
    };
 
     public Game() {
-        //this.startScreen = new Map("resources/startingScreen/start-screen.png");
-        //this.loadingScreen = new Map("");
-        this.startMusic=new Sound("/resources/Sounds/level.wav");
-        this.map = new Map("resources/map/MAPA.png");
-        this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
-        this.theEnd = new Map("resources/wonScreen/wonScreen.png");
-        this.movables = new Entity[5];
-        this.doors = new Door[5];
-        this.menuHandler = new MenuHandler(this);
+
     }
 
     public void start() throws InterruptedException {
 
-        this.menuHandler.init();
+        newAssets();
+
+        menuHandler.init();
 
         startMusic.play(true);
 
@@ -73,58 +73,35 @@ public class Game {
             this.startScreen();
         }
 
-        this.loadingScreen();
+        loadingScreen();
 
-        this.firstLevel();
+        startMusic.stop();
 
-        if (player.isDetected()) {
-            menuHandler.setStartGame();
-            while (!menuHandler.isStartGame()) {
-                this.gameOver.show();
-            }
-            this.restart();
-            this.player.setDetected(false);
-            this.start();
-        }
+        levelMusic.play(true);
 
-        if (player.hasWon()) {
-            menuHandler.setStartGame();
-            while(!menuHandler.isStartGame()) {
-                this.map.hidde();
-                this.theEnd.show();
-            }
-            //this.restart();
-            this.player.setDetected(false);
-            this.player.setWonLevel(false);
-            this.start();
-        }
+        firstLevel();
 
-        //this.init();
+        gameOver();
 
-
-/*        while(this.player.getAction()) {
-            this.loadingScreen();
-        }*/
-
-        //this.firstLevel(); //gameOver() & theEnd() will be called by firstLevel()
+        theEnd();
 
     }
 
     public void startScreen() {
+
         startScreen = new Map("resources/startingScreen/starting-screen.png");
         startScreen.show();
 
-/*        if(player.getStartGame()){
-            startScreen.hidde();
-        }*/
     }
 
     public void loadingScreen() {
+
         loadingScreen = new Map("resources/loadingScreen/loading.png");
-        startScreen.hidde();
+        startScreen.hide();
         loadingScreen.show();
         timer();
-        loadingScreen.hidde();
+        loadingScreen.hide();
+
     }
 
     public void firstLevel() throws InterruptedException {
@@ -141,30 +118,72 @@ public class Game {
         }
     }
 
-    public void gameOver() {
+    public void gameOver() throws InterruptedException {
 
+        if (player.isDetected()) {
+
+            levelMusic.stop();
+            gameOverMusic.play(true);
+            this.player.setPosition(new MapPosition(-1,-1,gameOver));
+
+            menuHandler.setStartGame();
+
+            while (!menuHandler.isStartGame()) {
+                this.gameOver.show();
+            }
+
+            this.restart();
+            this.start();
+        }
     }
 
-    public void theEnd() {
+    public void theEnd() throws InterruptedException {
+        if (player.hasWon()) {
+            levelMusic.stop();
+            endGameMusic.play(true);
+            this.player.setPosition(new MapPosition(0,0,theEnd));
 
+            menuHandler.setStartGame();
+
+
+            while (!menuHandler.isStartGame()) {
+                this.map.hide();
+                this.theEnd.show();
+            }
+
+            this.restart();
+            endGameMusic.stop();
+            this.start();
+        }
+    }
+
+    public void newAssets() {
+        this.endGameMusic = new Sound ("/resources/Sounds/end-music.wav");
+        this.gameOverMusic = new Sound("/resources/Sounds/game-over.wav");
+        this.levelMusic = new Sound("/resources/Sounds/level.wav");
+        this.startMusic=new Sound("/resources/Sounds/menu.wav");
+        this.map = new Map("resources/map/map.png");
+        this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
+        this.theEnd = new Map("resources/wonScreen/wonScreen.png");
+        this.blockArray = new GameObject[167];
+        this.movables = new Entity[5];
+        this.doors = new Door[5];
+        this.menuHandler = new MenuHandler(this);
     }
 
     public void init() {
 
-        this.collisionDetector = new CollisionDetector(blockArray,doors);
-        this.player = new Player(new MapPosition(2, 2,map),collisionDetector);
-        //collisionDetector.setPlayer(player);
+        this.collisionDetector = new CollisionDetector();
+        player = new Player(new MapPosition(2, 2,map), collisionDetector);
         player.getPosition().show();
 
         //KEY
         key = new Key(new MapPosition(22,7, map),this.player);
         key.getPosition().show();
-        player.setKey(key);
 
         //BARREL
         barrel = new Barrel(new MapPosition(1, 9, map),this.player);
         barrel.getPosition().show();
-        player.setBarrel(barrel);
 
         //GUARDS
         movables[0] = new Guard(new MapPosition(21,4, map),1);
@@ -184,51 +203,49 @@ public class Game {
         movables[4].getPosition().show();
 
         for (int i = 0; i < matrixPositions.length; i++) {
+
             for (int j = 0; j < matrixPositions[i].length; j++) {
 
                 //FENCE
                 if (matrixPositions[i][j] == 1) {
-                    wallBlock = new Fence(new MapPosition(j , i, map));
-                    blockArray[blockArrayIterator] = wallBlock;
+                    blockArray[blockArrayIterator] = new Fence(new MapPosition(j , i, map));
                     blockArrayIterator++;
-                    wallBlock.getPosition().show();
                 }
 
                 //WALL
                 if (matrixPositions[i][j] == 2) {
-                    wallBlock = new Wall(new MapPosition(j, i, map));
-                    blockArray[blockArrayIterator]= wallBlock;
+                    blockArray[blockArrayIterator] = new Wall(new MapPosition(j, i, map));
                     blockArrayIterator++;
-                    wallBlock.getPosition().show();
-
                 }
 
                 //DOOR
                 if (matrixPositions[i][j] == 5) {
                     doors[doorArrayIterator] = new Door(new MapPosition(j, i, map),this.player);
                     doorArrayIterator++;
-                    wallBlock.getPosition().show();
                 }
             }
         }
 
         doors[2].shutDoor();
-        collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
+        doors[2].getPosition().setFacing(DirectionType.DOWN);
+        doors[2].getPosition().show();
 
-        this.player.setDoor(doors[2]);
-        this.player.setCollisionDetector(collisionDetector);
+        collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
         collisionDetector.setDoors(this.doors);
+
+
+        player.setCollisionDetector(collisionDetector);
+        player.setDoor(doors[2]);
+        player.setBarrel(barrel);
+        player.setKey(key);
+        player.setStart();
     }
 
     public void moveAll() {
 
-        player.checkWin();
-
-       // key.check();
-        //doors[2].check();
-        //player.setAction(false);
-
         barrel.move();
+
+        player.checkWin();
 
         for (Entity object : movables) {
             object.move();
@@ -238,16 +255,9 @@ public class Game {
         collisionDetector.lineOfSight(movables[1].getPosition(),movables[1].getPosition().getFacing());
 
         collisionDetector.verify();
-
-    }
-    public CollisionDetector getCollisionDetector(){
-        return this.collisionDetector;
-    }
-    public GameObject[] getBlockArray() {
-        return blockArray;
     }
 
-   public void timer(){
+   public void timer() {
        for (int i = 5; i > 0; i--) {
            try {
                Thread.sleep(1000);
@@ -257,21 +267,34 @@ public class Game {
        }
    }
 
-   public void restart(){
-        this.map.hidde();
-        this.gameOver.hidde();
-        this.theEnd.hidde();
+   public void restart() {
+
         this.player.getPosition().hide();
-        this.barrel.getPosition().hide();
         this.player.setHasKey(false);
+        this.player.setDetected(false);
+        this.player.setWonLevel(false);
+
+        this.barrel.getPosition().hide();
         this.key.getPosition().hide();
+
         for (Entity movable : movables){
             movable.getPosition().hide();
         }
-        for (GameObject gameObject : blockArray){
+
+        for (GameObject gameObject : blockArray) {
             gameObject.getPosition().hide();
         }
-       blockArrayIterator = 0;
-       doorArrayIterator = 0;
+
+        for (Door door : doors) {
+            door.getPosition().hide();
+        }
+
+        Route.resetAuxCounter();
+        blockArrayIterator = 0;
+        doorArrayIterator = 0;
+
+        this.map.hide();
+        this.gameOver.hide();
+        this.theEnd.hide();
    }
 }

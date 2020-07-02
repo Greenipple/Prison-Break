@@ -12,7 +12,7 @@ public abstract class GameObject {
         this.position = position;
         this.gameObjectType = gameObjectType;
         this.position.setColor(gameObjectType.getColor());
-        this.position.setSource(gameObjectType.getSourceUp());
+        this.position.setSource(gameObjectType.getSourceDown());
     }
 
     public MapPosition getPosition() {

@@ -10,12 +10,12 @@ public class Route {
 
     public static void guard1Move(Guard guard1) {
 
-        if (guard1.getPosition().getCol() != 8 && auxCounter > 0){
+        if (guard1.getPosition().getCol() != 8 && auxCounter > 0) {
             guard1.getPosition().moveInDirection(DirectionType.LEFT, 1);
             auxCounter--;
         }
 
-        if (guard1.getPosition().getCol() != 21 && auxCounter == 0){
+        if (guard1.getPosition().getCol() != 21 && auxCounter == 0) {
             guard1.getPosition().moveInDirection(DirectionType.RIGHT, 1);
 
             if (guard1.getPosition().getCol() == 21){
@@ -91,6 +91,10 @@ public class Route {
                 return;
             }
         }
+    }
+
+    public static void resetAuxCounter() {
+        Route.auxCounter = 13;
     }
 }
 

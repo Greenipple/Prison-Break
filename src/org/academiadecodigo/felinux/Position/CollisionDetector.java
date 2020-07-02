@@ -5,10 +5,8 @@ import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Support.DirectionType;
 
-import java.util.Arrays;
-
-
 public class CollisionDetector {
+
     private Player player;
     private GameObject[] objects; // Walls & fences
     private Entity[] entities;
@@ -19,11 +17,6 @@ public class CollisionDetector {
 
     }
 
-
-    public CollisionDetector(GameObject[] objects,Door[] doors) {
-        this.objects = objects;
-        this.doors = doors;
-    }
     public CollisionDetector(Player player, GameObject[] objects, Entity[] entities, Door[] doors) {
         this.player = player;
         this.objects = objects;
@@ -112,29 +105,7 @@ public class CollisionDetector {
 
     //Guards line of sight checker
     public void lineOfSight(MapPosition position, DirectionType direction){
-       /* switch (direction){
-            case UP -> {
-                //canSee turns false if it hits a wall;
-                boolean canSeeCenterRow = true;
-                boolean canSeeLeftRow = true;
-                boolean canSeeRightRow = true;
 
-                //center row;
-                for (int i = 0; i < sightRange; i++) {
-                    for (GameObject object : objects) {
-                        if (object.getPosition().getCol() == position.getCol() && object.getPosition().getRow() == position.getRow() -i -1) {
-                            canSeeCenterRow = false;
-                            break;
-                        }
-
-                        if (player.getPosition().getCol() == position.getCol() && player.getPosition().getRow() == position.getRow() -i -1 && canSeeCenterRow){
-                            player.gotDetected();
-                        }
-                    }
-                }
-
-            }
-        }*/
         if (!player.isHidden()) {
             switch (direction) {
 
@@ -238,7 +209,7 @@ public class CollisionDetector {
 
     //Check place to drop barrel
     public void barrelDropCheck(){
-       // System.out.println("HasBarrel : "+player.hasBarrel());
+
         if (player.hasBarrel() && player.getPosition().getCol() == 7 && player.getPosition().getRow() == 16) {
             player.dropBarrel();
             player.getPosition().show();
