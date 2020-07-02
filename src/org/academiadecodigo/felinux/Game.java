@@ -164,6 +164,7 @@ public class Game {
             }
 
             this.restart();
+            endGameMusic.stop();
             this.start();
         }
     }
