@@ -23,6 +23,7 @@ public class Player extends Entity implements KeyboardHandler {
     private Door door;
     private Sound hidingSound;
     private Sound hidingSound2;
+    private Sound dogBarking;
 
     public DirectionType currentDirection;
 
@@ -36,6 +37,7 @@ public class Player extends Entity implements KeyboardHandler {
         this.collisionDetector = collisionDetector;
         hidingSound = new Sound("/resources/Sounds/quickSwoosh.wav");
         hidingSound2 = new Sound("/resources/Sounds/quickSwooshHigh.wav");
+        dogBarking = new Sound("/resources/Sounds/Aggressive-dog-barking.wav");
 
         this.init();
     }
@@ -64,6 +66,7 @@ public class Player extends Entity implements KeyboardHandler {
         System.out.println(hasBarrel);
         this.hasBarrel = false;
         this.barrel.drop();
+        dogBarking.play(true);
 
     }
 
