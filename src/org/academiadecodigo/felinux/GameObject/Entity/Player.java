@@ -60,7 +60,7 @@ public class Player extends Entity implements KeyboardHandler {
         this.hasBarrel = true;
     }
 
-    public void dropBarrel(){
+    public void dropBarrel() {
         System.out.println(hasBarrel);
         this.hasBarrel = false;
         this.barrel.drop();
@@ -103,7 +103,9 @@ public class Player extends Entity implements KeyboardHandler {
     public void move() {
         accelerate(currentDirection);
         super.move();
-        //if (this.door.getPosition().getCol() == getPosition().getCol() && )
+        if (this.door.getPosition().getCol() == getPosition().getCol() && this.door.getPosition().getRow() == getPosition().getRow()) {
+            this.door.getPosition().setFacing(DirectionType.RIGHT);
+        }
     }
 
     public void accelerate(DirectionType direction) {
@@ -225,6 +227,7 @@ public class Player extends Entity implements KeyboardHandler {
     public void checkWin() {
         if (getPosition().getCol() == 23) {
             this.wonLevel = true;
+            this.getPosition().hide();
         }
     }
 

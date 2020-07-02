@@ -12,7 +12,7 @@ public class MapPosition {
         private Map map;
         private Color color;
         private DirectionType facing;
-        private Rectangle rectangle;
+        //private Rectangle rectangle;
         private Picture picture;
 
         public MapPosition(int col, int row, Map map) {
@@ -120,9 +120,9 @@ public class MapPosition {
         return row;
     }
 
-    public Rectangle getRectangle(){
+    /*public Rectangle getRectangle(){
         return this.rectangle;
-    }
+    }*/
 
     public void show() {
             //this.rectangle.setColor(this.color);

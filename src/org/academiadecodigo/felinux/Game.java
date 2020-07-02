@@ -5,7 +5,10 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.felinux.Support.MenuHandler;
+
+import javax.swing.text.Position;
 
 public class Game {
 
@@ -133,6 +136,7 @@ public class Game {
 
             levelMusic.stop();
             gameOverMusic.play(true);
+            this.player.setPosition(new MapPosition(-1,-1,gameOver));
 
             menuHandler.setStartGame();
 
@@ -149,7 +153,10 @@ public class Game {
         if (player.hasWon()) {
             levelMusic.stop();
             endGameMusic.play(true);
+            this.player.setPosition(new MapPosition(0,0,theEnd));
+
             menuHandler.setStartGame();
+
 
             while (!menuHandler.isStartGame()) {
                 this.map.hide();
@@ -232,9 +239,12 @@ public class Game {
         }
 
         doors[2].shutDoor();
+        doors[2].getPosition().setFacing(DirectionType.DOWN);
+        doors[2].getPosition().show();
 
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
         collisionDetector.setDoors(this.doors);
+
 
         player.setCollisionDetector(collisionDetector);
         player.setDoor(doors[2]);
@@ -272,10 +282,7 @@ public class Game {
        }
    }
 
-   public void restart(){
-        this.map.hide();
-        this.gameOver.hide();
-        this.theEnd.hide();
+   public void restart() {
 
         this.player.getPosition().hide();
         this.player.setHasKey(false);
@@ -293,7 +300,16 @@ public class Game {
             gameObject.getPosition().hide();
         }
 
-       blockArrayIterator = 0;
-       doorArrayIterator = 0;
+        for (Door door : doors) {
+            door.getPosition().hide();
+        }
+
+        Route.resetAuxCounter();
+        blockArrayIterator = 0;
+        doorArrayIterator = 0;
+
+        this.map.hide();
+        this.gameOver.hide();
+        this.theEnd.hide();
    }
 }
