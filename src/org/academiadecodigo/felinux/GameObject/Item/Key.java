@@ -28,8 +28,5 @@ public class Key extends Item {
     @Override
     public void beenHold() {
         super.beenHold();
-      /* if (this.isHold()==true) {
-           this.getPlayer().gotKey();
-       }*/
     }
 }

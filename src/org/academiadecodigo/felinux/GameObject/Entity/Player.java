@@ -12,10 +12,14 @@ public class Player extends Entity implements KeyboardHandler {
 
     private final int SPEED = 1;
     private Keyboard keyboard;
+
+    private boolean canStart;
     private boolean detected;
     private boolean isHidden;
     private boolean hasKey;
     private boolean wonLevel;
+
+
     private CollisionDetector collisionDetector;
     private Barrel barrel;
     private boolean hasBarrel;
@@ -29,10 +33,12 @@ public class Player extends Entity implements KeyboardHandler {
 
     public Player(MapPosition position,CollisionDetector collisionDetector) {
         super(position, GameObjectType.PLAYER);
-        //action = false;
+
+        canStart = false;
         detected = false;
         hasKey = false;
         wonLevel = false;
+
         keyboard = new Keyboard(this);
         this.collisionDetector = collisionDetector;
         hidingSound = new Sound("/resources/Sounds/quickSwoosh.wav");
@@ -118,71 +124,71 @@ public class Player extends Entity implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
-            //this.action = !action;
-            spaceKeyUse();
-            //System.out.println("nmmm"+this.action);
-        }
+        if (canStart) {
+            if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
+                spaceKeyUse();
+            }
 
-        switch (keyboardEvent.getKey()) {
-            case KeyboardEvent.KEY_UP:
-                currentDirection = DirectionType.UP;
-                collisionDetector.barrelDropCheck();
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.UP)
-                        && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.UP)
-                        && !detected && !isHidden && getPosition().getCol() < 23) {
+            switch (keyboardEvent.getKey()) {
+                case KeyboardEvent.KEY_UP:
+                    currentDirection = DirectionType.UP;
+                    collisionDetector.barrelDropCheck();
+                    if (this.collisionDetector.isMovementAllowed(this.getPosition(), DirectionType.UP)
+                            && this.collisionDetector.isDoorAhead(this.getPosition(), DirectionType.UP)
+                            && !detected && !isHidden && getPosition().getCol() < 23) {
 
-                    this.getPosition().moveInDirection(DirectionType.UP, 1);
+                        this.getPosition().moveInDirection(DirectionType.UP, 1);
 
-                    if(hasBarrel){
-                        barrel.getPosition().moveInDirection(DirectionType.UP,SPEED);
+                        if (hasBarrel) {
+                            barrel.getPosition().moveInDirection(DirectionType.UP, SPEED);
+                        }
+                        break;
                     }
                     break;
-                }
-                break;
-            case KeyboardEvent.KEY_RIGHT:
-                collisionDetector.barrelDropCheck();
-                currentDirection = DirectionType.RIGHT;
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.RIGHT)
-                        && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.RIGHT)
-                        && !detected && !isHidden && getPosition().getCol() < 23) {
+                case KeyboardEvent.KEY_RIGHT:
+                    collisionDetector.barrelDropCheck();
+                    currentDirection = DirectionType.RIGHT;
+                    if (this.collisionDetector.isMovementAllowed(this.getPosition(), DirectionType.RIGHT)
+                            && this.collisionDetector.isDoorAhead(this.getPosition(), DirectionType.RIGHT)
+                            && !detected && !isHidden && getPosition().getCol() < 23) {
 
-                    this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
+                        this.getPosition().moveInDirection(DirectionType.RIGHT, 1);
 
-                    if (hasBarrel) {
-                        barrel.getPosition().moveInDirection(DirectionType.RIGHT,SPEED);
+                        if (hasBarrel) {
+                            barrel.getPosition().moveInDirection(DirectionType.RIGHT, SPEED);
+                        }
+                        break;
                     }
                     break;
-                }
-                break;
-            case KeyboardEvent.KEY_DOWN:
-                collisionDetector.barrelDropCheck();
-                currentDirection = DirectionType.DOWN;
-                if (this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.DOWN)
-                        && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.DOWN)
-                        && !detected && !isHidden && getPosition().getCol() < 23) {
+                case KeyboardEvent.KEY_DOWN:
+                    collisionDetector.barrelDropCheck();
+                    currentDirection = DirectionType.DOWN;
+                    if (this.collisionDetector.isMovementAllowed(this.getPosition(), DirectionType.DOWN)
+                            && this.collisionDetector.isDoorAhead(this.getPosition(), DirectionType.DOWN)
+                            && !detected && !isHidden && getPosition().getCol() < 23) {
 
-                    this.getPosition().moveInDirection(DirectionType.DOWN, 1);
-                    if(hasBarrel) {
-                        barrel.getPosition().moveInDirection(DirectionType.DOWN,SPEED);
+                        this.getPosition().moveInDirection(DirectionType.DOWN, 1);
+                        if (hasBarrel) {
+                            barrel.getPosition().moveInDirection(DirectionType.DOWN, SPEED);
+                        }
+                        break;
                     }
                     break;
-                }
-                break;
-            case KeyboardEvent.KEY_LEFT:
-                collisionDetector.barrelDropCheck();
-                currentDirection = DirectionType.LEFT;
-                if(this.collisionDetector.isMovementAllowed(this.getPosition(),DirectionType.LEFT)
-                        && this.collisionDetector.isDoorAhead(this.getPosition(),DirectionType.LEFT)
-                        && !detected && !isHidden && getPosition().getCol() < 23) {
+                case KeyboardEvent.KEY_LEFT:
+                    collisionDetector.barrelDropCheck();
+                    currentDirection = DirectionType.LEFT;
+                    if (this.collisionDetector.isMovementAllowed(this.getPosition(), DirectionType.LEFT)
+                            && this.collisionDetector.isDoorAhead(this.getPosition(), DirectionType.LEFT)
+                            && !detected && !isHidden && getPosition().getCol() < 23) {
 
-                    this.getPosition().moveInDirection(DirectionType.LEFT, 1);
-                    if(hasBarrel){
-                        barrel.getPosition().moveInDirection(DirectionType.LEFT,SPEED);
+                        this.getPosition().moveInDirection(DirectionType.LEFT, 1);
+                        if (hasBarrel) {
+                            barrel.getPosition().moveInDirection(DirectionType.LEFT, SPEED);
+                        }
+                        break;
                     }
                     break;
-                }
-                break;
+            }
         }
     }
     private void spaceKeyUse() {
@@ -210,14 +216,6 @@ public class Player extends Entity implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
     }
 
-    /*public boolean getAction() {
-        return this.action;
-    }*/
-
-    /*public void setAction(boolean action) {
-        this.action = action;
-    }*/
-
     public boolean isHidden() {
         return isHidden;
     }
@@ -226,14 +224,12 @@ public class Player extends Entity implements KeyboardHandler {
         return hasBarrel;
     }
 
-
     public void checkWin() {
         if (getPosition().getCol() == 23) {
             this.wonLevel = true;
             this.getPosition().hide();
         }
     }
-
 
     public void setBarrel(Barrel barrel) {
         this.barrel = barrel;
@@ -251,19 +247,23 @@ public class Player extends Entity implements KeyboardHandler {
         this.collisionDetector = collisionDetector;
     }
 
-    public void setDetected(boolean bool){
+    public void setDetected(boolean bool) {
         this.detected = bool;
     }
 
-    public void setWonLevel(boolean bool){
+    public void setWonLevel(boolean bool) {
         this.wonLevel = bool;
     }
 
-    public void setHasBarrel(boolean bool){
+    public void setHasBarrel(boolean bool) {
         this.hasBarrel = bool;
     }
 
-    public void setHasKey(boolean bool){
+    public void setHasKey(boolean bool) {
         this.hasKey = false;
+    }
+
+    public void setStart() {
+        this.canStart = true;
     }
 }

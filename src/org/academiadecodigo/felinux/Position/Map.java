@@ -21,7 +21,6 @@ public class Map {
     }
 
     /** auxiliary methods**/
-
     public int mapWidth(){
         return COLS * CELL_SIZE;
     }
