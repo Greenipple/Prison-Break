@@ -32,10 +32,14 @@ public enum GameObjectType {
 
     public String getSource(DirectionType direction) {
         switch (direction) {
-            case UP: return this.sourceUp;
-            case RIGHT: return this.sourceRight;
-            case DOWN: return this.sourceDown;
-            default: return this.sourceLeft;
+            case UP->
+                    { return this.sourceUp;}
+            case RIGHT->
+                    {return this.sourceRight;}
+            case DOWN->
+                    {return this.sourceDown;}
+            default ->
+                    {return this.sourceLeft;}
         }
     }
 

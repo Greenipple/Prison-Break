@@ -61,6 +61,7 @@ public class Player extends Entity implements KeyboardHandler {
     }
 
     public void dropBarrel(){
+        System.out.println(hasBarrel);
         this.hasBarrel = false;
         this.barrel.drop();
 
