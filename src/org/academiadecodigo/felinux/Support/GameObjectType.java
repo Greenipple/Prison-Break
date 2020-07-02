@@ -6,8 +6,8 @@ public enum GameObjectType {
     FENCE(Color.DARK_GRAY, "resources/Wall/wall.png", "resources/Wall/wall.png", "resources/Wall/wall.png", "resources/Wall/wall.png"),
     WALL(Color.BLACK, "resources/Wall/wall.png", "resources/Wall/wall.png", "resources/Wall/wall.png", "resources/Wall/wall.png"),
     BARREL(Color.GRAY, "resources/Barrel/Barrel.png", "resources/Barrel/Barrel.png", "resources/Barrel/Barrel.png", "resources/Barrel/Barrel.png"),
-    KEY(Color.YELLOW, "resources/Dog/DogDown.png", "resources/Dog/DogDown.png", "resources/Dog/DogDown.png", "resources/Dog/DogDown.png"),
-    DOOR(Color.LIGHT_GRAY, "resources/door/door close.png", "resources/door/door close.png", "resources/door/door close.png", "resources/door/door close.png"),
+    KEY(Color.YELLOW, "resources/key/key.png", "resources/key/key.png", "resources/key/key.png", "resources/key/key.png"),
+    DOOR(Color.LIGHT_GRAY, "resources/door/ironDoorClose.png", "resources/door/ironDoorClose.png", "resources/door/ironDoorClose.png", "resources/door/ironDoorClose.png"),
     GUARD(Color.BLUE, "resources/Police/BlackPolice/blackPoliceBack.png", "resources/Police/BlackPolice/blackPoliceRight.png", "resources/Police/BlackPolice/blackPoliceFront.png", "resources/Police/BlackPolice/blackPoliceLeft.png"),
     DOG(Color.RED, "resources/Dog/DogUp.png", "resources/Dog/DogRight.png", "resources/Dog/DogDown.png", "resources/Dog/DogLeft.png"),
     PLAYER(Color.GREEN, "resources/player/CowboyPlayer/CowboyFront.png", "resources/player/CowboyPlayer/CowboyRight.png", "resources/player/CowboyPlayer/CowboyBack.png", "resources/player/CowboyPlayer/CowBoyLeft.png");
