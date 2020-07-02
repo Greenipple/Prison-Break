@@ -32,10 +32,12 @@ public class Player extends Entity implements KeyboardHandler {
 
     public Player(MapPosition position,CollisionDetector collisionDetector) {
         super(position, GameObjectType.PLAYER);
+
         canStart = false;
         detected = false;
         hasKey = false;
         wonLevel = false;
+
         keyboard = new Keyboard(this);
         this.collisionDetector = collisionDetector;
         hidingSound = new Sound("/resources/Sounds/quickSwoosh.wav");

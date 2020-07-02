@@ -2,8 +2,8 @@ package org.academiadecodigo.felinux.Position;
 
 import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class MapPosition {
 

@@ -12,18 +12,9 @@ public class Barrel extends Item implements Movable {
 
     @Override
     public void move() {
-
-        //this.beenHold();
-
         if(this.isHold()) {
             getPlayer().gotBarrel();
-            //this.setPosition(getPlayer().getPosition());
-            //this.getPlayer().getPosition().hide();
-            return;
         }
-
-        //this.setPosition(this.getPosition());
-        //this.getPlayer().getPosition().show();
     }
 
 }
