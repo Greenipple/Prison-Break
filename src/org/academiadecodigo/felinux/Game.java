@@ -250,6 +250,7 @@ public class Game {
         player.setDoor(doors[2]);
         player.setBarrel(barrel);
         player.setKey(key);
+        player.setStart();
     }
 
     public void moveAll() {
