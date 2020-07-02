@@ -60,7 +60,7 @@ public class Game {
     public Game() {
         //this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
-        this.endGameMusic = new Sound ("/resources/Sounds/end-music.wav");
+        /*this.endGameMusic = new Sound ("/resources/Sounds/end-music.wav");
         this.gameOverMusic = new Sound("/resources/Sounds/game-over.wav");
         this.levelMusic = new Sound("/resources/Sounds/level.wav");
         this.startMusic=new Sound("/resources/Sounds/menu.wav");
@@ -68,11 +68,12 @@ public class Game {
         this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
         this.theEnd = new Map("resources/wonScreen/wonScreen.png");
         this.movables = new Entity[5];
-        this.doors = new Door[5];
-        this.menuHandler = new MenuHandler(this);
+        this.doors = new Door[5];*/
     }
 
     public void start() throws InterruptedException {
+
+        newAssets();
 
         this.menuHandler.init();
 
@@ -166,6 +167,19 @@ public class Game {
 
     public void theEnd() {
 
+    }
+
+    public void newAssets() {
+        this.endGameMusic = new Sound ("/resources/Sounds/end-music.wav");
+        this.gameOverMusic = new Sound("/resources/Sounds/game-over.wav");
+        this.levelMusic = new Sound("/resources/Sounds/level.wav");
+        this.startMusic=new Sound("/resources/Sounds/menu.wav");
+        this.map = new Map("resources/map/map.png");
+        this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
+        this.theEnd = new Map("resources/wonScreen/wonScreen.png");
+        this.movables = new Entity[5];
+        this.doors = new Door[5];
+        this.menuHandler = new MenuHandler(this);
     }
 
     public void init() {
