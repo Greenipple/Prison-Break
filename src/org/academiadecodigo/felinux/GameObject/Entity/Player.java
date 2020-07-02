@@ -11,9 +11,7 @@ import org.academiadecodigo.simplegraphics.keyboard.*;
 public class Player extends Entity implements KeyboardHandler {
 
     private final int SPEED = 1;
-    private boolean startGame;
     private Keyboard keyboard;
-    //private boolean action;
     private boolean detected;
     private boolean isHidden;
     private boolean hasKey;
@@ -103,6 +101,7 @@ public class Player extends Entity implements KeyboardHandler {
     public void move() {
         accelerate(currentDirection);
         super.move();
+        //if (this.door.getPosition().getCol() == getPosition().getCol() && )
     }
 
     public void accelerate(DirectionType direction) {
@@ -235,10 +234,6 @@ public class Player extends Entity implements KeyboardHandler {
 
     public void setDoor(Door door) {
         this.door = door;
-    }
-
-    public boolean getStartGame(){
-        return startGame;
     }
 
     public void setCollisionDetector(CollisionDetector collisionDetector) {
