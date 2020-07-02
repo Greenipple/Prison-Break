@@ -9,4 +9,5 @@ public class Wall extends GameObject {
     public Wall(MapPosition position) {
         super(position, GameObjectType.WALL);
     }
+
 }

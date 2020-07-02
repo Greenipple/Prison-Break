@@ -88,63 +88,29 @@ public class Game {
         startMusic.stop();
         levelMusic.play(true);
 
-        this.firstLevel();
+        firstLevel();
 
+        gameOver();
 
-
-
-        if (player.isDetected()) {
-            levelMusic.stop();
-            gameOverMusic.play(true);
-            menuHandler.setStartGame();
-            while (!menuHandler.isStartGame()) {
-                this.gameOver.show();
-            }
-            this.restart();
-            this.player.setDetected(false);
-            this.start();
-        }
-
-        if (player.hasWon()) {
-            levelMusic.stop();
-            endGameMusic.play(true);
-            menuHandler.setStartGame();
-            while(!menuHandler.isStartGame()) {
-                this.map.hidde();
-                this.theEnd.show();
-            }
-            //this.restart();
-            this.player.setDetected(false);
-            this.player.setWonLevel(false);
-            this.start();
-        }
-
-        //this.init();
-
-
-/*        while(this.player.getAction()) {
-            this.loadingScreen();
-        }*/
-
-        //this.firstLevel(); //gameOver() & theEnd() will be called by firstLevel()
+        theEnd();
 
     }
 
     public void startScreen() {
+
         startScreen = new Map("resources/startingScreen/starting-screen.png");
         startScreen.show();
 
-/*        if(player.getStartGame()){
-            startScreen.hidde();
-        }*/
     }
 
     public void loadingScreen() {
+
         loadingScreen = new Map("resources/loadingScreen/loading.png");
-        startScreen.hidde();
+        startScreen.hide();
         loadingScreen.show();
         timer();
-        loadingScreen.hidde();
+        loadingScreen.hide();
+
     }
 
     public void firstLevel() throws InterruptedException {
@@ -161,12 +127,38 @@ public class Game {
         }
     }
 
-    public void gameOver() {
+    public void gameOver() throws InterruptedException {
 
+        if (player.isDetected()) {
+
+            levelMusic.stop();
+            gameOverMusic.play(true);
+
+            menuHandler.setStartGame();
+
+            while (!menuHandler.isStartGame()) {
+                this.gameOver.show();
+            }
+
+            this.restart();
+            this.start();
+        }
     }
 
-    public void theEnd() {
+    public void theEnd() throws InterruptedException {
+        if (player.hasWon()) {
+            levelMusic.stop();
+            endGameMusic.play(true);
+            menuHandler.setStartGame();
 
+            while (!menuHandler.isStartGame()) {
+                this.map.hide();
+                this.theEnd.show();
+            }
+
+            this.restart();
+            this.start();
+        }
     }
 
     public void newAssets() {
@@ -221,18 +213,16 @@ public class Game {
 
                 //FENCE
                 if (matrixPositions[i][j] == 1) {
-                    wallBlock = new Fence(new MapPosition(j , i, map));
-                    blockArray[blockArrayIterator] = wallBlock;
+                    blockArray[blockArrayIterator] = new Fence(new MapPosition(j , i, map));
                     blockArrayIterator++;
-                    wallBlock.getPosition().show();
+                    //wallBlock.getPosition().show();
                 }
 
                 //WALL
                 if (matrixPositions[i][j] == 2) {
-                    wallBlock = new Wall(new MapPosition(j, i, map));
-                    blockArray[blockArrayIterator]= wallBlock;
+                    blockArray[blockArrayIterator] = new Wall(new MapPosition(j, i, map));
                     blockArrayIterator++;
-                    wallBlock.getPosition().show();
+                    //wallBlock.getPosition().show();
 
                 }
 
@@ -240,7 +230,7 @@ public class Game {
                 if (matrixPositions[i][j] == 5) {
                     doors[doorArrayIterator] = new Door(new MapPosition(j, i, map),this.player);
                     doorArrayIterator++;
-                    wallBlock.getPosition().show();
+                    //wallBlock.getPosition().show();
                 }
             }
         }
@@ -257,10 +247,6 @@ public class Game {
 
         player.checkWin();
 
-       // key.check();
-        //doors[2].check();
-        //player.setAction(false);
-
         barrel.move();
 
         for (Entity object : movables) {
@@ -273,9 +259,7 @@ public class Game {
         collisionDetector.verify();
 
     }
-    public CollisionDetector getCollisionDetector(){
-        return this.collisionDetector;
-    }
+
     public GameObject[] getBlockArray() {
         return blockArray;
     }
@@ -291,18 +275,26 @@ public class Game {
    }
 
    public void restart(){
-        this.map.hidde();
-        this.gameOver.hidde();
-        this.theEnd.hidde();
+        this.map.hide();
+        this.gameOver.hide();
+        this.theEnd.hide();
+
         this.player.getPosition().hide();
+        this.player.setHasKey(false);
+        this.player.setDetected(false);
+        this.player.setWonLevel(false);
+
         this.barrel.getPosition().hide();
         this.key.getPosition().hide();
+
         for (Entity movable : movables){
             movable.getPosition().hide();
         }
+
         for (GameObject gameObject : blockArray){
             gameObject.getPosition().hide();
         }
+
        blockArrayIterator = 0;
        doorArrayIterator = 0;
    }

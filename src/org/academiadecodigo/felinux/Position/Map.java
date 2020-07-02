@@ -38,7 +38,7 @@ public class Map {
         this.pic.draw();
     }
 
-    public void hidde(){
+    public void hide(){
         this.pic.delete();
     }
 }
