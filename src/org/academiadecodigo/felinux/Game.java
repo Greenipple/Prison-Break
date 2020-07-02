@@ -30,6 +30,12 @@ public class Game {
    private int blockArrayIterator = 0;
    private int doorArrayIterator = 0;
    private Sound startMusic;
+   private Sound levelMusic;
+   private Sound gameOverMusic;
+   private Sound endGameMusic;
+
+
+
     private int matrixPositions[][] = {
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
             {2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2},
@@ -54,7 +60,10 @@ public class Game {
     public Game() {
         //this.startScreen = new Map("resources/startingScreen/start-screen.png");
         //this.loadingScreen = new Map("");
-        this.startMusic=new Sound("/resources/Sounds/level.wav");
+        this.endGameMusic = new Sound ("/resources/Sounds/end-music.wav");
+        this.gameOverMusic = new Sound("/resources/Sounds/game-over.wav");
+        this.levelMusic = new Sound("/resources/Sounds/level.wav");
+        this.startMusic=new Sound("/resources/Sounds/menu.wav");
         this.map = new Map("resources/levelScreen/whiteScreen.png");
         this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
         this.theEnd = new Map("resources/wonScreen/wonScreen.png");
@@ -75,9 +84,17 @@ public class Game {
 
         this.loadingScreen();
 
+        startMusic.stop();
+        levelMusic.play(true);
+
         this.firstLevel();
 
+
+
+
         if (player.isDetected()) {
+            levelMusic.stop();
+            gameOverMusic.play(true);
             menuHandler.setStartGame();
             while (!menuHandler.isStartGame()) {
                 this.gameOver.show();
@@ -88,6 +105,8 @@ public class Game {
         }
 
         if (player.hasWon()) {
+            levelMusic.stop();
+            endGameMusic.play(true);
             menuHandler.setStartGame();
             while(!menuHandler.isStartGame()) {
                 this.map.hidde();
