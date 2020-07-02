@@ -22,6 +22,7 @@ public class Player extends Entity implements KeyboardHandler {
     private Key key;
     private Door door;
     private Sound hidingSound;
+    private Sound hidingSound2;
 
     public DirectionType currentDirection;
 
@@ -33,7 +34,8 @@ public class Player extends Entity implements KeyboardHandler {
         wonLevel = false;
         keyboard = new Keyboard(this);
         this.collisionDetector = collisionDetector;
-        hidingSound = new Sound("/resources/Sounds/hideSound.wav");
+        hidingSound = new Sound("/resources/Sounds/quickSwoosh.wav");
+        hidingSound2 = new Sound("/resources/Sounds/quickSwooshHigh.wav");
 
         this.init();
     }
@@ -180,17 +182,20 @@ public class Player extends Entity implements KeyboardHandler {
     }
     private void spaceKeyUse() {
 
-       if (hasBarrel){
-           isHidden=!isHidden;
-           hidingSound.play(true);
-           System.out.println("hiding :"+isHidden);
-       }
-       if(isHidden){
-           this.getPosition().hide();
-       }
-       if(!isHidden){
-           this.getPosition().show();
-       }
+        if (hasBarrel) {
+            isHidden = !isHidden;
+
+            System.out.println("hiding :" + isHidden);
+        
+        if (isHidden) {
+            hidingSound.play(true);
+            this.getPosition().hide();
+        }
+        if (!isHidden) {
+            hidingSound2.play(true);
+            this.getPosition().show();
+        }
+    }
         key.check();
         door.check();
         barrel.beenHold();
