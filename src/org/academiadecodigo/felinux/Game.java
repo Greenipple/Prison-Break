@@ -64,7 +64,7 @@ public class Game {
         this.gameOverMusic = new Sound("/resources/Sounds/game-over.wav");
         this.levelMusic = new Sound("/resources/Sounds/level.wav");
         this.startMusic=new Sound("/resources/Sounds/menu.wav");
-        this.map = new Map("resources/levelScreen/whiteScreen.png");
+        this.map = new Map("resources/map/map.png");
         this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
         this.theEnd = new Map("resources/wonScreen/wonScreen.png");
         this.movables = new Entity[5];
