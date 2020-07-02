@@ -19,6 +19,7 @@ public class MapPosition {
             this.col = col;
             this.row = row;
             this.map = map;
+            this.facing = DirectionType.LEFT;
             //this.rectangle = new Rectangle(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, Map.CELL_SIZE, Map.CELL_SIZE);
             this.picture = new Picture(this.col * Map.CELL_SIZE + Map.PADDING, this.row * Map.CELL_SIZE + Map.PADDING, "resources/floor/floor.png");
         }

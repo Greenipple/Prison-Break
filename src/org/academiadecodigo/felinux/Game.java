@@ -17,8 +17,7 @@ public class Game {
    private Map theEnd;
    private MenuHandler menuHandler;
 
-   private GameObject[] blockArray = new GameObject[167];
-   private GameObject wallBlock;
+   private GameObject[] blockArray;
    private CollisionDetector collisionDetector;
 
    private Player player;
@@ -75,7 +74,7 @@ public class Game {
 
         newAssets();
 
-        this.menuHandler.init();
+        menuHandler.init();
 
         startMusic.play(true);
 
@@ -83,9 +82,10 @@ public class Game {
             this.startScreen();
         }
 
-        this.loadingScreen();
+        loadingScreen();
 
         startMusic.stop();
+
         levelMusic.play(true);
 
         firstLevel();
@@ -169,6 +169,7 @@ public class Game {
         this.map = new Map("resources/map/map.png");
         this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
         this.theEnd = new Map("resources/wonScreen/wonScreen.png");
+        this.blockArray = new GameObject[167];
         this.movables = new Entity[5];
         this.doors = new Door[5];
         this.menuHandler = new MenuHandler(this);
@@ -176,20 +177,18 @@ public class Game {
 
     public void init() {
 
-        this.collisionDetector = new CollisionDetector(blockArray,doors);
-        this.player = new Player(new MapPosition(2, 2,map),collisionDetector);
-        //collisionDetector.setPlayer(player);
+        this.collisionDetector = new CollisionDetector();
+        player = new Player(new MapPosition(2, 2,map), collisionDetector);
         player.getPosition().show();
+        //collisionDetector.setPlayer(player);
 
         //KEY
         key = new Key(new MapPosition(22,7, map),this.player);
         key.getPosition().show();
-        player.setKey(key);
 
         //BARREL
         barrel = new Barrel(new MapPosition(1, 9, map),this.player);
         barrel.getPosition().show();
-        player.setBarrel(barrel);
 
         //GUARDS
         movables[0] = new Guard(new MapPosition(21,4, map),1);
@@ -209,45 +208,45 @@ public class Game {
         movables[4].getPosition().show();
 
         for (int i = 0; i < matrixPositions.length; i++) {
+
             for (int j = 0; j < matrixPositions[i].length; j++) {
 
                 //FENCE
                 if (matrixPositions[i][j] == 1) {
                     blockArray[blockArrayIterator] = new Fence(new MapPosition(j , i, map));
                     blockArrayIterator++;
-                    //wallBlock.getPosition().show();
                 }
 
                 //WALL
                 if (matrixPositions[i][j] == 2) {
                     blockArray[blockArrayIterator] = new Wall(new MapPosition(j, i, map));
                     blockArrayIterator++;
-                    //wallBlock.getPosition().show();
-
                 }
 
                 //DOOR
                 if (matrixPositions[i][j] == 5) {
                     doors[doorArrayIterator] = new Door(new MapPosition(j, i, map),this.player);
                     doorArrayIterator++;
-                    //wallBlock.getPosition().show();
                 }
             }
         }
 
         doors[2].shutDoor();
-        collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
 
-        this.player.setDoor(doors[2]);
-        this.player.setCollisionDetector(collisionDetector);
+        collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
         collisionDetector.setDoors(this.doors);
+
+        player.setCollisionDetector(collisionDetector);
+        player.setDoor(doors[2]);
+        player.setBarrel(barrel);
+        player.setKey(key);
     }
 
     public void moveAll() {
 
-        player.checkWin();
-
         barrel.move();
+
+        player.checkWin();
 
         for (Entity object : movables) {
             object.move();
@@ -257,14 +256,13 @@ public class Game {
         collisionDetector.lineOfSight(movables[1].getPosition(),movables[1].getPosition().getFacing());
 
         collisionDetector.verify();
-
     }
 
     public GameObject[] getBlockArray() {
         return blockArray;
     }
 
-   public void timer(){
+   public void timer() {
        for (int i = 5; i > 0; i--) {
            try {
                Thread.sleep(1000);
@@ -291,7 +289,7 @@ public class Game {
             movable.getPosition().hide();
         }
 
-        for (GameObject gameObject : blockArray){
+        for (GameObject gameObject : blockArray) {
             gameObject.getPosition().hide();
         }
 
