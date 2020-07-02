@@ -56,8 +56,8 @@ public class Game {
         //this.loadingScreen = new Map("");
         this.startMusic=new Sound("/resources/Sounds/level.wav");
         this.map = new Map("resources/levelScreen/whiteScreen.png");
-        this.gameOver = new Map("resources/gameOverScreen/tempGameOver.png");
-        this.theEnd = new Map("resources/gameOverScreen/tempGameOver.png");
+        this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
+        this.theEnd = new Map("resources/wonScreen/wonScreen.png");
         this.movables = new Entity[5];
         this.doors = new Door[5];
         this.menuHandler = new MenuHandler(this);
@@ -82,7 +82,9 @@ public class Game {
             while (!menuHandler.isStartGame()) {
                 this.gameOver.show();
             }
-            start();
+            this.restart();
+            this.player.setDetected(false);
+            this.start();
         }
 
         if (player.hasWon()) {
@@ -91,6 +93,10 @@ public class Game {
                 this.map.hidde();
                 this.theEnd.show();
             }
+            //this.restart();
+            this.player.setDetected(false);
+            this.player.setWonLevel(false);
+            this.start();
         }
 
         //this.init();
@@ -249,5 +255,23 @@ public class Game {
                e.printStackTrace();
            }
        }
+   }
+
+   public void restart(){
+        this.map.hidde();
+        this.gameOver.hidde();
+        this.theEnd.hidde();
+        this.player.getPosition().hide();
+        this.barrel.getPosition().hide();
+        this.player.setHasKey(false);
+        this.key.getPosition().hide();
+        for (Entity movable : movables){
+            movable.getPosition().hide();
+        }
+        for (GameObject gameObject : blockArray){
+            gameObject.getPosition().hide();
+        }
+       blockArrayIterator = 0;
+       doorArrayIterator = 0;
    }
 }
