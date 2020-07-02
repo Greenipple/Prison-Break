@@ -60,17 +60,7 @@ public class Game {
    };
 
     public Game() {
-        //this.startScreen = new Map("resources/startingScreen/start-screen.png");
-        //this.loadingScreen = new Map("");
-        /*this.endGameMusic = new Sound ("/resources/Sounds/end-music.wav");
-        this.gameOverMusic = new Sound("/resources/Sounds/game-over.wav");
-        this.levelMusic = new Sound("/resources/Sounds/level.wav");
-        this.startMusic=new Sound("/resources/Sounds/menu.wav");
-        this.map = new Map("resources/map/map.png");
-        this.gameOver = new Map("resources/caughtScreen/gotCaught.png");
-        this.theEnd = new Map("resources/wonScreen/wonScreen.png");
-        this.movables = new Entity[5];
-        this.doors = new Door[5];*/
+
     }
 
     public void start() throws InterruptedException {
@@ -188,7 +178,6 @@ public class Game {
         this.collisionDetector = new CollisionDetector();
         player = new Player(new MapPosition(2, 2,map), collisionDetector);
         player.getPosition().show();
-        //collisionDetector.setPlayer(player);
 
         //KEY
         key = new Key(new MapPosition(22,7, map),this.player);
@@ -268,10 +257,6 @@ public class Game {
         collisionDetector.lineOfSight(movables[1].getPosition(),movables[1].getPosition().getFacing());
 
         collisionDetector.verify();
-    }
-
-    public GameObject[] getBlockArray() {
-        return blockArray;
     }
 
    public void timer() {

@@ -29,9 +29,7 @@ public class MenuHandler implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
-            //this.action = !action;
             this.startGame = true;
-            //System.out.println("nmmm"+this.action);
         }
     }
 
