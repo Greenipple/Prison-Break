@@ -260,6 +260,7 @@ public class Game {
         this.theEnd.hidde();
         this.player.getPosition().hide();
         this.barrel.getPosition().hide();
+        this.player.setHasKey(false);
         this.key.getPosition().hide();
         for (Entity movable : movables){
             movable.getPosition().hide();

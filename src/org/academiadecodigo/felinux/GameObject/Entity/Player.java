@@ -248,6 +248,10 @@ public class Player extends Entity implements KeyboardHandler {
         this.wonLevel = bool;
     }
 
+    public void setHasBarrel(boolean bool){
+        this.hasBarrel = bool;
+    }
+
     public void setHasKey(boolean bool){
         this.hasKey = false;
     }
