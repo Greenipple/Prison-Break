@@ -101,7 +101,9 @@ public class Player extends Entity implements KeyboardHandler {
     public void move() {
         accelerate(currentDirection);
         super.move();
-        //if (this.door.getPosition().getCol() == getPosition().getCol() && )
+        if (this.door.getPosition().getCol() == getPosition().getCol() && this.door.getPosition().getRow() == getPosition().getRow()) {
+            this.door.getPosition().setFacing(DirectionType.RIGHT);
+        }
     }
 
     public void accelerate(DirectionType direction) {
