@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="" />
+    <list default="true" id="e4e3b4b5-964f-4355-b35e-2da0ef60b222" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/Support/GameObjectType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/Support/GameObjectType.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
