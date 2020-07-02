@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 public enum GameObjectType {
     FENCE(Color.DARK_GRAY, "resources/Wall/wall.png", "resources/Wall/wall.png", "resources/Wall/wall.png", "resources/Wall/wall.png"),
     WALL(Color.BLACK, "resources/Wall/wall.png", "resources/Wall/wall.png", "resources/Wall/wall.png", "resources/Wall/wall.png"),
-    BARREL(Color.GRAY, "resources/Barrel/Barrel.png", "resources/Barrel/Barrel.png", "resources/Barrel/Barrel.png", "resources/Barrel/Barrel.png"),
+    BARREL(Color.GRAY, "resources/Barrel/Barrel.png", "resources/Barrel/Barrel.png", "resources/Barrel/Barrel.png", "resources/player/slimPlayer/barrelMan.png"),
     KEY(Color.YELLOW, "resources/key/key.png", "resources/key/key.png", "resources/key/key.png", "resources/key/key.png"),
     DOOR(Color.LIGHT_GRAY, "resources/door/door open.png", "resources/door/door open.png", "resources/door/door close.png", "resources/door/door open.png.png"),
     GUARD(Color.BLUE, "resources/Police/BlackPolice/blackPoliceBack.png", "resources/Police/BlackPolice/blackPoliceRight.png", "resources/Police/BlackPolice/blackPoliceFront.png", "resources/Police/BlackPolice/blackPoliceLeft.png"),

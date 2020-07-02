@@ -8,6 +8,8 @@ import org.academiadecodigo.felinux.Position.*;
 import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.felinux.Support.MenuHandler;
 
+import javax.swing.text.Position;
+
 public class Game {
 
    public static final int DELAY = 400;
@@ -134,6 +136,7 @@ public class Game {
 
             levelMusic.stop();
             gameOverMusic.play(true);
+            this.player.setPosition(new MapPosition(-1,-1,gameOver));
 
             menuHandler.setStartGame();
 
@@ -150,7 +153,10 @@ public class Game {
         if (player.hasWon()) {
             levelMusic.stop();
             endGameMusic.play(true);
+            this.player.setPosition(new MapPosition(0,0,theEnd));
+
             menuHandler.setStartGame();
+
 
             while (!menuHandler.isStartGame()) {
                 this.map.hide();

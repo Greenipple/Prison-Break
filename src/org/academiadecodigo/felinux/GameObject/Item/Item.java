@@ -3,6 +3,7 @@ package org.academiadecodigo.felinux.GameObject.Item;
 import org.academiadecodigo.felinux.GameObject.Entity.Player;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.Position.MapPosition;
+import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.felinux.Support.GameObjectType;
 
 public class Item extends GameObject {
@@ -27,9 +28,11 @@ public class Item extends GameObject {
             return;
         }
     }
+
     public void drop() {
         this.hold = false;
-        this.getPosition().hide();
+        this.getPosition().setFacing(DirectionType.LEFT);
+        this.getPosition().show();
 
     }
 

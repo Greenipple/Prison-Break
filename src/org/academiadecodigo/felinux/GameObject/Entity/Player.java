@@ -58,7 +58,7 @@ public class Player extends Entity implements KeyboardHandler {
         this.hasBarrel = true;
     }
 
-    public void dropBarrel(){
+    public void dropBarrel() {
         System.out.println(hasBarrel);
         this.hasBarrel = false;
         this.barrel.drop();
@@ -222,6 +222,7 @@ public class Player extends Entity implements KeyboardHandler {
     public void checkWin() {
         if (getPosition().getCol() == 23) {
             this.wonLevel = true;
+            this.getPosition().hide();
         }
     }
 
