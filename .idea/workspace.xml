@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/GameObject/Item/Barrel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/GameObject/Item/Barrel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/Support/GameObjectType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prisonBreak/org/academiadecodigo/felinux/Support/GameObjectType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/felinux/GameObject/Item/Barrel.java" afterDir="false" />
-    </list>
+    <list default="true" id="9cf24729-4ec2-4232-ad6c-37322bc7e23b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
