@@ -5,6 +5,7 @@ import org.academiadecodigo.felinux.GameObject.Entity.*;
 import org.academiadecodigo.felinux.GameObject.GameObject;
 import org.academiadecodigo.felinux.GameObject.Item.*;
 import org.academiadecodigo.felinux.Position.*;
+import org.academiadecodigo.felinux.Support.DirectionType;
 import org.academiadecodigo.felinux.Support.MenuHandler;
 
 public class Game {
@@ -232,9 +233,12 @@ public class Game {
         }
 
         doors[2].shutDoor();
+        doors[2].getPosition().setFacing(DirectionType.DOWN);
+        doors[2].getPosition().show();
 
         collisionDetector = new CollisionDetector(this.player,this.blockArray,this.movables,this.doors);
         collisionDetector.setDoors(this.doors);
+
 
         player.setCollisionDetector(collisionDetector);
         player.setDoor(doors[2]);
@@ -272,10 +276,7 @@ public class Game {
        }
    }
 
-   public void restart(){
-        this.map.hide();
-        this.gameOver.hide();
-        this.theEnd.hide();
+   public void restart() {
 
         this.player.getPosition().hide();
         this.player.setHasKey(false);
@@ -293,7 +294,15 @@ public class Game {
             gameObject.getPosition().hide();
         }
 
+        for (Door door : doors) {
+            door.getPosition().hide();
+        }
+
        blockArrayIterator = 0;
        doorArrayIterator = 0;
+
+       this.map.hide();
+       this.gameOver.hide();
+       this.theEnd.hide();
    }
 }
