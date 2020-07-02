@@ -21,7 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e4e3b4b5-964f-4355-b35e-2da0ef60b222" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/build/prisonbreak.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/prisonbreak.jar" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
+>>>>>>> 87cccba8ffe77e7423e09cbaabc4e98bf44158d0
       <change beforePath="$PROJECT_DIR$/prisonBreak.iml" beforeDir="false" afterPath="$PROJECT_DIR$/prisonBreak.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
